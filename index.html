@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header / Nav -->
   <header class="site-header">
     <div class="container nav">
       <div class="brand">
@@ -25,38 +25,67 @@
         <a href="teams.html">Teams</a>
         <a href="judges.html">Judges</a>
         <a href="partners.html">Partners</a>
-        <a href="donate.html">Donate</a>
+        <a href="philanthropy.html">Philanthropy</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Aaj Ka Dhamaka</h1>
-        <p class="tagline">A Space-Jam-level mashup of South Asian dance, music, and UNC hype.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="donate.html">Get Tickets / Donate</a>
-          <a class="btn btn-ghost" href="history.html">See our journey</a>
-        </div>
-      </div>
-    </section>
+  <!-- Centered Hero -->
+  <section class="hero">
+    <div class="planet-bg" aria-hidden="true">
+      <div class="planet"></div>
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+    </div>
 
-    <section>
-      <div class="container panel">
-        <h2>Event Details</h2>
-        <p class="muted" style="margin-bottom:.6rem">
-          Saturday, November 16, 2025 • Memorial Hall, UNC–Chapel Hill • Doors 5:30 PM • Show 6:30–9:30 PM
-        </p>
-        <div style="border:1px solid var(--border);border-radius:1rem;overflow:hidden">
-          <iframe title="Map" width="100%" height="320" style="border:0"
-            src="https://www.google.com/maps?q=Memorial%20Hall%2C%20Chapel%20Hill%2C%20NC&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="container hero-inner">
+      <h1>AAJ KA DHAMAKA</h1>
+
+      <!-- Pick ONE line below and delete the other -->
+      <p class="hero-sub">Official Legends Partner Competition</p>
+      <!-- <p class="hero-sub">UNC-Chapel Hill’s Premier Dance Competition</p> -->
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="philanthropy.html">Tickets / Philanthropy</a>
+        <a class="btn btn-ghost" href="history.html">See our journey</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details (compact) -->
+  <section>
+    <div class="container panel">
+      <h2>Event Details</h2>
+
+      <div class="details-simple">
+        <div>
+          <div class="info-label">Date</div>
+          Saturday, November 16, 2025
+        </div>
+        <div>
+          <div class="info-label">Location</div>
+          Memorial Hall • UNC–Chapel Hill
+        </div>
+        <div>
+          <div class="info-label">Time</div>
+          Doors 5:30 PM • Show 6:30–9:30 PM
         </div>
       </div>
-    </section>
-  </main>
+
+      <p class="muted" style="margin-top:1rem">
+        Bring your jam and be ready to Space Jam — high-energy sets, a hype crowd, and a night you’ll remember.
+      </p>
+
+      <div class="btn-row" style="margin-top:1rem">
+        <a class="btn btn-ghost" target="_blank" rel="noreferrer"
+           href="https://www.google.com/maps/search/?api=1&query=Memorial%20Hall%2C%20Chapel%20Hill%2C%20NC">
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -70,6 +99,5 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
