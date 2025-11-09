@@ -112,49 +112,29 @@ footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:lin
   text-transform:uppercase; color:var(--muted);
 }
 
-/* ===== Space-Jam planet 2.0 (bolder, brighter, more 3D) ===== */
-.planet-bg{
-  position:absolute; inset:-12% -24%;
-  display:grid; place-items:center;
-  z-index:1; pointer-events:none; 
-  /* make the background elements overall a bit more visible */
-  opacity:.78;
-}
+/* size/visibility tweaks */
+.planet-bg{ opacity:.62; }
 
-/* Layer stack */
 .planet-stack{
-  position:relative; width:clamp(300px,40vw,600px); height:clamp(300px,40vw,600px);
-  transform:translateZ(0);
+  width: clamp(200px, 28vw, 420px);
+  height: clamp(200px, 28vw, 420px);
 }
 
-/* Soft vignette behind everything for contrast */
-.planet-stack::before{
-  content:""; position:absolute; inset:-20%;
-  background: radial-gradient(55% 55% at 50% 50%,
-              rgba(34,16,116,.55) 0%, rgba(18,8,66,.45) 45%, rgba(0,0,0,.0) 70%);
-  filter: blur(12px);
+/* add subtle color shimmer + keep float */
+@keyframes hue { 
+  0%{ filter:saturate(1.06) hue-rotate(0deg) }
+  100%{ filter:saturate(1.06) hue-rotate(8deg) }
+}
+.planet{ animation: float 9s ease-in-out infinite, hue 18s linear infinite alternate; }
+
+/* add slow spin to the ring group */
+@keyframes spin { to { transform: rotate(360deg); } }
+.rings{
+  animation:
+    ringSway 8s ease-in-out infinite alternate,
+    spin 40s linear infinite;
 }
 
-/* The planet: richer shading + subtle bands + rim light */
-.planet{
-  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-  width:100%; height:100%; border-radius:50%;
-  background:
-    /* rim light */
-    radial-gradient(110% 110% at 30% 30%, rgba(255,255,255,.55) 0%, transparent 55%),
-    /* core glow */
-    radial-gradient(85% 85% at 40% 40%, #fafaff 0%, #e7e7ff 35%, #b6b6ff 63%, #8e8ef5 80%, #6363e8 100%),
-    /* soft banding using very gentle stripes */
-    repeating-linear-gradient(15deg,
-        rgba(255,255,255,.08) 0 6px,
-        rgba(0,0,0,.0) 6px 18px);
-  box-shadow:
-    0 22px 60px rgba(123,60,255,.35),
-    inset -18px -24px 38px rgba(30,16,120,.45),
-    inset 12px 10px 24px rgba(255,255,255,.35);
-  filter: saturate(1.06);
-  animation: float 9s ease-in-out infinite;
-}
 
 /* Halo around planet for extra pop */
 .planet::after{
