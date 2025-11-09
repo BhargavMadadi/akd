@@ -2,527 +2,166 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Aaj Ka Dhamaka – UNC AKD</title>
+  <title>UNC AKD — Aaj Ka Dhamaka</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts: headline = Bangers (Space-Jam vibe), body = Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --space-bg: #020014;
-      --space-bg-soft: #090323;
-      --space-panel: #120737;
-      --space-panel-alt: #190b4a;
-      --ring-purple: #a855ff;
-      --ring-orange: #ff8a3d;
-      --ring-yellow: #ffd54a;
-      --akd-green: #72ff9b;
-      --akd-green-deep: #11c46b;
-      --text-main: #fdfdff;
-      --text-soft: #c6c3ff;
-      --border-soft: rgba(255,255,255,0.18);
+    :root{
+      /* Palette tuned to your logo */
+      --space: #0b0520;
+      --space-deep: #060215;
+      --accent-green: #72ff9b;  /* AKD green */
+      --accent-orange: #ff8a00; /* ring orange */
+      --accent-purple: #7b3cff; /* ring purple */
+      --ink: #f7f7ff;
+      --muted: #cfd0ff;
+      --border: rgba(255,255,255,.12);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(circle at 10% 0%, #3a0ca3 0, transparent 40%),
-        radial-gradient(circle at 90% 0%, #ff5e00 0, transparent 45%),
-        radial-gradient(circle at 50% 120%, #1b9aaa 0, transparent 52%),
-        var(--space-bg);
-      color: var(--text-main);
+        radial-gradient(1200px 800px at 80% -10%, #2a1466 0%, transparent 60%),
+        radial-gradient(1000px 700px at 10% 110%, #3a0ca3 0%, transparent 60%),
+        var(--space);
       line-height: 1.6;
       scroll-behavior: smooth;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.4rem;
+    /* subtle starfield */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.25) 50%, transparent 51%),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,.2) 50%, transparent 51%),
+        radial-gradient(1px 1px at 85% 25%, rgba(255,255,255,.22) 50%, transparent 51%),
+        radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.18) 50%, transparent 51%);
+      background-repeat: repeat;
+      pointer-events:none;
+      opacity:.6;
     }
 
-    section { padding: 3.5rem 0; }
+    a{color:inherit;text-decoration:none}
 
-    h1, h2, h3 {
-      font-family: "Bungee", system-ui, sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .container{max-width:1120px;margin:0 auto;padding:0 1.2rem}
+    section{padding:3.2rem 0}
+    h1,h2,h3{font-family:"Bangers",system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase}
+    h1{font-size:clamp(2.4rem,6vw,3.6rem)}
+    h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:1rem}
+    h3{font-size:1.15rem;margin-bottom:.3rem}
+
+    /* Header: hides on scroll down, reveals on scroll up */
+    .site-header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to right, rgba(6,2,21,.9), rgba(18,7,56,.9));
+      border-bottom:1px solid var(--border);
+      transition: transform .25s ease;
     }
+    .site-header.hide{ transform: translateY(-100%); }
 
-    h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); }
-    h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin-bottom: 1.4rem; }
-    h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-
-    p { font-size: 0.98rem; }
-
-    /* NAV */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to right, rgba(3,0,20,0.96), rgba(12,4,46,0.96));
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.65rem 0; gap:1rem;
     }
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .brand img{width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--accent-green);box-shadow:0 0 14px rgba(114,255,155,.6)}
+    .brand .name{font-family:"Bangers";letter-spacing:.14em}
+    .nav a{opacity:.85;font-weight:600}
+    .nav a:hover{opacity:1;color:var(--accent-green)}
+    .nav-links{display:flex;gap:1rem;flex-wrap:wrap}
+    @media (max-width:780px){ .nav{flex-direction:column; align-items:flex-start} }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.6rem 0;
-      gap: 1rem;
+    /* Hero */
+    .hero{padding:4.2rem 0 2.2rem}
+    .hero-grid{display:grid;gap:2rem;grid-template-columns: 1.05fr 1fr;align-items:center}
+    .kicker{font-weight:700;letter-spacing:.2em;color:var(--muted);font-size:.8rem;margin-bottom:.35rem}
+    .tagline{color:var(--muted);max-width:36rem;margin-top:.4rem}
+    .btn-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.2rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1.3rem;border-radius:999px;font-weight:700;border:1px solid transparent;cursor:pointer;transition:.12s}
+    .btn-primary{background:linear-gradient(135deg,var(--accent-green),var(--accent-purple));color:#060215;box-shadow:0 8px 22px rgba(114,255,155,.35)}
+    .btn-primary:hover{transform:translateY(-1px) scale(1.02)}
+    .btn-ghost{border-color:rgba(255,255,255,.5)}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+    .planet{
+      width:min(420px,100%); aspect-ratio:1/1; border-radius:50%; margin-left:auto; position:relative;
+      border:3px solid #fff; overflow:hidden; box-shadow:0 18px 40px rgba(0,0,0,.75)
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
-
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 2px solid var(--akd-green);
-      box-shadow: 0 0 18px rgba(114,255,155,0.7);
-      background: #fff;
-    }
-
-    .brand-name {
-      font-family: "Bungee", system-ui, sans-serif;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .brand-sub {
-      font-size: 0.7rem;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.86rem;
-    }
-
-    .nav-links a {
-      opacity: 0.8;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-      color: var(--akd-green);
-    }
-
-    @media (max-width: 768px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* HERO */
-    .hero {
-      padding: 4.2rem 0 2.4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 2.4rem;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-      align-items: center;
-    }
-
-    .hero-kicker {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-soft);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-tagline {
-      margin-top: 0.7rem;
-      color: var(--text-soft);
-      max-width: 34rem;
-    }
-
-    .hero-chip {
-      margin-top: 1.1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(9,9,11,0.7);
-      border-radius: 999px;
-      padding: 0.3rem 0.8rem;
-      border: 1px solid rgba(148,163,184,0.7);
-      font-size: 0.78rem;
-      color: var(--text-soft);
-    }
-
-    .hero-chip-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--akd-green);
-      box-shadow: 0 0 18px rgba(114,255,155,0.9);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.4rem;
-      margin-top: 1.6rem;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
-
-    .hero-meta span::before {
-      content: "◎";
-      margin-right: 0.4rem;
-      color: var(--ring-yellow);
-      font-size: 0.8rem;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 1.8rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--akd-green), var(--ring-purple));
-      color: #020617;
-      box-shadow: 0 10px 26px rgba(114,255,155,0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px) scale(1.02);
-      box-shadow: 0 16px 34px rgba(114,255,155,0.55);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: rgba(226,232,240,0.8);
-      color: var(--text-main);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(15,23,42,0.7);
-    }
-
-    .orbit-ring {
-      position: relative;
-      width: min(420px, 100%);
-      aspect-ratio: 4 / 3;
-      margin-left: auto;
-    }
-
-    .orbit-ring::before {
-      content: "";
-      position: absolute;
-      inset: 10%;
-      border-radius: 999px;
+    .rings{
+      position:absolute; inset:-8%;
       background:
-        radial-gradient(circle at 30% 0%, var(--ring-yellow), transparent 60%),
-        radial-gradient(circle at 60% 30%, var(--ring-orange), transparent 60%),
-        radial-gradient(circle at 80% 70%, var(--ring-purple), transparent 60%);
-      filter: blur(4px);
-      opacity: 0.65;
+        radial-gradient(circle at 30% 20%, rgba(255,138,0,.45), transparent 60%),
+        radial-gradient(circle at 70% 40%, rgba(123,60,255,.45), transparent 60%),
+        radial-gradient(circle at 50% 70%, rgba(255,213,74,.45), transparent 60%);
+      filter: blur(8px);
     }
+    .planet img{width:100%;height:100%;object-fit:cover;background:#fff}
+    @media (max-width:880px){ .hero-grid{grid-template-columns:1fr} .planet{margin:0 auto} }
 
-    .orbit-inner {
-      position: absolute;
-      inset: 18%;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid #fff;
-      box-shadow: 0 18px 38px rgba(0,0,0,0.8);
-      background: #fff;
-    }
+    /* Cards/panels */
+    .panel{background:linear-gradient(145deg, rgba(12,5,46,.95), rgba(19,10,56,.97)); border:1px solid var(--border); border-radius:1.1rem; padding:1.8rem; box-shadow:0 18px 40px rgba(0,0,0,.6)}
 
-    .orbit-inner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    /* Info bar */
+    .info-bar{background:rgba(8,6,25,.85); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:.9rem 0;color:var(--muted);font-size:.95rem}
+    .info-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-green);margin-bottom:.2rem}
+    @media (max-width:720px){ .info-grid{grid-template-columns:1fr} }
 
-    @media (max-width: 880px) {
-      .hero-grid { grid-template-columns: minmax(0, 1fr); }
-      .orbit-ring { margin: 0 auto; }
-    }
+    /* Two-column grids */
+    .two{display:grid;grid-template-columns:1.1fr 1fr;gap:1.6rem}
+    @media (max-width:880px){ .two{grid-template-columns:1fr} }
 
-    /* QUICK INFO BAR */
-    .info-bar {
-      background: rgba(2,6,23,0.86);
-      border-top: 1px solid rgba(148,163,184,0.7);
-      border-bottom: 1px solid rgba(148,163,184,0.4);
-    }
+    /* Timeline (History) */
+    .timeline{position:relative;margin:1rem 0 0 0;padding-left:1.2rem}
+    .timeline::before{content:"";position:absolute;left:.4rem;top:.2rem;bottom:.2rem;width:2px;background:linear-gradient(var(--accent-purple),var(--accent-green))}
+    .t-item{position:relative;margin:1rem 0;padding-left:1rem}
+    .t-item::before{content:"";position:absolute;left:-.05rem;top:.2rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent-orange);box-shadow:0 0 10px rgba(255,138,0,.6)}
+    .t-year{font-weight:800;color:var(--accent-orange)}
+    .muted{color:var(--muted)}
 
-    .info-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.4rem;
-      padding: 1rem 0;
-      font-size: 0.88rem;
-      color: var(--text-soft);
-    }
+    /* Partner logos grid */
+    .logo-box{background:rgba(12,18,48,.8);border:1px solid var(--border);border-radius:.9rem;padding:1rem;display:flex;align-items:center;justify-content:center}
+    .logo-box img{max-height:80px;object-fit:contain}
 
-    .info-pill-label {
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      color: var(--akd-green);
-      margin-bottom: 0.15rem;
-    }
+    /* Table lists (Board, Teams, Judges) */
+    .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .card{background:rgba(12,18,48,.85);border:1px solid var(--border);border-radius:.8rem;padding:1rem}
+    .card strong{display:block}
 
-    .info-item {
-      border-left: 2px solid rgba(148,163,184,0.5);
-      padding-left: 0.7rem;
-    }
-
-    @media (max-width: 720px) {
-      .info-row { grid-template-columns: minmax(0, 1fr); }
-      .info-item { border-left: none; border-top: 1px solid rgba(148,163,184,0.4); padding-top: 0.6rem; }
-    }
-
-    /* PANELS */
-    .panel {
-      background: linear-gradient(145deg, rgba(12,5,46,0.96), rgba(19,10,56,0.98));
-      border-radius: 1.25rem;
-      border: 1px solid var(--border-soft);
-      padding: 2.2rem;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-    }
-
-    .panel-alt {
-      background: linear-gradient(145deg, rgba(7,1,32,0.96), rgba(14,6,44,0.98));
-    }
-
-    /* EVENT DETAILS */
-    .details-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
-      gap: 1.9rem;
-    }
-
-    .map-frame {
-      border-radius: 1.2rem;
-      overflow: hidden;
-      border: 1px solid rgba(148,163,184,0.8);
-      box-shadow: 0 18px 32px rgba(0,0,0,0.8);
-    }
-
-    .detail-list {
-      display: grid;
-      gap: 0.9rem;
-      font-size: 0.95rem;
-    }
-
-    .detail-label {
-      font-weight: 600;
-      color: var(--akd-green);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.75rem;
-      margin-bottom: 0.2rem;
-    }
-
-    @media (max-width: 880px) {
-      .details-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    /* ABOUT SECTION */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.8rem;
-    }
-
-    .about-card {
-      border-radius: 1rem;
-      padding: 1rem 1.2rem;
-      background: radial-gradient(circle at 10% 0%, rgba(114,255,155,0.18), transparent 60%),
-                  rgba(15,23,42,0.96);
-      border: 1px solid rgba(148,163,184,0.7);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 880px) {
-      .about-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    /* PARTNERS */
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2rem;
-    }
-
-    @media (max-width: 880px) {
-      .partners-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .logo-wrap {
-      background: radial-gradient(circle at 20% 0%, rgba(114,255,155,0.09), transparent 55%),
-                  rgba(15,23,42,0.96);
-      border-radius: 1rem;
-      padding: 1rem 1.3rem;
-      margin-bottom: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-wrap img {
-      max-height: 80px;
-      object-fit: contain;
-    }
-
-    /* GALLERY */
-    .gallery-grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid rgba(248,250,252,0.14);
-      background: radial-gradient(circle at top, rgba(114,255,155,0.18), rgba(15,23,42,0.98));
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      opacity: 0.96;
-      transition: transform 0.18s ease, opacity 0.18s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.04);
-      opacity: 1;
-    }
-
-    .gallery-label {
-      position: absolute;
-      left: 0.85rem;
-      bottom: 0.7rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      background: rgba(3,7,18,0.86);
-      border: 1px solid rgba(248,250,252,0.7);
-    }
-
-    /* FAQ */
-    .faq-grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 880px) {
-      .faq-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .faq-item strong {
-      display: block;
-      margin-bottom: 0.3rem;
-      color: var(--akd-green);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.74rem;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid rgba(148,163,184,0.6);
-      padding: 1.4rem 0 1.9rem;
-      background: radial-gradient(circle at top, #020617 0%, #000 60%);
-      font-size: 0.85rem;
-      color: #e5e7eb;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      opacity: 0.85;
-    }
-
-    .footer-links a:hover {
-      opacity: 1;
-      color: var(--akd-green);
-    }
-
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:linear-gradient(#0a061e,#050315)}
+    .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .foot a{opacity:.85} .foot a:hover{opacity:1;color:var(--accent-green)}
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <header>
+  <!-- Header (auto hide/reveal) -->
+  <header class="site-header" id="siteHeader">
     <div class="container nav">
       <div class="brand">
-        <div class="brand-logo">
-          <!-- Put your AKD logo file next to this HTML as akd-logo.png -->
-          <img src="akd-logo.png" alt="UNC AKD logo">
-        </div>
+        <!-- put your round AKD logo as akd-logo.png next to this file -->
+        <img src="akd-logo.png" alt="UNC AKD logo">
         <div>
-          <div class="brand-name">UNC AKD</div>
-          <div class="brand-sub">Aaj Ka Dhamaka</div>
+          <div class="name">UNC AKD</div>
+          <div style="font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase">Aaj Ka Dhamaka</div>
         </div>
       </div>
       <nav class="nav-links">
         <a href="#about">About</a>
-        <a href="#details">Event</a>
+        <a href="#history">History</a>
+        <a href="#board">Board</a>
+        <a href="#teams">Teams</a>
+        <a href="#judges">Judges</a>
         <a href="#partners">Partners</a>
-        <a href="#gallery">Gallery</a>
+        <a href="#donate">Donate</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -530,35 +169,22 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-kicker">Official Legends Partner Competition</div>
-        <h1>Aaj Ka Dhamaka<br>Dance Competition</h1>
-        <p class="hero-tagline">
-          A full-court Space Jam–style fusion of South Asian dance, music, and hype — hosted by UNC AKD.
-        </p>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Official Legends Partner Competition</div>
+          <h1>Aaj Ka Dhamaka</h1>
+          <p class="tagline">A Space-Jam-level mashup of South Asian dance, music, and UNC hype.</p>
 
-        <div class="hero-chip">
-          <span class="hero-chip-dot"></span>
-          <span>Fall 2025 • Chapel Hill, NC</span>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#donate">Get Tickets / Donate</a>
+            <a class="btn btn-ghost" href="#history">See our journey</a>
+          </div>
         </div>
-
-        <div class="hero-meta">
-          <span>Saturday, November 16, 2025</span>
-          <span>Memorial Hall, UNC–Chapel Hill</span>
-          <span>Doors 5:30 PM • Show 6:30–9:30 PM</span>
-        </div>
-
-        <div class="btn-row">
-          <a href="#tickets" class="btn btn-primary">Get Tickets</a>
-          <a href="#details" class="btn btn-secondary">Event details</a>
-        </div>
-      </div>
-
-      <div class="orbit-ring">
-        <div class="orbit-inner">
-          <!-- Swap this with an actual AKD / stage photo if you want -->
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Dancers performing on stage">
+        <div class="planet">
+          <div class="rings"></div>
+          <!-- swap with a stage photo if you prefer -->
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="AKD planet">
         </div>
       </div>
     </div>
@@ -566,18 +192,18 @@
 
   <!-- QUICK INFO BAR -->
   <div class="info-bar">
-    <div class="container info-row">
-      <div class="info-item">
-        <div class="info-pill-label">Date</div>
-        <div>Saturday, November 16, 2025</div>
+    <div class="container info-grid">
+      <div>
+        <div class="info-label">Date</div>
+        Saturday, November 16, 2025
       </div>
-      <div class="info-item">
-        <div class="info-pill-label">Location</div>
-        <div>Memorial Hall • UNC–Chapel Hill</div>
+      <div>
+        <div class="info-label">Location</div>
+        Memorial Hall • UNC–Chapel Hill
       </div>
-      <div class="info-item">
-        <div class="info-pill-label">Tickets</div>
-        <div>Online ticket link coming soon • email <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a></div>
+      <div>
+        <div class="info-label">Time</div>
+        Doors 5:30 PM • Show 6:30–9:30 PM
       </div>
     </div>
   </div>
@@ -585,197 +211,137 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="container panel">
-      <div class="about-grid">
-        <div>
-          <h2>About Aaj Ka Dhamaka</h2>
-          <p style="color: var(--text-soft); margin-bottom: 1rem;">
-            Aaj Ka Dhamaka is UNC’s premier collegiate South Asian dance competition, bringing
-            together teams from across the country for a night of creativity, culture, and community.
-          </p>
-          <p style="color: var(--text-soft);">
-            This year’s theme draws inspiration from <strong>Space Jam</strong> — think big energy, bold
-            visuals, and a crowd that’s ready to go from tip-off to final buzzer. Expect high-intensity
-            sets, special performances, and plenty of chances to cheer on your favorite teams.
-          </p>
-        </div>
-        <div class="about-card">
-          <strong style="display:block; margin-bottom:0.4rem;">Show Quick Facts</strong>
-          <ul style="list-style: none;">
-            <li>• Collegiate South Asian teams from across the country</li>
+      <h2>About the Show</h2>
+      <div class="two">
+        <p class="muted">
+          Aaj Ka Dhamaka is UNC’s premier collegiate South Asian dance competition. Expect big energy,
+          bold visuals, and a crowd that’s ready from tip-off to the final buzzer. Proceeds support Kiran, Inc.
+        </p>
+        <div class="panel" style="padding:1rem">
+          <strong>Quick Facts</strong>
+          <ul class="muted" style="margin-top:.4rem;list-style:none">
+            <li>• Collegiate teams from across the country</li>
             <li>• Professional judging panel</li>
-            <li>• Space Jam–inspired production & visuals</li>
-            <li>• Proceeds benefiting Kiran, Inc.</li>
-            <li>• In partnership with NCAAT’s Fall Cohort</li>
+            <li>• Space-Jam inspired production</li>
+            <li>• In partnership with NCAAT (Fall Cohort)</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EVENT DETAILS -->
-  <section id="details">
-    <div class="container panel panel-alt">
-      <h2>Event Details</h2>
-      <div class="details-grid">
-        <div class="map-frame">
-          <iframe
-            title="Memorial Hall Map"
-            width="100%"
-            height="320"
-            style="border:0"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Memorial%20Hall%2C%20Chapel%20Hill%2C%20NC&output=embed">
-          </iframe>
+  <!-- HISTORY (timeline) -->
+  <section id="history">
+    <div class="container panel">
+      <h2>History</h2>
+      <div class="timeline">
+        <!-- Replace with real years & notes -->
+        <div class="t-item">
+          <div class="t-year">2020</div>
+          <div class="muted">AKD relaunches at UNC with a sold-out showcase.</div>
         </div>
-        <div>
-          <div class="detail-list">
-            <div>
-              <div class="detail-label">Schedule</div>
-              <div>
-                Doors open 5:30 PM • Show 6:30–9:30 PM<br>
-                Intermission midway through the show.<br>
-                Awards and closing remarks to follow.
-              </div>
-            </div>
-            <div>
-              <div class="detail-label">Getting Here</div>
-              <div>
-                Memorial Hall is located in the heart of UNC’s campus. Nearby parking options include
-                Cobb Deck and Rams Head. Please allow extra time for evening traffic and walking.
-              </div>
-            </div>
-            <div>
-              <div class="detail-label">Accessibility</div>
-              <div>
-                Memorial Hall is wheelchair accessible. For accommodations, email
-                <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a> at least 72 hours in advance.
-              </div>
-            </div>
-          </div>
-
-          <div id="tickets" style="margin-top: 1.6rem">
-            <div class="detail-label">Tickets</div>
-            <p style="color: var(--text-soft); margin-bottom: 0.7rem;">
-              Online ticketing link will be posted here. For team, sponsor, or group ticket questions,
-              contact us directly.
-            </p>
-            <div class="btn-row">
-              <a href="mailto:info@aajkadhamaka.org" class="btn btn-secondary">Email us</a>
-            </div>
-          </div>
-
+        <div class="t-item">
+          <div class="t-year">2022</div>
+          <div class="muted">Expanded to a regional invitational; first visiting judges panel.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2024</div>
+          <div class="muted">Partnerships deepen with community orgs; increased philanthropy.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2025</div>
+          <div class="muted">Official Legends Partner Competition hosted at Memorial Hall.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PARTNERS & GIVING BACK -->
+  <!-- BOARD -->
+  <section id="board">
+    <div class="container panel">
+      <h2>Board</h2>
+      <div class="list">
+        <!-- Replace with real roles -->
+        <div class="card"><strong>Executive Director</strong><span class="muted">Name Here</span></div>
+        <div class="card"><strong>Programming Lead</strong><span class="muted">Name Here</span></div>
+        <div class="card"><strong>Logistics</strong><span class="muted">Name Here</span></div>
+        <div class="card"><strong>Marketing</strong><span class="muted">Name Here</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAMS -->
+  <section id="teams">
+    <div class="container panel">
+      <h2>Teams</h2>
+      <div class="list">
+        <div class="card"><strong>Team One</strong><span class="muted">University</span></div>
+        <div class="card"><strong>Team Two</strong><span class="muted">University</span></div>
+        <div class="card"><strong>Team Three</strong><span class="muted">University</span></div>
+        <div class="card"><strong>Team Four</strong><span class="muted">University</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUDGES -->
+  <section id="judges">
+    <div class="container panel">
+      <h2>Judges</h2>
+      <div class="list">
+        <div class="card"><strong>Judge Name</strong><span class="muted">Style / Credentials</span></div>
+        <div class="card"><strong>Judge Name</strong><span class="muted">Style / Credentials</span></div>
+        <div class="card"><strong>Judge Name</strong><span class="muted">Style / Credentials</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
   <section id="partners">
     <div class="container panel">
-      <h2>Partners &amp; Community Support</h2>
-      <div class="partners-grid">
-
-        <article>
-          <div class="logo-wrap">
-            <!-- Put your NCAAT logo file in the same folder & adjust src if needed -->
-            <img src="ncaat-logo.png" alt="North Carolina Asian Americans Together logo">
+      <h2>Partners</h2>
+      <div class="two">
+        <div>
+          <div class="logo-box">
+            <!-- standardized 800x250 PNGs drop in cleanly -->
+            <img src="ncaat-logo.png" alt="NCAAT logo">
           </div>
-          <h3>NCAAT</h3>
-          <p style="color: var(--text-soft); margin-bottom: 0.8rem;">
-            We’re proud to partner with <strong>North Carolina Asian Americans Together (NCAAT)</strong>,
-            a nonpartisan organization building Asian American and Pacific Islander power in North Carolina
-            through civic engagement, leadership development, and community education. Aaj Ka Dhamaka is
-            part of NCAAT’s Fall Cohort, and we’re excited to uplift their mission of participation and
-            representation across our community.
+          <p class="muted">
+            In partnership with <strong>NCAAT</strong>, a nonpartisan organization building AAPI power in NC
+            through civic engagement, leadership, and education. AKD is part of NCAAT’s Fall Cohort.
           </p>
-          <a class="btn btn-secondary" href="https://ncaatogether.org/" target="_blank" rel="noreferrer">
-            Learn more about NCAAT
-          </a>
-        </article>
-
-        <article>
-          <div class="logo-wrap">
-            <img src="https://kiraninc.org/wp-content/uploads/2024/10/kiran-brand-cb3999b.png" alt="Kiran, Inc. logo">
+          <p><a class="btn btn-ghost" href="https://ncaatogether.org/" target="_blank" rel="noreferrer">Learn more</a></p>
+        </div>
+        <div>
+          <div class="logo-box">
+            <img src="https://kiraninc.org/wp-content/uploads/2024/10/kiran-brand-cb3999b.png" alt="Kiran logo">
           </div>
-          <h3>KIRAN</h3>
-          <p style="color: var(--text-soft); margin-bottom: 0.8rem;">
-            A portion of proceeds from Aaj Ka Dhamaka will be donated to
-            <strong> Kiran, Inc.</strong>, a North Carolina nonprofit serving South Asian survivors of
-            domestic violence and sexual assault. Kiran provides culturally specific, confidential services,
-            including crisis response, safety planning, counseling, referrals, and language-accessible
-            assistance. Your support helps Kiran sustain life-saving resources for our community.
+          <p class="muted">
+            A portion of proceeds supports <strong>Kiran, Inc.</strong> and their culturally specific, confidential
+            services for South Asian survivors in NC.
           </p>
-          <a class="btn btn-primary" href="https://kiraninc.org/" target="_blank" rel="noreferrer">
-            Donate to Kiran
-          </a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="container panel panel-alt">
-      <h2>Highlights &amp; Hype</h2>
-      <p style="color: var(--text-soft); margin-bottom: 1.1rem;">
-        Swap these sample photos with your own from previous Aaj Ka Dhamaka shows, practices,
-        or promo shoots.
-      </p>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop" alt="Stage lights and dancers">
-          <div class="gallery-label">On Stage</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1520975922284-ec47b9b809f6?q=80&w=1200&auto=format&fit=crop" alt="Audience cheering">
-          <div class="gallery-label">Crowd Energy</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd53?q=80&w=1200&auto=format&fit=crop" alt="Dancers rehearsing">
-          <div class="gallery-label">Rehearsals</div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Team huddle">
-          <div class="gallery-label">Team Huddles</div>
+          <p><a class="btn btn-primary" href="https://kiraninc.org/" target="_blank" rel="noreferrer">Donate to Kiran</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section>
+  <!-- DONATE / TICKETS -->
+  <section id="donate">
     <div class="container panel">
-      <h2>FAQ</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <strong>Re-entry</strong>
-          <span>Re-entry is allowed with your wristband and valid ticket.</span>
-        </div>
-        <div class="faq-item">
-          <strong>Photos &amp; Video</strong>
-          <span>Non-flash photography is allowed from your seat. Please be mindful of other guests.</span>
-        </div>
-        <div class="faq-item">
-          <strong>Refund Policy</strong>
-          <span>Tickets are transferable but non-refundable unless the event is canceled.</span>
-        </div>
-        <div class="faq-item">
-          <strong>Accessibility</strong>
-          <span>Email <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a> with any accessibility needs at least 72 hours before the show.</span>
-        </div>
+      <h2>Tickets & Donate</h2>
+      <p class="muted">Ticket link coming soon. For sponsors, teams, or accessibility, email <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a>.</p>
+      <div class="btn-row" style="margin-top:.8rem">
+        <a class="btn btn-primary" href="https://kiraninc.org/" target="_blank" rel="noreferrer">Donate to Kiran</a>
+        <a class="btn btn-ghost" href="mailto:info@aajkadhamaka.org">Contact us</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer id="contact">
-    <div class="container footer-row">
-      <div>
-        © 2025 UNC AKD • Aaj Ka Dhamaka • Official Legends Partner Competition
-      </div>
-      <div class="footer-links">
+    <div class="container foot">
+      <div>© 2025 UNC AKD • Aaj Ka Dhamaka</div>
+      <div class="nav-links">
         <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
         <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a>
         <a href="mailto:info@aajkadhamaka.org">Email</a>
@@ -783,5 +349,17 @@
     </div>
   </footer>
 
+  <!-- Hide/reveal header on scroll -->
+  <script>
+    (function(){
+      let lastY = window.scrollY, header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        const goingDown = y > lastY && y > 80;
+        header.classList.toggle('hide', goingDown);
+        lastY = y;
+      }, {passive:true});
+    })();
+  </script>
 </body>
 </html>
