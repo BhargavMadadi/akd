@@ -10,7 +10,8 @@
     :root {
       --space-bg: #020014;
       --space-bg-soft: #090323;
-      --space-bg-panel: #120737;
+      --space-panel: #120737;
+      --space-panel-alt: #190b4a;
       --ring-purple: #a855ff;
       --ring-orange: #ff8a3d;
       --ring-yellow: #ffd54a;
@@ -39,11 +40,7 @@
       scroll-behavior: smooth;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
+    a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
     .container {
@@ -91,8 +88,8 @@
     }
 
     .brand-logo {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 999px;
       overflow: hidden;
       border: 2px solid var(--akd-green);
@@ -124,6 +121,7 @@
     .nav-links a {
       opacity: 0.8;
     }
+
     .nav-links a:hover {
       opacity: 1;
       color: var(--akd-green);
@@ -138,7 +136,7 @@
 
     /* HERO */
     .hero {
-      padding: 4.2rem 0 3.4rem;
+      padding: 4.2rem 0 2.4rem;
       position: relative;
       overflow: hidden;
     }
@@ -158,14 +156,89 @@
       margin-bottom: 0.5rem;
     }
 
-    .hero h1 {
-      text-shadow: 0 0 22px rgba(0,0,0,0.7);
-    }
-
     .hero-tagline {
       margin-top: 0.7rem;
       color: var(--text-soft);
       max-width: 34rem;
+    }
+
+    .hero-chip {
+      margin-top: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(9,9,11,0.7);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(148,163,184,0.7);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--akd-green);
+      box-shadow: 0 0 18px rgba(114,255,155,0.9);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin-top: 1.6rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta span::before {
+      content: "◎";
+      margin-right: 0.4rem;
+      color: var(--ring-yellow);
+      font-size: 0.8rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--akd-green), var(--ring-purple));
+      color: #020617;
+      box-shadow: 0 10px 26px rgba(114,255,155,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 16px 34px rgba(114,255,155,0.55);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(226,232,240,0.8);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15,23,42,0.7);
     }
 
     .orbit-ring {
@@ -204,87 +277,46 @@
       object-fit: cover;
     }
 
-    .hero-chip {
-      margin-top: 1.1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(9,9,11,0.7);
-      border-radius: 999px;
-      padding: 0.3rem 0.8rem;
-      border: 1px solid rgba(148,163,184,0.7);
-      font-size: 0.78rem;
-      color: var(--text-soft);
-    }
-    .hero-chip-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--akd-green);
-      box-shadow: 0 0 18px rgba(114,255,155,0.9);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.4rem;
-      margin-top: 1.6rem;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
-    .hero-meta span::before {
-      content: "◎";
-      margin-right: 0.4rem;
-      color: var(--ring-yellow);
-      font-size: 0.8rem;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 1.8rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--akd-green), var(--ring-purple));
-      color: #020617;
-      box-shadow: 0 10px 26px rgba(114,255,155,0.4);
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px) scale(1.02);
-      box-shadow: 0 16px 34px rgba(114,255,155,0.55);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: rgba(226,232,240,0.8);
-      color: var(--text-main);
-    }
-    .btn-secondary:hover {
-      background: rgba(15,23,42,0.7);
-    }
-
     @media (max-width: 880px) {
       .hero-grid { grid-template-columns: minmax(0, 1fr); }
       .orbit-ring { margin: 0 auto; }
     }
 
-    /* CARD SECTIONS */
+    /* QUICK INFO BAR */
+    .info-bar {
+      background: rgba(2,6,23,0.86);
+      border-top: 1px solid rgba(148,163,184,0.7);
+      border-bottom: 1px solid rgba(148,163,184,0.4);
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      padding: 1rem 0;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .info-pill-label {
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      color: var(--akd-green);
+      margin-bottom: 0.15rem;
+    }
+
+    .info-item {
+      border-left: 2px solid rgba(148,163,184,0.5);
+      padding-left: 0.7rem;
+    }
+
+    @media (max-width: 720px) {
+      .info-row { grid-template-columns: minmax(0, 1fr); }
+      .info-item { border-left: none; border-top: 1px solid rgba(148,163,184,0.4); padding-top: 0.6rem; }
+    }
+
+    /* PANELS */
     .panel {
       background: linear-gradient(145deg, rgba(12,5,46,0.96), rgba(19,10,56,0.98));
       border-radius: 1.25rem;
@@ -294,26 +326,29 @@
     }
 
     .panel-alt {
-      background: linear-gradient(145deg, rgba(7,1,32,0.96), rgba(16,7,48,0.98));
+      background: linear-gradient(145deg, rgba(7,1,32,0.96), rgba(14,6,44,0.98));
     }
 
-    /* Event details */
+    /* EVENT DETAILS */
     .details-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
       gap: 1.9rem;
     }
+
     .map-frame {
       border-radius: 1.2rem;
       overflow: hidden;
       border: 1px solid rgba(148,163,184,0.8);
       box-shadow: 0 18px 32px rgba(0,0,0,0.8);
     }
+
     .detail-list {
       display: grid;
       gap: 0.9rem;
       font-size: 0.95rem;
     }
+
     .detail-label {
       font-weight: 600;
       color: var(--akd-green);
@@ -327,17 +362,39 @@
       .details-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
-    /* Partners */
+    /* ABOUT SECTION */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    .about-card {
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      background: radial-gradient(circle at 10% 0%, rgba(114,255,155,0.18), transparent 60%),
+                  rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.7);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .about-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    /* PARTNERS */
     .partners-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem;
     }
+
     @media (max-width: 880px) {
       .partners-grid { grid-template-columns: minmax(0, 1fr); }
     }
+
     .logo-wrap {
-      background: radial-gradient(circle at 20% 0%, rgba(114,255,155,0.15), transparent 55%),
+      background: radial-gradient(circle at 20% 0%, rgba(114,255,155,0.09), transparent 55%),
                   rgba(15,23,42,0.96);
       border-radius: 1rem;
       padding: 1rem 1.3rem;
@@ -346,17 +403,19 @@
       align-items: center;
       justify-content: center;
     }
+
     .logo-wrap img {
       max-height: 80px;
       object-fit: contain;
     }
 
-    /* Gallery */
+    /* GALLERY */
     .gallery-grid {
       display: grid;
       gap: 1rem;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
+
     .gallery-item {
       position: relative;
       border-radius: 1rem;
@@ -364,6 +423,7 @@
       border: 1px solid rgba(248,250,252,0.14);
       background: radial-gradient(circle at top, rgba(114,255,155,0.18), rgba(15,23,42,0.98));
     }
+
     .gallery-item img {
       width: 100%;
       height: 210px;
@@ -371,10 +431,12 @@
       opacity: 0.96;
       transition: transform 0.18s ease, opacity 0.18s ease;
     }
+
     .gallery-item:hover img {
       transform: scale(1.04);
       opacity: 1;
     }
+
     .gallery-label {
       position: absolute;
       left: 0.85rem;
@@ -386,7 +448,28 @@
       border: 1px solid rgba(248,250,252,0.7);
     }
 
-    /* Footer */
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 880px) {
+      .faq-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--akd-green);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.74rem;
+    }
+
+    /* FOOTER */
     footer {
       border-top: 1px solid rgba(148,163,184,0.6);
       padding: 1.4rem 0 1.9rem;
@@ -402,18 +485,22 @@
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .footer-links {
       display: flex;
       gap: 0.9rem;
       flex-wrap: wrap;
     }
+
     .footer-links a {
       opacity: 0.85;
     }
+
     .footer-links a:hover {
       opacity: 1;
       color: var(--akd-green);
     }
+
   </style>
 </head>
 <body>
@@ -423,7 +510,7 @@
     <div class="container nav">
       <div class="brand">
         <div class="brand-logo">
-          <!-- Put your AKD logo file next to this HTML as akd-logo.png and keep this src -->
+          <!-- Put your AKD logo file next to this HTML as akd-logo.png -->
           <img src="akd-logo.png" alt="UNC AKD logo">
         </div>
         <div>
@@ -432,6 +519,7 @@
         </div>
       </div>
       <nav class="nav-links">
+        <a href="#about">About</a>
         <a href="#details">Event</a>
         <a href="#partners">Partners</a>
         <a href="#gallery">Gallery</a>
@@ -476,9 +564,57 @@
     </div>
   </section>
 
+  <!-- QUICK INFO BAR -->
+  <div class="info-bar">
+    <div class="container info-row">
+      <div class="info-item">
+        <div class="info-pill-label">Date</div>
+        <div>Saturday, November 16, 2025</div>
+      </div>
+      <div class="info-item">
+        <div class="info-pill-label">Location</div>
+        <div>Memorial Hall • UNC–Chapel Hill</div>
+      </div>
+      <div class="info-item">
+        <div class="info-pill-label">Tickets</div>
+        <div>Online ticket link coming soon • email <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container panel">
+      <div class="about-grid">
+        <div>
+          <h2>About Aaj Ka Dhamaka</h2>
+          <p style="color: var(--text-soft); margin-bottom: 1rem;">
+            Aaj Ka Dhamaka is UNC’s premier collegiate South Asian dance competition, bringing
+            together teams from across the country for a night of creativity, culture, and community.
+          </p>
+          <p style="color: var(--text-soft);">
+            This year’s theme draws inspiration from <strong>Space Jam</strong> — think big energy, bold
+            visuals, and a crowd that’s ready to go from tip-off to final buzzer. Expect high-intensity
+            sets, special performances, and plenty of chances to cheer on your favorite teams.
+          </p>
+        </div>
+        <div class="about-card">
+          <strong style="display:block; margin-bottom:0.4rem;">Show Quick Facts</strong>
+          <ul style="list-style: none;">
+            <li>• Collegiate South Asian teams from across the country</li>
+            <li>• Professional judging panel</li>
+            <li>• Space Jam–inspired production & visuals</li>
+            <li>• Proceeds benefiting Kiran, Inc.</li>
+            <li>• In partnership with NCAAT’s Fall Cohort</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- EVENT DETAILS -->
   <section id="details">
-    <div class="container panel">
+    <div class="container panel panel-alt">
       <h2>Event Details</h2>
       <div class="details-grid">
         <div class="map-frame">
@@ -495,32 +631,34 @@
         <div>
           <div class="detail-list">
             <div>
-              <div class="detail-label">Date</div>
-              <div>Saturday, November 16, 2025</div>
-            </div>
-            <div>
-              <div class="detail-label">Time</div>
-              <div>Doors 5:30 PM • Show 6:30–9:30 PM</div>
-            </div>
-            <div>
-              <div class="detail-label">Location</div>
+              <div class="detail-label">Schedule</div>
               <div>
-                Memorial Hall, UNC–Chapel Hill<br>
-                114 E Cameron Ave<br>
-                Chapel Hill, NC 27514
+                Doors open 5:30 PM • Show 6:30–9:30 PM<br>
+                Intermission midway through the show.<br>
+                Awards and closing remarks to follow.
               </div>
             </div>
             <div>
-              <div class="detail-label">Vibe</div>
-              <div>High-energy collegiate teams, judges’ showcases, and Space-Jam-inspired production.</div>
+              <div class="detail-label">Getting Here</div>
+              <div>
+                Memorial Hall is located in the heart of UNC’s campus. Nearby parking options include
+                Cobb Deck and Rams Head. Please allow extra time for evening traffic and walking.
+              </div>
+            </div>
+            <div>
+              <div class="detail-label">Accessibility</div>
+              <div>
+                Memorial Hall is wheelchair accessible. For accommodations, email
+                <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a> at least 72 hours in advance.
+              </div>
             </div>
           </div>
 
           <div id="tickets" style="margin-top: 1.6rem">
             <div class="detail-label">Tickets</div>
             <p style="color: var(--text-soft); margin-bottom: 0.7rem;">
-              Online ticketing link coming soon. For team, sponsor, or accessibility questions,
-              email <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a>.
+              Online ticketing link will be posted here. For team, sponsor, or group ticket questions,
+              contact us directly.
             </p>
             <div class="btn-row">
               <a href="mailto:info@aajkadhamaka.org" class="btn btn-secondary">Email us</a>
@@ -534,7 +672,7 @@
 
   <!-- PARTNERS & GIVING BACK -->
   <section id="partners">
-    <div class="container panel panel-alt">
+    <div class="container panel">
       <h2>Partners &amp; Community Support</h2>
       <div class="partners-grid">
 
@@ -579,7 +717,7 @@
 
   <!-- GALLERY -->
   <section id="gallery">
-    <div class="container panel">
+    <div class="container panel panel-alt">
       <h2>Highlights &amp; Hype</h2>
       <p style="color: var(--text-soft); margin-bottom: 1.1rem;">
         Swap these sample photos with your own from previous Aaj Ka Dhamaka shows, practices,
@@ -601,6 +739,31 @@
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Team huddle">
           <div class="gallery-label">Team Huddles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container panel">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <strong>Re-entry</strong>
+          <span>Re-entry is allowed with your wristband and valid ticket.</span>
+        </div>
+        <div class="faq-item">
+          <strong>Photos &amp; Video</strong>
+          <span>Non-flash photography is allowed from your seat. Please be mindful of other guests.</span>
+        </div>
+        <div class="faq-item">
+          <strong>Refund Policy</strong>
+          <span>Tickets are transferable but non-refundable unless the event is canceled.</span>
+        </div>
+        <div class="faq-item">
+          <strong>Accessibility</strong>
+          <span>Email <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a> with any accessibility needs at least 72 hours before the show.</span>
         </div>
       </div>
     </div>
