@@ -216,3 +216,52 @@ footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:lin
 .hero-inner{
   text-shadow: 0 1px 0 rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.45);
 }
+
+/* orbiting rings around the headline (AKD color-matched) */
+.title-orbit{
+  position: relative;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin-bottom: .4rem;
+}
+.title-orbit span{
+  position: relative; z-index: 2;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.45);
+}
+
+/* ring band with AKD green/purple/orange passes */
+.title-orbit::before{
+  content:"";
+  position:absolute; inset:-12% -10%;
+  border-radius:999px;
+  background:
+    radial-gradient(closest-side, rgba(255,255,255,.62), rgba(255,255,255,0) 22%),
+    /* order: green → purple → orange → green */
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(114,255,155,.70) 0 12deg,     /* AKD green */
+      rgba(123,60,255,.65) 12deg 24deg,  /* AKD purple */
+      rgba(255,138,0,.65) 24deg 36deg,   /* Accent orange */
+      rgba(114,255,155,.70) 36deg 48deg
+    );
+  -webkit-mask: radial-gradient(closest-side, transparent 60%, black 62% 100%);
+          mask: radial-gradient(closest-side, transparent 60%, black 62% 100%);
+  filter: blur(.6px);
+  box-shadow: 0 0 40px rgba(114,255,155,.25), 0 0 70px rgba(123,60,255,.25);
+  animation: ringOrbitSpin 26s linear infinite;
+}
+
+/* outer glow + gentle pulse */
+.title-orbit::after{
+  content:"";
+  position:absolute; inset:-18% -16%;
+  border-radius:999px;
+  background: radial-gradient(closest-side, rgba(114,255,155,.18), rgba(123,60,255,.12), rgba(0,0,0,0) 70%);
+  -webkit-mask: radial-gradient(closest-side, transparent 66%, black 68% 100%);
+          mask: radial-gradient(closest-side, transparent 66%, black 68% 100%);
+  filter: blur(3px);
+  animation: ringOrbitPulse 4.6s ease-in-out infinite;
+}
+
+@keyframes ringOrbitSpin { to { transform: rotate(360deg); } }
+@keyframes ringOrbitPulse { 0%,100%{opacity:.55} 50%{opacity:.8} }
