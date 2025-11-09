@@ -4,341 +4,62 @@
   <meta charset="UTF-8" />
   <title>UNC AKD — Aaj Ka Dhamaka</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Fonts: headline = Bangers (Space-Jam vibe), body = Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      /* Palette tuned to your logo */
-      --space: #0b0520;
-      --space-deep: #060215;
-      --accent-green: #72ff9b;  /* AKD green */
-      --accent-orange: #ff8a00; /* ring orange */
-      --accent-purple: #7b3cff; /* ring purple */
-      --ink: #f7f7ff;
-      --muted: #cfd0ff;
-      --border: rgba(255,255,255,.12);
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(1200px 800px at 80% -10%, #2a1466 0%, transparent 60%),
-        radial-gradient(1000px 700px at 10% 110%, #3a0ca3 0%, transparent 60%),
-        var(--space);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    /* subtle starfield */
-    body::before{
-      content:"";
-      position:fixed; inset:0;
-      background-image:
-        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.25) 50%, transparent 51%),
-        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,.2) 50%, transparent 51%),
-        radial-gradient(1px 1px at 85% 25%, rgba(255,255,255,.22) 50%, transparent 51%),
-        radial-gradient(1px 1px at 35% 85%, rgba(255,255,255,.18) 50%, transparent 51%);
-      background-repeat: repeat;
-      pointer-events:none;
-      opacity:.6;
-    }
-
-    a{color:inherit;text-decoration:none}
-
-    .container{max-width:1120px;margin:0 auto;padding:0 1.2rem}
-    section{padding:3.2rem 0}
-    h1,h2,h3{font-family:"Bangers",system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase}
-    h1{font-size:clamp(2.4rem,6vw,3.6rem)}
-    h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:1rem}
-    h3{font-size:1.15rem;margin-bottom:.3rem}
-
-    /* Header: hides on scroll down, reveals on scroll up */
-    .site-header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(to right, rgba(6,2,21,.9), rgba(18,7,56,.9));
-      border-bottom:1px solid var(--border);
-      transition: transform .25s ease;
-    }
-    .site-header.hide{ transform: translateY(-100%); }
-
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:.65rem 0; gap:1rem;
-    }
-    .brand{display:flex;align-items:center;gap:.6rem}
-    .brand img{width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--accent-green);box-shadow:0 0 14px rgba(114,255,155,.6)}
-    .brand .name{font-family:"Bangers";letter-spacing:.14em}
-    .nav a{opacity:.85;font-weight:600}
-    .nav a:hover{opacity:1;color:var(--accent-green)}
-    .nav-links{display:flex;gap:1rem;flex-wrap:wrap}
-    @media (max-width:780px){ .nav{flex-direction:column; align-items:flex-start} }
-
-    /* Hero */
-    .hero{padding:4.2rem 0 2.2rem}
-    .hero-grid{display:grid;gap:2rem;grid-template-columns: 1.05fr 1fr;align-items:center}
-    .kicker{font-weight:700;letter-spacing:.2em;color:var(--muted);font-size:.8rem;margin-bottom:.35rem}
-    .tagline{color:var(--muted);max-width:36rem;margin-top:.4rem}
-    .btn-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.2rem}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1.3rem;border-radius:999px;font-weight:700;border:1px solid transparent;cursor:pointer;transition:.12s}
-    .btn-primary{background:linear-gradient(135deg,var(--accent-green),var(--accent-purple));color:#060215;box-shadow:0 8px 22px rgba(114,255,155,.35)}
-    .btn-primary:hover{transform:translateY(-1px) scale(1.02)}
-    .btn-ghost{border-color:rgba(255,255,255,.5)}
-    .btn-ghost:hover{background:rgba(255,255,255,.08)}
-    .planet{
-      width:min(420px,100%); aspect-ratio:1/1; border-radius:50%; margin-left:auto; position:relative;
-      border:3px solid #fff; overflow:hidden; box-shadow:0 18px 40px rgba(0,0,0,.75)
-    }
-    .rings{
-      position:absolute; inset:-8%;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255,138,0,.45), transparent 60%),
-        radial-gradient(circle at 70% 40%, rgba(123,60,255,.45), transparent 60%),
-        radial-gradient(circle at 50% 70%, rgba(255,213,74,.45), transparent 60%);
-      filter: blur(8px);
-    }
-    .planet img{width:100%;height:100%;object-fit:cover;background:#fff}
-    @media (max-width:880px){ .hero-grid{grid-template-columns:1fr} .planet{margin:0 auto} }
-
-    /* Cards/panels */
-    .panel{background:linear-gradient(145deg, rgba(12,5,46,.95), rgba(19,10,56,.97)); border:1px solid var(--border); border-radius:1.1rem; padding:1.8rem; box-shadow:0 18px 40px rgba(0,0,0,.6)}
-
-    /* Info bar */
-    .info-bar{background:rgba(8,6,25,.85); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
-    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:.9rem 0;color:var(--muted);font-size:.95rem}
-    .info-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-green);margin-bottom:.2rem}
-    @media (max-width:720px){ .info-grid{grid-template-columns:1fr} }
-
-    /* Two-column grids */
-    .two{display:grid;grid-template-columns:1.1fr 1fr;gap:1.6rem}
-    @media (max-width:880px){ .two{grid-template-columns:1fr} }
-
-    /* Timeline (History) */
-    .timeline{position:relative;margin:1rem 0 0 0;padding-left:1.2rem}
-    .timeline::before{content:"";position:absolute;left:.4rem;top:.2rem;bottom:.2rem;width:2px;background:linear-gradient(var(--accent-purple),var(--accent-green))}
-    .t-item{position:relative;margin:1rem 0;padding-left:1rem}
-    .t-item::before{content:"";position:absolute;left:-.05rem;top:.2rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent-orange);box-shadow:0 0 10px rgba(255,138,0,.6)}
-    .t-year{font-weight:800;color:var(--accent-orange)}
-    .muted{color:var(--muted)}
-
-    /* Partner logos grid */
-    .logo-box{background:rgba(12,18,48,.8);border:1px solid var(--border);border-radius:.9rem;padding:1rem;display:flex;align-items:center;justify-content:center}
-    .logo-box img{max-height:80px;object-fit:contain}
-
-    /* Table lists (Board, Teams, Judges) */
-    .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-    .card{background:rgba(12,18,48,.85);border:1px solid var(--border);border-radius:.8rem;padding:1rem}
-    .card strong{display:block}
-
-    /* Footer */
-    footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:linear-gradient(#0a061e,#050315)}
-    .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-    .foot a{opacity:.85} .foot a:hover{opacity:1;color:var(--accent-green)}
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Header (auto hide/reveal) -->
-  <header class="site-header" id="siteHeader">
+  <!-- Header -->
+  <header class="site-header">
     <div class="container nav">
       <div class="brand">
-        <!-- put your round AKD logo as akd-logo.png next to this file -->
         <img src="akd-logo.png" alt="UNC AKD logo">
         <div>
           <div class="name">UNC AKD</div>
-          <div style="font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase">Aaj Ka Dhamaka</div>
+          <div style="font-size:.72rem;color:#cfd0ff;letter-spacing:.14em;text-transform:uppercase">Aaj Ka Dhamaka</div>
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#history">History</a>
-        <a href="#board">Board</a>
-        <a href="#teams">Teams</a>
-        <a href="#judges">Judges</a>
-        <a href="#partners">Partners</a>
-        <a href="#donate">Donate</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="judges.html">Judges</a>
+        <a href="partners.html">Partners</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker">Official Legends Partner Competition</div>
-          <h1>Aaj Ka Dhamaka</h1>
-          <p class="tagline">A Space-Jam-level mashup of South Asian dance, music, and UNC hype.</p>
-
-          <div class="btn-row">
-            <a class="btn btn-primary" href="#donate">Get Tickets / Donate</a>
-            <a class="btn btn-ghost" href="#history">See our journey</a>
-          </div>
-        </div>
-        <div class="planet">
-          <div class="rings"></div>
-          <!-- swap with a stage photo if you prefer -->
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="AKD planet">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Aaj Ka Dhamaka</h1>
+        <p class="tagline">A Space-Jam-level mashup of South Asian dance, music, and UNC hype.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="donate.html">Get Tickets / Donate</a>
+          <a class="btn btn-ghost" href="history.html">See our journey</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- QUICK INFO BAR -->
-  <div class="info-bar">
-    <div class="container info-grid">
-      <div>
-        <div class="info-label">Date</div>
-        Saturday, November 16, 2025
-      </div>
-      <div>
-        <div class="info-label">Location</div>
-        Memorial Hall • UNC–Chapel Hill
-      </div>
-      <div>
-        <div class="info-label">Time</div>
-        Doors 5:30 PM • Show 6:30–9:30 PM
-      </div>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container panel">
-      <h2>About the Show</h2>
-      <div class="two">
-        <p class="muted">
-          Aaj Ka Dhamaka is UNC’s premier collegiate South Asian dance competition. Expect big energy,
-          bold visuals, and a crowd that’s ready from tip-off to the final buzzer. Proceeds support Kiran, Inc.
+    <section>
+      <div class="container panel">
+        <h2>Event Details</h2>
+        <p class="muted" style="margin-bottom:.6rem">
+          Saturday, November 16, 2025 • Memorial Hall, UNC–Chapel Hill • Doors 5:30 PM • Show 6:30–9:30 PM
         </p>
-        <div class="panel" style="padding:1rem">
-          <strong>Quick Facts</strong>
-          <ul class="muted" style="margin-top:.4rem;list-style:none">
-            <li>• Collegiate teams from across the country</li>
-            <li>• Professional judging panel</li>
-            <li>• Space-Jam inspired production</li>
-            <li>• In partnership with NCAAT (Fall Cohort)</li>
-          </ul>
+        <div style="border:1px solid var(--border);border-radius:1rem;overflow:hidden">
+          <iframe title="Map" width="100%" height="320" style="border:0"
+            src="https://www.google.com/maps?q=Memorial%20Hall%2C%20Chapel%20Hill%2C%20NC&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- HISTORY (timeline) -->
-  <section id="history">
-    <div class="container panel">
-      <h2>History</h2>
-      <div class="timeline">
-        <!-- Replace with real years & notes -->
-        <div class="t-item">
-          <div class="t-year">2020</div>
-          <div class="muted">AKD relaunches at UNC with a sold-out showcase.</div>
-        </div>
-        <div class="t-item">
-          <div class="t-year">2022</div>
-          <div class="muted">Expanded to a regional invitational; first visiting judges panel.</div>
-        </div>
-        <div class="t-item">
-          <div class="t-year">2024</div>
-          <div class="muted">Partnerships deepen with community orgs; increased philanthropy.</div>
-        </div>
-        <div class="t-item">
-          <div class="t-year">2025</div>
-          <div class="muted">Official Legends Partner Competition hosted at Memorial Hall.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOARD -->
-  <section id="board">
-    <div class="container panel">
-      <h2>Board</h2>
-      <div class="list">
-        <!-- Replace with real roles -->
-        <div class="card"><strong>Executive Director</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Programming Lead</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Logistics</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Marketing</strong><span class="muted">Name Here</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAMS -->
-  <section id="teams">
-    <div class="container panel">
-      <h2>Teams</h2>
-      <div class="list">
-        <div class="card"><strong>Team One</strong><span class="muted">University</span></div>
-        <div class="card"><strong>Team Two</strong><span class="muted">University</span></div>
-        <div class="card"><strong>Team Three</strong><span class="muted">University</span></div>
-        <div class="card"><strong>Team Four</strong><span class="muted">University</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- JUDGES -->
-  <section id="judges">
-    <div class="container panel">
-      <h2>Judges</h2>
-      <div class="list">
-        <div class="card"><strong>Judge Name</strong><span class="muted">Style / Credentials</span></div>
-        <div class="card"><strong>Judge Name</strong><span class="muted">Style / Credentials</span></div>
-        <div class="card"><strong>Judge Name</strong><span class="muted">Style / Credentials</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTNERS -->
-  <section id="partners">
-    <div class="container panel">
-      <h2>Partners</h2>
-      <div class="two">
-        <div>
-          <div class="logo-box">
-            <!-- standardized 800x250 PNGs drop in cleanly -->
-            <img src="ncaat-logo.png" alt="NCAAT logo">
-          </div>
-          <p class="muted">
-            In partnership with <strong>NCAAT</strong>, a nonpartisan organization building AAPI power in NC
-            through civic engagement, leadership, and education. AKD is part of NCAAT’s Fall Cohort.
-          </p>
-          <p><a class="btn btn-ghost" href="https://ncaatogether.org/" target="_blank" rel="noreferrer">Learn more</a></p>
-        </div>
-        <div>
-          <div class="logo-box">
-            <img src="https://kiraninc.org/wp-content/uploads/2024/10/kiran-brand-cb3999b.png" alt="Kiran logo">
-          </div>
-          <p class="muted">
-            A portion of proceeds supports <strong>Kiran, Inc.</strong> and their culturally specific, confidential
-            services for South Asian survivors in NC.
-          </p>
-          <p><a class="btn btn-primary" href="https://kiraninc.org/" target="_blank" rel="noreferrer">Donate to Kiran</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DONATE / TICKETS -->
-  <section id="donate">
-    <div class="container panel">
-      <h2>Tickets & Donate</h2>
-      <p class="muted">Ticket link coming soon. For sponsors, teams, or accessibility, email <a href="mailto:info@aajkadhamaka.org">info@aajkadhamaka.org</a>.</p>
-      <div class="btn-row" style="margin-top:.8rem">
-        <a class="btn btn-primary" href="https://kiraninc.org/" target="_blank" rel="noreferrer">Donate to Kiran</a>
-        <a class="btn btn-ghost" href="mailto:info@aajkadhamaka.org">Contact us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="contact">
+  <!-- Footer -->
+  <footer>
     <div class="container foot">
       <div>© 2025 UNC AKD • Aaj Ka Dhamaka</div>
       <div class="nav-links">
@@ -349,17 +70,6 @@
     </div>
   </footer>
 
-  <!-- Hide/reveal header on scroll -->
-  <script>
-    (function(){
-      let lastY = window.scrollY, header = document.getElementById('siteHeader');
-      window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        const goingDown = y > lastY && y > 80;
-        header.classList.toggle('hide', goingDown);
-        lastY = y;
-      }, {passive:true});
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
