@@ -115,3 +115,43 @@ header.site-header{
 footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:linear-gradient(#0a061e,#050315)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .foot a{opacity:.85}.foot a:hover{opacity:1;color:var(--green)}
+
+
+/* Centered hero variant */
+.hero--center{
+  position:relative;
+  padding:7.5rem 0 5rem;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.hero-inner{ text-align:center; position:relative; z-index:2; }
+.hero-sub{
+  margin-top:.4rem; font-weight:800; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted);
+}
+
+/* Space-Jam planet + rings */
+.planet-bg{
+  position:absolute; inset:-10% -20%; 
+  display:grid; place-items:center; 
+  z-index:1; pointer-events:none; opacity:.55;
+}
+.planet{
+  width:clamp(260px,38vw,540px); aspect-ratio:1/1; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #fff 0%, #e8e8ff 40%, #b6b6ff 60%, transparent 66%);
+  box-shadow:0 20px 80px rgba(123,60,255,.25);
+  filter:blur(.2px);
+  animation:float 9s ease-in-out infinite;
+}
+.ring{
+  position:absolute; width:clamp(380px,60vw,920px); height:clamp(120px,18vw,260px);
+  border-radius:50%; transform:rotate(-18deg); mix-blend-mode:screen; filter:blur(2px);
+  animation:sway 8s ease-in-out infinite alternate;
+}
+.r1{background:radial-gradient(closest-side, rgba(255,213,74,.65), transparent 72%)}
+.r2{transform:rotate(-12deg) scale(.92); background:radial-gradient(closest-side, rgba(255,138,0,.55), transparent 72%)}
+.r3{transform:rotate(-8deg) scale(.84);  background:radial-gradient(closest-side, rgba(123,60,255,.55), transparent 72%)}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes sway {0%{transform:rotate(-20deg)}100%{transform:rotate(-10deg)}}
