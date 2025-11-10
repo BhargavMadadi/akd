@@ -107,7 +107,7 @@ body::before{
 }
 
 .hero--center{
-  min-height:75vh;
+  min-height:105vh;
   padding:7.2rem 0 8.4rem;
   display:grid;
   place-items:center;
