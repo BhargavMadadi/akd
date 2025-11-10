@@ -347,3 +347,52 @@ footer{
     opacity:.8;
   }
 }
+
+/* === ORBITING BASKETBALL === */
+.ball-orbit {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffecd2 0%, #ffb347 40%, #ff7b00 70%, #a63e00 100%);
+  box-shadow: 0 0 16px rgba(255, 140, 0, 0.6);
+  position: relative;
+  transform-origin: -240px -140px; /* controls orbit distance */
+  animation: ballOrbit 10s linear infinite, spin 2s linear infinite;
+}
+
+/* Add seam lines for the basketball */
+.bb::before,
+.bb::after {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  border: 2px solid rgba(120, 40, 0, 0.7);
+}
+
+.bb::after {
+  inset: 0;
+  border-left: 2px solid rgba(120, 40, 0, 0.7);
+  border-right: 2px solid rgba(120, 40, 0, 0.7);
+}
+
+/* Orbit animation */
+@keyframes ballOrbit {
+  0% { transform: rotate(0deg) translateX(0); }
+  100% { transform: rotate(360deg) translateX(0); }
+}
+
+/* Basketball spinning animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
