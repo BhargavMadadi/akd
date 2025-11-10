@@ -61,35 +61,22 @@ body{
 }
 
 .planet{
-  width:clamp(300px,40vw,620px);
+  width:clamp(280px,34vw,540px);  /* a bit smaller */
   aspect-ratio:1/1;
   border-radius:50%;
-  position:relative;isolation:isolate;
+  position:relative;
+  isolation:isolate;
   background:radial-gradient(circle at 40% 35%,
-    rgba(207,200,255,.42) 0%,
-    rgba(128,102,255,.28) 45%,
+    rgba(207,200,255,.40) 0%,
+    rgba(128,102,255,.26) 45%,
     rgba(60,30,120,.05) 75%,
     transparent 100%);
-  /* Tighter outer glow */
-  box-shadow:0 0 40px rgba(120,80,255,.20);
+  /* subtle halo just with box-shadow */
+  box-shadow:0 0 28px rgba(130,60,255,.35);
   animation:float 9s ease-in-out infinite;
 }
 
-.planet::before{
-  content:"";
-  position:absolute;
-  /* VERY small halo around the planet */
-  inset:-3%;                  /* was bigger negative numbers before */
-  border-radius:50%;
-  background:radial-gradient(circle,
-    rgba(130,60,255,.16) 0%,
-    rgba(130,60,255,.08) 28%,
-    rgba(130,60,255,0) 52%);
-  filter:blur(18px);          /* smaller blur = less spread */
-  opacity:.5;                 /* softer */
-  z-index:-1;
-  animation:haloPulse 7s ease-in-out infinite;
-}
+
 
 
 
