@@ -2,42 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>UNC AKD — Aaj Ka Dhamaka</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaj Ka Dhamaka | Official Legends Partner Competition</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- Header / Nav -->
   <header class="site-header">
-    <div class="container nav">
+    <nav class="nav container">
       <div class="brand">
-        <img src="akd-logo.png" alt="UNC AKD logo">
-        <div>
-          <div class="name">UNC AKD</div>
-          <div style="font-size:.72rem;color:#cfd0ff;letter-spacing:.14em;text-transform:uppercase">Aaj Ka Dhamaka</div>
-        </div>
+        <img src="assets/akd_logo.png" alt="AKD Logo">
+        <span class="name">AAJ KA DHAMAKA</span>
       </div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="history.html">History</a>
-        <a href="board.html">Board</a>
-        <a href="teams.html">Teams</a>
-        <a href="judges.html">Judges</a>
-        <a href="partners.html">Partners</a>
-        <a href="philanthropy.html">Philanthropy</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+      <div class="nav-links">
+        <a href="#details">Event Details</a>
+        <a href="#partners">Partners</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#history">History</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- Centered Hero -->
   <section class="hero hero--center">
-    <!-- STARFIELD (drawn by script.js) -->
-    <canvas id="stars-canvas" class="stars-canvas" aria-hidden="true"></canvas>
-  
-    <!-- Planet + Rings -->
-    <div class="planet-bg" aria-hidden="true">
+    <canvas id="stars-canvas" class="stars-canvas"></canvas>
+
+    <div class="planet-bg">
       <div class="planet"></div>
       <div class="ring r1"></div>
       <div class="ring r2"></div>
@@ -47,59 +35,47 @@
     <div class="container hero-inner">
       <h1>AAJ KA DHAMAKA</h1>
       <p class="hero-sub">Official Legends Partner Competition</p>
-      <!-- <p class="hero-sub">UNC-Chapel Hill’s Premier Dance Competition</p> -->
-      <div class="btn-row hero-cta">
-        <a class="btn btn-primary" href="philanthropy.html">Tickets / Philanthropy</a>
-        <a class="btn btn-ghost" href="history.html">See our journey</a>
-      </div>
-    </div>
-</section>
-
-
-  <!-- Event Details (compact) -->
-  <section>
-    <div class="container panel">
-      <h2>Event Details</h2>
-
-      <div class="details-simple">
-        <div>
-          <div class="info-label">Date</div>
-          Saturday, November 16, 2025
-        </div>
-        <div>
-          <div class="info-label">Location</div>
-          Memorial Hall • UNC–Chapel Hill
-        </div>
-        <div>
-          <div class="info-label">Time</div>
-          Doors 5:30 PM • Show 6:30–9:30 PM
-        </div>
-      </div>
-
-      <p class="muted" style="margin-top:1rem">
-        Bring your jam and be ready to Space Jam — high-energy sets, a hype crowd, and a night you’ll remember.
-      </p>
-
-      <div class="btn-row" style="margin-top:1rem">
-        <a class="btn btn-ghost" target="_blank" rel="noreferrer"
-           href="https://www.google.com/maps/search/?api=1&query=Memorial%20Hall%2C%20Chapel%20Hill%2C%20NC">
-          Open in Google Maps
-        </a>
+      <div class="btn-row">
+        <a href="#details" class="btn btn-primary">Event Details</a>
+        <a href="#partners" class="btn btn-ghost">Partners</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <section id="details">
+    <div class="container panel">
+      <h2>Event Details</h2>
+      <div class="details-simple">
+        <div>
+          <div class="info-label">Date</div>
+          <p class="muted">Saturday, November 16, 2025</p>
+        </div>
+        <div>
+          <div class="info-label">Time</div>
+          <p class="muted">Doors 5:30 PM • Show 6:30–9:30 PM</p>
+        </div>
+        <div>
+          <div class="info-label">Location</div>
+          <p class="muted">Memorial Hall, UNC-Chapel Hill</p>
+        </div>
+      </div>
+      <p class="muted spacejam-tag">
+        Bring your jam and be ready to Space Jam — high-energy sets, a hype crowd, and a night you’ll remember.
+      </p>
+    </div>
+  </section>
+
   <footer>
     <div class="container foot">
-      <div>© 2025 UNC AKD • Aaj Ka Dhamaka</div>
+      <div>© 2025 Aaj Ka Dhamaka. All rights reserved.</div>
       <div class="nav-links">
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a>
-        <a href="mailto:info@aajkadhamaka.org">Email</a>
+        <a href="#details">Event Details</a>
+        <a href="#partners">Partners</a>
+        <a href="#gallery">Gallery</a>
       </div>
     </div>
   </footer>
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
