@@ -348,3 +348,131 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+
+/* ============ TIP-OFF COUNTDOWN SECTION ============ */
+
+.countdown-section {
+  margin-top: -2.5rem;           /* pulls it a bit up toward the hero */
+  padding: 0 0 2.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.countdown-title {
+  text-align: center;
+  font-family: "Bangers";
+  letter-spacing: 0.16em;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+
+/* Layout of the flip clock row */
+.flip-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Each unit: DAYS / HOURS / etc. */
+.flip-unit {
+  text-align: center;
+}
+
+.flip-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Card shell – semi-transparent, Apple-ish */
+.flip-card {
+  perspective: 1000px;
+  width: 120px;
+  height: 90px;
+  border-radius: 18px;
+  background: radial-gradient(circle at top,
+      rgba(255, 255, 255, 0.18),
+      rgba(6, 2, 22, 0.9));
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Inner flipping part */
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-out;
+}
+
+/* Two faces (front/back) */
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bangers";
+  font-size: 2.5rem;
+  letter-spacing: 0.08em;
+  color: #f9f9ff;
+  backface-visibility: hidden;
+}
+
+/* subtle divider line like a real flip clock */
+.flip-front::after,
+.flip-back::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0)
+  );
+  opacity: 0.6;
+}
+
+/* back face rotated */
+.flip-back {
+  transform: rotateX(180deg);
+}
+
+/* when JS adds .is-flipping, we animate the flip */
+.flip-card.is-flipping .flip-inner {
+  transform: rotateX(-180deg);
+}
+
+/* smaller on phones */
+@media (max-width: 720px) {
+  .flip-card {
+    width: 90px;
+    height: 70px;
+    border-radius: 14px;
+  }
+
+  .flip-front,
+  .flip-back {
+    font-size: 2rem;
+  }
+
+  .countdown-section {
+    margin-top: -1.2rem;
+  }
+}
