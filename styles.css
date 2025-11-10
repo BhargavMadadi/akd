@@ -158,8 +158,8 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 .hero::after {
   content: "";
   position: absolute;
-  top: 32%;              /* move up/down */
-  left: 39%;             /* center horizontally */
+  top: 30%;              /* move up/down */
+  left: 40.5%;             /* center horizontally */
   width: 300px;          /* size of the silhouette */
   height: 300px;
   transform: translate(-50%, -50%) rotate(-10deg);
