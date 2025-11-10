@@ -158,20 +158,20 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 700px; /* smaller and more centered */
-  height: 350px;
+  width: 550px;  /* was larger – this tightens the glow */
+  height: 320px; /* lower height = less “football” oval */
   transform: translate(-50%, -50%);
   background: radial-gradient(
     ellipse at center,
-    rgba(200, 100, 255, 0.25) 0%,
-    rgba(80, 30, 120, 0.1) 45%,
-    rgba(40, 10, 60, 0) 70%
+    rgba(200, 100, 255, 0.18) 0%,  /* softer, dimmer center */
+    rgba(80, 30, 120, 0.08) 40%,
+    rgba(40, 10, 60, 0) 65%
   );
-  filter: blur(60px);
+  filter: blur(45px); /* less blur = less spread */
   z-index: 1;
-  transition: all 0.4s ease;
   animation: haloPulse 6s ease-in-out infinite;
 }
+
 
 @keyframes haloPulse {
   0%, 100% {
