@@ -153,6 +153,36 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   overflow: hidden; /* keeps image from increasing page width */
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px; /* smaller and more centered */
+  height: 350px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 100, 255, 0.25) 0%,
+    rgba(80, 30, 120, 0.1) 45%,
+    rgba(40, 10, 60, 0) 70%
+  );
+  filter: blur(60px);
+  z-index: 1;
+  transition: all 0.4s ease;
+  animation: haloPulse 6s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
 
 /* Faint dunker silhouette over the planet */
 .hero::after {
