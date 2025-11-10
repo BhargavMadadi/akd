@@ -148,16 +148,24 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   margin-right: 0.5rem;
 }
 
+.hero {
+  position: relative;
+  overflow: hidden; /* keeps image from increasing page width */
+}
+
+
 /* Faint dunk / player silhouette in hero corner */
 .hero::after {
   content: "";
   position: absolute;
-  bottom: -40px;          /* adjust as needed */
-  right: 6%;              /* adjust as needed */
-  width: 220px;
-  height: 220px;
+  bottom: 0; /* positions near the bottom */
+  right: 5%; /* move horizontally */
+  width: 200px;  /* control size */
+  height: 200px;
   background: url("root/dunker.png") center/contain no-repeat;
-  opacity: 0.35;          /* subtle look */
+  opacity: 0.25; /* make it faint */
   pointer-events: none;
-  filter: drop-shadow(0 0 12px rgba(255,255,255,0.2));
+  z-index: 2;
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.15));
 }
