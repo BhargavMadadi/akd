@@ -194,3 +194,59 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
     transform: translate(-50%, -50%) rotate(-8deg) scale(1.1);
   }
 }
+
+
+.countdown {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.ball {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 0.6rem;
+  background: radial-gradient(circle at 30% 30%, #ff8800 0%, #cc4400 80%);
+  box-shadow: inset 0 0 0 2px #552200, inset 0 0 0 4px #ffbb66;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spinBall 6s linear infinite;
+}
+
+.ball::before,
+.ball::after {
+  content: "";
+  position: absolute;
+  background: #552200;
+}
+
+.ball::before {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ball::after {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#timer {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+  text-shadow: 0 0 8px rgba(255,255,255,.3);
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
