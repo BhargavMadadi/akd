@@ -117,14 +117,15 @@ body::before{
 /* star canvas */
 .stars-canvas{
   position:absolute;
-  left:0;right:0;
-  top:-12%;
-  height:125%;
+  left:0; right:0;
+  top:0;           /* was negative */
+  height:100%;     /* was > 100% */
   width:100%;
   z-index:0;
   pointer-events:none;
   opacity:.9;
 }
+
 
 /* planet group */
 .planet-bg{
@@ -157,17 +158,18 @@ body::before{
 .planet::before{
   content:"";
   position:absolute;
-  inset:-18%;  /* a bit smaller spread */
+  inset:-18%;                 /* halo not quite as huge */
   border-radius:50%;
   background:radial-gradient(circle,
-    rgba(130,60,255,.38) 0%,   /* softer than .55 */
-    rgba(130,60,255,.20) 34%,
-    rgba(130,60,255,0)   68%);
-  filter:blur(30px);
-  opacity:.85;
+    rgba(130,60,255,.30) 0%,  /* softer center */
+    rgba(130,60,255,.12) 32%, /* softer mid ring */
+    rgba(130,60,255,0)  64%); /* fade out sooner */
+  filter:blur(38px);          /* more blur = softer edges */
+  opacity:.8;
   z-index:-1;
   animation:haloPulse 7s ease-in-out infinite;
 }
+
 
 
 /* subtle rotating texture */
