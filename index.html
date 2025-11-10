@@ -32,27 +32,29 @@
   </header>
 
   <!-- Centered Hero -->
-  <section class="hero">
+  <section class="hero hero--center">
+    <!-- STARFIELD (drawn by script.js) -->
+    <canvas id="stars-canvas" class="stars-canvas" aria-hidden="true"></canvas>
+  
+    <!-- Planet + Rings -->
     <div class="planet-bg" aria-hidden="true">
       <div class="planet"></div>
       <div class="ring r1"></div>
       <div class="ring r2"></div>
       <div class="ring r3"></div>
     </div>
-
+  
     <div class="container hero-inner">
       <h1>AAJ KA DHAMAKA</h1>
-
-      <!-- Pick ONE line below and delete the other -->
       <p class="hero-sub">Official Legends Partner Competition</p>
       <!-- <p class="hero-sub">UNC-Chapel Hill’s Premier Dance Competition</p> -->
-
-      <div class="btn-row">
+      <div class="btn-row hero-cta">
         <a class="btn btn-primary" href="philanthropy.html">Tickets / Philanthropy</a>
         <a class="btn btn-ghost" href="history.html">See our journey</a>
       </div>
     </div>
-  </section>
+</section>
+
 
   <!-- Event Details (compact) -->
   <section>
@@ -98,6 +100,6 @@
       </div>
     </div>
   </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
