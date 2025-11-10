@@ -157,15 +157,18 @@ body::before{
 .planet::before{
   content:"";
   position:absolute;
-  inset:-20%;
+  inset:-18%;  /* a bit smaller spread */
   border-radius:50%;
   background:radial-gradient(circle,
-    rgba(130,60,255,.55) 0%,
-    rgba(130,60,255,.23) 35%,
-    rgba(130,60,255,0) 70%);
-  filter:blur(32px);
+    rgba(130,60,255,.45) 0%,   /* softer than .55 */
+    rgba(130,60,255,.20) 34%,
+    rgba(130,60,255,0)   68%);
+  filter:blur(30px);
+  opacity:.85;
   z-index:-1;
+  animation:haloPulse 7s ease-in-out infinite;
 }
+
 
 /* subtle rotating texture */
 .planet::after{
