@@ -160,7 +160,7 @@ body::before{
   inset:-18%;  /* a bit smaller spread */
   border-radius:50%;
   background:radial-gradient(circle,
-    rgba(130,60,255,.45) 0%,   /* softer than .55 */
+    rgba(130,60,255,.38) 0%,   /* softer than .55 */
     rgba(130,60,255,.20) 34%,
     rgba(130,60,255,0)   68%);
   filter:blur(30px);
