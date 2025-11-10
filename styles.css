@@ -154,21 +154,25 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 }
 
 
-/* Faint dunk / player silhouette in hero corner */
+/* Faint dunker silhouette over the planet */
 .hero::after {
   content: "";
   position: absolute;
-  bottom: 0; /* positions near the bottom */
-  right: 5%; /* move horizontally */
-  width: 200px;  /* control size */
-  height: 200px;
-  background: url("dunker.png") center/contain no-repeat;
-  opacity: 0.25; /* make it faint */
+  top: 55%;              /* move up/down */
+  left: 50%;             /* center horizontally */
+  width: 260px;          /* size of the silhouette */
+  height: 260px;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  background-image: url("dunker.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.18;         /* faint; bump up if you want more visible */
   pointer-events: none;
-  z-index: 2;
-  transform: rotate(-10deg);
+  z-index: 2;            /* between planet and text */
   filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.15));
 }
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(-10deg); }
@@ -177,4 +181,11 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 
 .hero::after {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Keeps hero text and buttons above the silhouette */
+.hero-inner {
+  position: relative;
+  z-index: 3; /* ensures text/buttons are above the dunker */
+  text-align: center;
 }
