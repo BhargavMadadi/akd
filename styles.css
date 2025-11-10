@@ -162,7 +162,7 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   right: 5%; /* move horizontally */
   width: 200px;  /* control size */
   height: 200px;
-  background: url("root/dunker.png") center/contain no-repeat;
+  background: url("dunker.png") center/contain no-repeat;
   opacity: 0.25; /* make it faint */
   pointer-events: none;
   z-index: 2;
