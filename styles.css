@@ -228,3 +228,54 @@ footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:lin
   pointer-events:none;
   opacity:.9;
 }
+/* HERO: give it height + stop clipping the planet/rings */
+.hero--center{
+  position: relative;
+  min-height: 78vh;          /* taller hero */
+  padding: 7rem 0 9rem;      /* extra bottom so the whole planet fits */
+  display: grid;
+  place-items: center;
+  overflow: visible;         /* was hidden; now we can see full rings/planet */
+}
+
+/* Planet container fills hero and centers content */
+.planet-bg{
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  z-index: 1; pointer-events: none; opacity: .55;
+}
+
+/* Bigger planet, still responsive */
+.planet{
+  width: clamp(420px, 58vw, 880px);   /* larger, scales with viewport */
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+/* Make halo/rings pop a bit more (optional but looks great) */
+.planet::before{
+  background: radial-gradient(circle, rgba(123,60,255,.50), rgba(123,60,255,0) 62%);
+  filter: blur(22px);
+}
+.ring{
+  filter: blur(1.4px) drop-shadow(0 0 28px rgba(123,60,255,.42));
+  opacity: .92;
+}
+
+/* STAR CANVAS: bleed above & below hero so it “encases” the area */
+.stars-canvas{
+  position: absolute;
+  left: 0; right: 0;
+  top:  -12.5%;   /* half of the bleed amount */
+  height: 125%;   /* 25% extra height */
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .9;
+}
+
+/* Slightly tighter layout on small screens */
+@media (max-width: 720px){
+  .hero--center{ min-height: 68vh; padding: 6rem 0 7.5rem; }
+  .planet{ width: clamp(320px, 70vw, 620px); }
+}
