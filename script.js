@@ -146,7 +146,7 @@
 // ============ TIP-OFF FLIP COUNTDOWN ============
 
 // Set your event date & time (local time)
-const tipOffDate = new Date("2025-11-16T18:30:00"); // adjust time if needed
+const tipOffDate = new Date("2026-03-07T17:30:00"); // March 7, 2026, 5:30 PM
 
 const flipUnits = {
   days:    document.querySelector('.flip-unit[data-unit="days"]'),
