@@ -171,6 +171,7 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   pointer-events: none;
   z-index: 2;            /* between planet and text */
   filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.15));
+  animation: dunkerPulse 5s ease-in-out infinite;
 }
 
 
@@ -188,4 +189,15 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   position: relative;
   z-index: 3; /* ensures text/buttons are above the dunker */
   text-align: center;
+}
+
+@keyframes dunkerPulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1.03);
+  }
 }
