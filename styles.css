@@ -156,7 +156,7 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   right: 6%;              /* adjust as needed */
   width: 220px;
   height: 220px;
-  background: url("dunker.png") center/contain no-repeat;
+  background: url("root/dunker.png") center/contain no-repeat;
   opacity: 0.35;          /* subtle look */
   pointer-events: none;
   filter: drop-shadow(0 0 12px rgba(255,255,255,0.2));
