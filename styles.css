@@ -216,3 +216,14 @@ footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:lin
   filter: blur(20px);
 }
 .ring{ filter: blur(1.6px) drop-shadow(0 0 26px rgba(123,60,255,.4)); opacity: .9; }
+
+/* make the canvas fill the hero */
+.stars-canvas{
+  position:absolute;
+  inset:0;
+  width:100%;      /* <-- add */
+  height:100%;     /* <-- add */
+  z-index:0;
+  pointer-events:none;
+  opacity:.9;
+}
