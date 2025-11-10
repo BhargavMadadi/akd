@@ -24,9 +24,9 @@
 
   function resize() {
     dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-    const rect = hero.getBoundingClientRect();
-    w = Math.max(1, Math.floor(rect.width * dpr));
-    h = Math.max(1, Math.floor(rect.height * BLEED * dpr));
+    w = window.innerWidth * dpr;
+    h = window.innerHeight * dpr;
+
 
     canvas.width = w;
     canvas.height = h;
