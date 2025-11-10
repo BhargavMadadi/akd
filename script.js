@@ -14,7 +14,7 @@
   const BASE_SPEED = 0.02;
   const TWINKLE_SPEED = 0.02;   // a bit faster twinkle
   const PARALLAX = 18;          // stronger parallax effect
-  const BLEED = 1.05;
+  const BLEED = 1.0;
 
   let mouse = { x: 0.5, y: 0.5 };
 
