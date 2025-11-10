@@ -118,8 +118,8 @@ body::before{
 .stars-canvas{
   position:absolute;
   left:0; right:0;
-  top:0;           /* was negative */
-  height:100%;     /* was > 100% */
+  top:-1%;           /* was negative */
+  height:105%;     /* was > 100% */
   width:100%;
   z-index:0;
   pointer-events:none;
