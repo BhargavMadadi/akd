@@ -154,3 +154,59 @@ footer{border-top:1px solid var(--border);padding:1.2rem 0 1.6rem;background:lin
 
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes sway {0%{transform:rotate(-20deg)}100%{transform:rotate(-10deg)}}
+
+/* Star canvas sits behind everything in the hero */
+.stars-canvas{
+  position:absolute; inset:0;
+  z-index:0; pointer-events:none; /* drawing is in JS */
+  opacity:.9;
+}
+
+/* Keep hero elements above stars */
+.planet-bg{ z-index:1; }
+.hero-inner{ z-index:2; }
+
+/* SPINNING PLANET
+   We overlay a subtle conic texture that rotates (so you can “see” spin).
+*/
+.planet{
+  position:relative;
+  isolation:isolate; /* so glow layers blend nicely */
+  animation:float 9s ease-in-out infinite;
+}
+.planet::after{
+  content:"";
+  position:absolute; inset:0; border-radius:50%;
+  /* faint texture that makes rotation visible */
+  background:
+    conic-gradient(from 0deg,
+      rgba(20,20,40,.18),
+      rgba(255,255,255,0) 25%,
+      rgba(20,20,40,.16) 50%,
+      rgba(255,255,255,0) 75%,
+      rgba(20,20,40,.18) 100%);
+  mix-blend-mode:soft-light;
+  animation:spin 40s linear infinite;
+}
+
+/* Halo/Glow stronger and crisper */
+.planet::before{
+  content:"";
+  position:absolute; inset:-8%;
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(123,60,255,.35), rgba(123,60,255,0) 60%);
+  filter:blur(16px);
+  z-index:-1;
+}
+
+/* Rings: more visible halo & subtle inner glow */
+.ring{ filter:blur(1.6px) drop-shadow(0 0 22px rgba(123,60,255,.35)); opacity:.85; }
+.r1{ background:radial-gradient(closest-side, rgba(255,213,74,.78), transparent 72%) }
+.r2{ background:radial-gradient(closest-side, rgba(255,138,0,.70),  transparent 72%) }
+.r3{ background:radial-gradient(closest-side, rgba(123,60,255,.68), transparent 72%) }
+
+/* Animations */
+@keyframes spin{ to { transform: rotate(360deg); } }
+@keyframes float{ 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-10px) } }
+@keyframes sway { 0%{ transform: rotate(-20deg) } 100%{ transform: rotate(-10deg) } }
