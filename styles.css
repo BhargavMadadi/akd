@@ -158,8 +158,8 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 .hero::after {
   content: "";
   position: absolute;
-  top: 50%;              /* move up/down */
-  left: 53%;             /* center horizontally */
+  top: 55%;              /* move up/down */
+  left: 54.5%;             /* center horizontally */
   width: 320px;          /* size of the silhouette */
   height: 320px;
   transform: translate(-50%, -50%) rotate(-10deg);
@@ -190,7 +190,7 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
     transform: translate(-50%, -50%) rotate(-8deg) scale(1);
   }
   50% {
-    opacity: 0.25;
-    transform: translate(-50%, -50%) rotate(-8deg) scale(1.03);
+    opacity: 0.40;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1.1);
   }
 }
