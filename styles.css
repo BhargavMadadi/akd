@@ -61,20 +61,26 @@ body{
 }
 
 .planet{
-  width:clamp(280px,34vw,540px);  /* a bit smaller */
+  /* bigger planet again */
+  width:clamp(340px,46vw,680px);
   aspect-ratio:1/1;
   border-radius:50%;
   position:relative;
   isolation:isolate;
+
+  /* planet color/texture */
   background:radial-gradient(circle at 40% 35%,
-    rgba(207,200,255,.40) 0%,
-    rgba(128,102,255,.26) 45%,
-    rgba(60,30,120,.05) 75%,
+    rgba(207,200,255,.42) 0%,
+    rgba(128,102,255,.28) 45%,
+    rgba(60,30,120,.06) 75%,
     transparent 100%);
-  /* subtle halo just with box-shadow */
-  box-shadow:0 0 28px rgba(130,60,255,.35);
+
+  /* this is now the ONLY halo */
+  box-shadow:0 0 22px rgba(130,60,255,.28);
+
   animation:float 9s ease-in-out infinite;
 }
+
 
 
 
@@ -152,8 +158,8 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 .hero::after {
   content: "";
   position: absolute;
-  top: 26%;              /* move up/down */
-  left: 39%;             /* center horizontally */
+  top: 35%;              /* move up/down */
+  left: 43%;             /* center horizontally */
   width: 320px;          /* size of the silhouette */
   height: 320px;
   transform: translate(-50%, -50%) rotate(-10deg);
