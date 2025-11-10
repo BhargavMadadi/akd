@@ -76,7 +76,7 @@ body{
     transparent 100%);
 
   /* this is now the ONLY halo */
-  box-shadow:0 0 22px rgba(130,60,255,.28);
+  box-shadow:0 0 22px rgba(130,60,255,.12);
 
   animation:float 9s ease-in-out infinite;
 }
