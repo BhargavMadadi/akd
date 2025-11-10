@@ -158,10 +158,10 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 .hero::after {
   content: "";
   position: absolute;
-  top: 39%;              /* move up/down */
+  top: 36%;              /* move up/down */
   left: 42%;             /* center horizontally */
-  width: 260px;          /* size of the silhouette */
-  height: 260px;
+  width: 300px;          /* size of the silhouette */
+  height: 300px;
   transform: translate(-50%, -50%) rotate(-10deg);
   background-image: url("dunker.png");
   background-repeat: no-repeat;
