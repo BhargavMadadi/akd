@@ -159,9 +159,9 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   content: "";
   position: absolute;
   top: 30%;              /* move up/down */
-  left: 40.5%;             /* center horizontally */
-  width: 320px;          /* size of the silhouette */
-  height: 320px;
+  left: 39%;             /* center horizontally */
+  width: 350px;          /* size of the silhouette */
+  height: 350px;
   transform: translate(-50%, -50%) rotate(-10deg);
   background-image: url("dunker.png");
   background-repeat: no-repeat;
