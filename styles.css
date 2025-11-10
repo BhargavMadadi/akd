@@ -348,51 +348,54 @@ footer{
   }
 }
 
-/* === ORBITING BASKETBALL === */
+/* === ORBITING BASKETBALL – SIMPLE & VISIBLE === */
 .ball-orbit {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;             /* above planet + stars */
   pointer-events: none;
 }
 
+/* the ball itself */
 .bb {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffecd2 0%, #ffb347 40%, #ff7b00 70%, #a63e00 100%);
-  box-shadow: 0 0 16px rgba(255, 140, 0, 0.6);
+  background:
+    radial-gradient(circle at 30% 30%, #ffecd2 0%, #ffb347 40%, #ff7b00 70%, #a63e00 100%);
+  box-shadow: 0 0 16px rgba(255, 140, 0, 0.7);
   position: relative;
-  transform-origin: -240px -140px; /* controls orbit distance */
-  animation: ballOrbit 10s linear infinite, spin 2s linear infinite;
+  /* start it near the upper-right edge of the planet */
+  transform: translate(180px, -70px);
+  animation:
+    ballOrbit 11s linear infinite;
 }
 
-/* Add seam lines for the basketball */
+/* seam lines to look like a basketball */
 .bb::before,
 .bb::after {
   content: "";
   position: absolute;
   inset: 18%;
   border-radius: 50%;
-  border: 2px solid rgba(120, 40, 0, 0.7);
+  border: 2px solid rgba(120, 40, 0, 0.75);
 }
 
 .bb::after {
   inset: 0;
-  border-left: 2px solid rgba(120, 40, 0, 0.7);
-  border-right: 2px solid rgba(120, 40, 0, 0.7);
+  border-left: 2px solid rgba(120, 40, 0, 0.75);
+  border-right: 2px solid rgba(120, 40, 0, 0.75);
 }
 
-/* Orbit animation */
+/* orbit around the planet */
 @keyframes ballOrbit {
-  0% { transform: rotate(0deg) translateX(0); }
-  100% { transform: rotate(360deg) translateX(0); }
+  0%   { transform: translate(180px, -70px); }
+  25%  { transform: translate(80px, -190px); }
+  50%  { transform: translate(-170px, -60px); }
+  75%  { transform: translate(-60px, 130px); }
+  100% { transform: translate(180px, -70px); }
 }
 
-/* Basketball spinning animation */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
