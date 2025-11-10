@@ -246,3 +246,71 @@ function updateCountdown() {
 // Kick it off
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// ============ TIP-OFF FLIP COUNTDOWN ============
+
+// Set your event date & time (local time)
+const tipOffDate = new Date("2025-11-16T18:30:00"); // adjust time if needed
+
+const flipUnits = {
+  days:    document.querySelector('.flip-unit[data-unit="days"]'),
+  hours:   document.querySelector('.flip-unit[data-unit="hours"]'),
+  minutes: document.querySelector('.flip-unit[data-unit="minutes"]'),
+  seconds: document.querySelector('.flip-unit[data-unit="seconds"]'),
+};
+
+function pad(value, length) {
+  return value.toString().padStart(length, "0");
+}
+
+function setFlip(unitKey, newValue) {
+  const unit = flipUnits[unitKey];
+  if (!unit) return;
+
+  const card = unit.querySelector(".flip-card");
+  const front = unit.querySelector(".flip-front");
+  const back = unit.querySelector(".flip-back");
+
+  const currentValue = front.textContent.trim();
+  if (currentValue === newValue) return; // no change, no flip
+
+  // Prepare back face with the new value
+  back.textContent = newValue;
+
+  // Trigger flip
+  card.classList.add("is-flipping");
+
+  // After animation, lock in new value on front and reset
+  setTimeout(() => {
+    front.textContent = newValue;
+    card.classList.remove("is-flipping");
+  }, 650); // slightly longer than CSS transition
+}
+
+function updateCountdown() {
+  const now = new Date();
+  let diff = tipOffDate - now;
+
+  if (diff <= 0) {
+    // Event started / passed
+    setFlip("days", "000");
+    setFlip("hours", "00");
+    setFlip("minutes", "00");
+    setFlip("seconds", "00");
+    return;
+  }
+
+  const seconds = Math.floor(diff / 1000) % 60;
+  const minutes = Math.floor(diff / (1000 * 60)) % 60;
+  const hours   = Math.floor(diff / (1000 * 60 * 60)) % 24;
+  const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+  setFlip("days",    pad(days, 3));
+  setFlip("hours",   pad(hours, 2));
+  setFlip("minutes", pad(minutes, 2));
+  setFlip("seconds", pad(seconds, 2));
+}
+
+// kick it off
+updateCountdown();
+setInterval(updateCountdown, 1000);
