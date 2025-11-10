@@ -169,3 +169,12 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   transform: rotate(-10deg);
   filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.15));
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-8px) rotate(-12deg); }
+}
+
+.hero::after {
+  animation: float 6s ease-in-out infinite;
+}
