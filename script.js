@@ -207,6 +207,36 @@ function updateCountdown() {
   setFlip("seconds", pad(seconds, 2));
 }
 
+// ============ TIMELINE SCROLL FADE-IN ============
+
+(function () {
+  const items = document.querySelectorAll(".timeline-item");
+  if (!items.length) return;
+
+  // If the browser doesn't support IntersectionObserver, just show everything
+  if (!("IntersectionObserver" in window)) {
+    items.forEach(el => el.classList.add("timeline-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("timeline-visible");
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    {
+      threshold: 0.25,
+    }
+  );
+
+  items.forEach(el => observer.observe(el));
+})();
+
+
 // kick it off
 updateCountdown();
 setInterval(updateCountdown, 1000);
