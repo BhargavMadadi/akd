@@ -240,3 +240,31 @@ function updateCountdown() {
 // kick it off
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// Timeline scroll-reveal on the history page
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".timeline-item");
+  if (!items.length) return; // not on history page
+
+  if (!("IntersectionObserver" in window)) {
+    // fallback: just show everything
+    items.forEach((item) => item.classList.add("timeline-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("timeline-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  items.forEach((item) => observer.observe(item));
+});
