@@ -473,3 +473,23 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
     max-width: 100%;
   }
 }
+
+.history-gallery {
+  padding: 4rem 0;
+  text-align: center;
+}
+.history-gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.history-gallery .gallery-grid img {
+  width: 100%;
+  border-radius: 0.8rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+.history-gallery .gallery-grid img:hover {
+  transform: scale(1.03);
+}
