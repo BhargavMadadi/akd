@@ -493,3 +493,30 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 .history-gallery .gallery-grid img:hover {
   transform: scale(1.03);
 }
+
+.visitor-info {
+  padding: 4rem 0;
+}
+.visitor-info .info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 2rem;
+}
+.visitor-info .info-card {
+  background: radial-gradient(circle at top left,
+      rgba(255,255,255,0.08),
+      rgba(6,2,22,0.90));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1rem;
+  padding: 2rem 1.6rem;
+}
+.visitor-info .info-card h3 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.visitor-info .info-card p,
+.visitor-info .info-card ul {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
