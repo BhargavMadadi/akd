@@ -1133,3 +1133,117 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   }
 }
 
+/* ============ PAGE HERO (generic) ============ */
+.page-hero{
+  padding: 5rem 0 2rem;
+}
+.page-title{
+  font-family:"Bangers";
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:clamp(2.4rem, 4vw, 3.2rem);
+  text-align:center;
+}
+.page-tagline{
+  margin-top:.6rem;
+  text-align:center;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* Jump pills row */
+.jump-row{
+  margin-top:1.3rem;
+  display:flex;
+  gap:.6rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.pill-link{
+  display:inline-flex;
+  padding:.45rem .9rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  font-weight:700;
+  font-size:.85rem;
+  color:var(--ink);
+}
+.pill-link:hover{
+  border-color:rgba(114,255,155,.45);
+  color:var(--accent);
+}
+
+/* ============ BOARD / COMMITTEES ============ */
+.board-wrap{
+  padding: 1rem 0 4rem;
+}
+
+.committee{
+  margin: 1.4rem 0;
+}
+
+.committee-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-bottom:1.1rem;
+}
+.committee-head h2{
+  margin:0;
+}
+
+/* People grid */
+.people-grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.person-card{
+  border-radius: 1rem;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  background: radial-gradient(circle at top left,
+      rgba(255,255,255,0.10),
+      rgba(6,2,22,0.95));
+  box-shadow: 0 16px 32px rgba(0,0,0,.55);
+}
+
+.person-photo{
+  width:100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display:block;
+  background: rgba(255,255,255,.06);
+}
+
+.person-meta{
+  padding: .85rem .9rem 1rem;
+  text-align:center;
+}
+.person-name{
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.person-role{
+  margin-top:.25rem;
+  font-size:.9rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 980px){
+  .people-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 720px){
+  .people-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .committee-head{
+    margin-bottom:.9rem;
+  }
+}
