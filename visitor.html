@@ -10,16 +10,20 @@
 <body>
   <header class="site-header">
     <nav class="nav container">
-      <div class="brand">
+      <a class="brand" href="index.html">
         <img src="akd-logo.png" alt="AKD Logo">
         <span class="name">AAJ KA DHAMAKA</span>
-      </div>
-      <div class="nav-links">
+      </a>
+  
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+  
+      <div class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="board.html">Board</a>
         <a href="teams.html">Teams</a>
-        <a href="judges.html">Judges</a>
         <a href="partners.html">Partners</a>
         <a href="philanthropy.html">Philanthropy</a>
         <a href="visitor.html">Visitor Info</a>
@@ -27,6 +31,7 @@
       </div>
     </nav>
   </header>
+
 
   <!-- Visitor Hero -->
   <section class="visitor-hero">
