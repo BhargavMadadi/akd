@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Aaj Ka Dhamaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <div class="brand">
+        <img src="akd-logo.png" alt="AKD Logo">
+        <span class="name">AAJ KA DHAMAKA</span>
+      </div>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section style="padding:5rem 0 2rem;">
+    <div class="container">
+      <h1 style="font-family:Bangers;letter-spacing:.16em;text-transform:uppercase;font-size:clamp(2.2rem,4vw,3rem);">
+        Contact
+      </h1>
+      <p class="muted" style="max-width:760px;margin-top:.7rem;">
+        Reach the right person fast (comp day support, logistics, teams, tech).
+      </p>
+    </div>
+  </section>
+
+  <section style="padding:1rem 0 4rem;">
+    <div class="container panel">
+      <h2>Board Contact Info</h2>
+      <p class="muted">This loads from <code>contacts.json</code>.</p>
+
+      <div id="contacts-grid" class="people-grid">
+        <!-- JS renders -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
+      <div class="nav-links">
+        <a href="visitor.html">Visitor Info</a>
+        <a href="teams.html">Teams</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Minimal contacts renderer (no extra files needed)
+    (async function(){
+      const grid = document.getElementById("contacts-grid");
+      if(!grid) return;
+
+      try{
+        const res = await fetch("contacts.json", { cache: "no-store" });
+        const data = await res.json();
+
+        grid.innerHTML = data.map(p => `
+          <div class="person-card">
+            <img class="person-img" src="${p.photo || "board/placeholder.png"}" alt="${p.name}">
+            <div class="person-name">${p.name}</div>
+            <div class="person-role muted">${p.role || ""}</div>
+            <div class="muted" style="padding:0 .9rem .9rem;font-size:.9rem;">
+              ${p.email ? `<div><strong>Email:</strong> <a href="mailto:${p.email}">${p.email}</a></div>` : ""}
+              ${p.phone ? `<div><strong>Text:</strong> <a href="tel:${p.phone}">${p.phone}</a></div>` : ""}
+            </div>
+          </div>
+        `).join("");
+      }catch(e){
+        grid.innerHTML = `<p class="muted">Could not load contacts.json. Make sure it is in the repo root.</p>`;
+      }
+    })();
+  </script>
+</body>
+</html>
 
