@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Board — UNC AKD</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board | Aaj Ka Dhamaka</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
+<body>
+  <!-- Shared Header -->
   <header class="site-header">
     <nav class="nav container">
       <a class="brand" href="index.html">
         <img src="akd-logo.png" alt="AKD Logo">
         <span class="name">AAJ KA DHAMAKA</span>
       </a>
-  
+
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-  
+
       <div class="nav-links" id="nav-menu">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
@@ -32,63 +33,271 @@
     </nav>
   </header>
 
-
-<main>
-  <section class="hero">
+  <!-- Page Hero -->
+  <section class="page-hero">
     <div class="container">
-      <h1>Board</h1>
-      <p class="tagline">The organizing team behind Aaj Ka Dhamaka.</p>
-    </div>
-  </section>
+      <h1 class="page-title">Executive Board</h1>
+      <p class="page-tagline">Meet the people behind Aaj Ka Dhamaka.</p>
 
-  <section>
-    <div class="container panel">
-      <h2>Executive Team</h2>
-      <div class="list">
-        <!-- TODO: Replace names/titles; add/remove cards as needed -->
-        <div class="card"><strong>Executive Director</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Associate Director</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Finance Lead</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Operations Lead</strong><span class="muted">Name Here</span></div>
+      <div class="jump-row">
+        <a class="pill-link" href="#directors">Directors</a>
+        <a class="pill-link" href="#logistics">Logistics</a>
+        <a class="pill-link" href="#tech">Tech</a>
+        <a class="pill-link" href="#marketing">Marketing & Design</a>
+        <a class="pill-link" href="#partnerships">Partnerships</a>
+        <a class="pill-link" href="#finance">Finance</a>
+        <a class="pill-link" href="#judging">Judging</a>
+        <a class="pill-link" href="#liaisons">Head Liaisons</a>
+        <a class="pill-link" href="#safety">Safety & Wellness</a>
+        <a class="pill-link" href="#registration">Registration</a>
+        <a class="pill-link" href="#hospitality">Hospitality</a>
+        <a class="pill-link" href="#social">Social</a>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="container panel">
-      <h2>Programming & Logistics</h2>
-      <div class="list">
-        <div class="card"><strong>Programming Lead</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Tech/Stage Manager</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Hospitality</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Volunteer Coordinator</strong><span class="muted">Name Here</span></div>
+  <!-- BOARD CONTENT -->
+  <main class="board-wrap">
+    <div class="container">
+
+      <!-- Directors -->
+      <section id="directors" class="committee panel">
+        <div class="committee-head">
+          <h2>Directors</h2>
+          <p class="muted">Overall leadership and direction for AKD.</p>
+        </div>
+
+        <div class="people-grid">
+          <!-- Duplicate a card for each person -->
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Co-Director</div>
+            </div>
+          </article>
+
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Co-Director</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Logistics -->
+      <section id="logistics" class="committee panel">
+        <div class="committee-head">
+          <h2>Logistics</h2>
+          <p class="muted">Venues, timing, run-of-show, and day-of operations.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Logistics Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Tech -->
+      <section id="tech" class="committee panel">
+        <div class="committee-head">
+          <h2>Tech</h2>
+          <p class="muted">Music cuts, A/V coordination, and show tech.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Tech Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Marketing & Design -->
+      <section id="marketing" class="committee panel">
+        <div class="committee-head">
+          <h2>Marketing & Design</h2>
+          <p class="muted">Branding, graphics, promotions, and creative direction.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Marketing Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Partnerships -->
+      <section id="partnerships" class="committee panel">
+        <div class="committee-head">
+          <h2>Partnerships</h2>
+          <p class="muted">Sponsors, collabs, and community partners.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Partnerships Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Finance -->
+      <section id="finance" class="committee panel">
+        <div class="committee-head">
+          <h2>Finance</h2>
+          <p class="muted">Budgeting, reimbursements, and funding.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Finance Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Judging -->
+      <section id="judging" class="committee panel">
+        <div class="committee-head">
+          <h2>Judging</h2>
+          <p class="muted">Rubrics, judge coordination, and scoring flow.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Judging Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Head Liaisons -->
+      <section id="liaisons" class="committee panel">
+        <div class="committee-head">
+          <h2>Head Liaisons</h2>
+          <p class="muted">Team communication, updates, and coordination.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Head Liaison</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Safety & Wellness -->
+      <section id="safety" class="committee panel">
+        <div class="committee-head">
+          <h2>Safety & Wellness</h2>
+          <p class="muted">Medical/safety planning and wellness support during weekend.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Safety & Wellness</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Registration -->
+      <section id="registration" class="committee panel">
+        <div class="committee-head">
+          <h2>Registration</h2>
+          <p class="muted">Check-in, wristbands, and arrivals.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Registration Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Hospitality -->
+      <section id="hospitality" class="committee panel">
+        <div class="committee-head">
+          <h2>Hospitality</h2>
+          <p class="muted">Guest experience, hosting, and weekend comfort.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Hospitality Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Social -->
+      <section id="social" class="committee panel">
+        <div class="committee-head">
+          <h2>Social</h2>
+          <p class="muted">Vibes, bonding, and weekend events.</p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img class="person-photo" src="board/placeholder.jpg" alt="Name photo">
+            <div class="person-meta">
+              <div class="person-name">Full Name</div>
+              <div class="person-role muted">Social Chair</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
+      <div class="nav-links">
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section>
-    <div class="container panel">
-      <h2>Marketing & Outreach</h2>
-      <div class="list">
-        <div class="card"><strong>Marketing Lead</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Design/Brand</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Social Media</strong><span class="muted">Name Here</span></div>
-        <div class="card"><strong>Sponsorships</strong><span class="muted">Name Here</span></div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container foot">
-    <div>© 2025 UNC AKD • Aaj Ka Dhamaka</div>
-    <div class="nav-links">
-      <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-      <a href="mailto:info@aajkadhamaka.org">Email</a>
-    </div>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
