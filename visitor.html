@@ -1,19 +1,202 @@
-<section class="visitor-info">
-  <div class="container">
-    <h2>Visitor Info</h2>
-    <div class="info-cards">
-      <div class="info-card">
-        <h3>Nearby Eats</h3>
-        <ul>
-          <li><strong>Carolina Café</strong> – 2 mins walk from Memorial Hall.</li>
-          <li><strong>East 54 Kitchen</strong> – vegan-friendly, 5 mins drive.</li>
-          <li><strong>Superstore Snacks</strong> – your one-stop for late-night supplies.</li>
-        </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visitor Info | Aaj Ka Dhamaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <div class="brand">
+        <img src="akd-logo.png" alt="AKD Logo">
+        <span class="name">AAJ KA DHAMAKA</span>
       </div>
-      <div class="info-card">
-        <h3>Superstore / Convenience</h3>
-        <p>Chapel Hill Market – open until midnight during event weekend, free parking for teams.</p>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="judges.html">Judges</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Visitor Hero -->
+  <section class="visitor-hero">
+    <div class="container">
+      <h1 class="visitor-title">Visitor Info</h1>
+      <p class="visitor-tagline">Everything you might need during AKD weekend, in one place.</p>
+
+      <!-- Quick jump tiles -->
+      <div class="visitor-tiles">
+        <a class="tile" href="#itinerary">
+          <div class="tile-kicker">Schedule</div>
+          <div class="tile-title">Itinerary</div>
+          <div class="tile-sub">Live-updated plan</div>
+        </a>
+        <a class="tile" href="#resources">
+          <div class="tile-kicker">Help</div>
+          <div class="tile-title">Resource Sheet</div>
+          <div class="tile-sub">Water, first aid, etc.</div>
+        </a>
+        <a class="tile" href="#food">
+          <div class="tile-kicker">Eat</div>
+          <div class="tile-title">Food Spots</div>
+          <div class="tile-sub">Quick recs near campus</div>
+        </a>
+        <a class="tile" href="#superstores">
+          <div class="tile-kicker">Runs</div>
+          <div class="tile-title">Nearby Superstores</div>
+          <div class="tile-sub">Supplies, last-minute needs</div>
+        </a>
+        <a class="tile" href="#contacts">
+          <div class="tile-kicker">Reach us</div>
+          <div class="tile-title">Board Contacts</div>
+          <div class="tile-sub">Who to message</div>
+        </a>
+        <a class="tile" href="#benefit">
+          <div class="tile-kicker">Weekend</div>
+          <div class="tile-title">Benefit Night</div>
+          <div class="tile-sub">Why it matters</div>
+        </a>
       </div>
     </div>
+  </section>
+
+  <!-- Sticky section nav -->
+  <div class="section-nav">
+    <div class="container section-nav-inner">
+      <a href="#itinerary">Itinerary</a>
+      <a href="#resources">Resource Sheet</a>
+      <a href="#food">Food Spots</a>
+      <a href="#superstores">Superstores</a>
+      <a href="#contacts">Contacts</a>
+      <a href="#benefit">Benefit Night</a>
+    </div>
   </div>
-</section>
+
+  <!-- Itinerary Preview -->
+  <section id="itinerary" class="section-pad">
+    <div class="container panel">
+      <div class="section-head">
+        <h2>Finalized Itinerary</h2>
+        <p class="muted">Quick preview below. Full schedule lives on the itinerary page.</p>
+      </div>
+
+      <div class="itinerary-meta">
+        <span class="pill" id="itinerary-last-updated">Last updated: —</span>
+        <a class="btn btn-ghost btn-small" href="itinerary.html">Open Full Itinerary</a>
+      </div>
+
+      <div id="itinerary-preview" class="itinerary-preview">
+        <!-- JS renders preview items -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources / Master Sheet -->
+  <section id="resources" class="section-pad">
+    <div class="container panel">
+      <div class="section-head">
+        <h2>Resource Sheet</h2>
+        <p class="muted">Search what you need (water, electrolytes, first aid, check-in, etc.).</p>
+      </div>
+
+      <div class="resource-toolbar">
+        <input id="resource-search" class="input" type="text" placeholder="Search: water, electrolytes, first aid, etc." />
+        <select id="resource-category" class="select">
+          <option value="all">All categories</option>
+        </select>
+      </div>
+
+      <div id="resources-grid" class="resource-grid">
+        <!-- JS renders cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Food Spots -->
+  <section id="food" class="section-pad">
+    <div class="container panel">
+      <div class="section-head">
+        <h2>Food Spots</h2>
+        <p class="muted">Quick spots teams and visitors usually like. Add/edit in /data/food.json.</p>
+      </div>
+
+      <div id="food-grid" class="food-grid">
+        <!-- JS renders -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Superstores -->
+  <section id="superstores" class="section-pad">
+    <div class="container panel">
+      <div class="section-head">
+        <h2>Nearby Superstores</h2>
+        <p class="muted">For supplies, water runs, last-minute needs.</p>
+      </div>
+
+      <div id="superstore-grid" class="superstore-grid">
+        <!-- JS renders -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts" class="section-pad">
+    <div class="container panel">
+      <div class="section-head">
+        <h2>Board Contact Info</h2>
+        <p class="muted">Quick way to reach the right person.</p>
+      </div>
+
+      <div id="contacts-grid" class="contacts-grid">
+        <!-- JS renders -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefit Night -->
+  <section id="benefit" class="section-pad">
+    <div class="container panel">
+      <div class="section-head">
+        <h2>Benefit Night</h2>
+        <p class="muted">Purpose, schedule, and how to participate.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div>
+          <div class="info-label">What it is</div>
+          <p class="muted">Benefit Night is a community-focused event tied into AKD weekend.</p>
+        </div>
+        <div>
+          <div class="info-label">What we’ll add here</div>
+          <p class="muted">Dates, location, who it supports, schedule, and participation details.</p>
+        </div>
+        <a class="btn btn-primary btn-small" href="benefit-night.html">Benefit Night Page</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
+      <div class="nav-links">
+        <a href="#itinerary">Itinerary</a>
+        <a href="#resources">Resources</a>
+        <a href="#food">Food</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/visitor.js"></script>
+</body>
+</html>
