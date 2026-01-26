@@ -1082,3 +1082,54 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   .people-grid{grid-template-columns:1fr;}
   .person-img{height:240px;}
 }
+
+/* ============ MOBILE NAV ============ */
+.nav-toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  padding:.55rem;
+  border-radius:.7rem;
+}
+
+.nav-toggle span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:rgba(255,255,255,.85);
+  margin:5px 0;
+  border-radius:2px;
+}
+
+@media (max-width: 820px){
+  .nav{
+    align-items:center;
+  }
+
+  .nav-toggle{
+    display:inline-flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  .nav-links{
+    display:none;                 /* hidden by default on phone */
+    width:100%;
+    padding:.8rem 0 1rem;
+    gap:.65rem;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+
+  .nav-links a{
+    display:block;
+    padding:.55rem .2rem;
+    font-size:1rem;
+  }
+
+  .nav-links.is-open{
+    display:flex;
+    flex-direction:column;
+  }
+}
+
