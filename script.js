@@ -268,3 +268,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   items.forEach((item) => observer.observe(item));
 });
+
+// ===== Mobile nav toggle (works on all pages) =====
+(function(){
+  const btn = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".nav-links");
+  if(!btn || !links) return;
+
+  btn.addEventListener("click", () => {
+    const isOpen = links.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  // close menu after click
+  links.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      links.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  });
+})();
