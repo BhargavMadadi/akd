@@ -1,0 +1,7 @@
+{
+  "contacts": [
+    { "role": "Logistics", "name": "TBD", "contact": "email/phone here", "bestFor": "Venue issues, supplies, timing" },
+    { "role": "Teams Liaison", "name": "TBD", "contact": "email/phone here", "bestFor": "Team questions, check-in" },
+    { "role": "Tech Liaison", "name": "TBD", "contact": "email/phone here", "bestFor": "Music uploads, AV, staging" }
+  ]
+}
