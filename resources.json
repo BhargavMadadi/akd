@@ -1,0 +1,25 @@
+{
+  "categories": [
+    {
+      "name": "Hydration",
+      "items": [
+        { "title": "Water", "where": "TBD", "details": "Water stations and backup cases." },
+        { "title": "Electrolytes", "where": "TBD", "details": "Packets/drinks for quick recovery." }
+      ]
+    },
+    {
+      "name": "Health & Safety",
+      "items": [
+        { "title": "First Aid", "where": "TBD", "details": "Basic kit + point person." },
+        { "title": "Urgent Help", "where": "Call/Message", "details": "Use Board Contacts section for the right person." }
+      ]
+    },
+    {
+      "name": "Logistics",
+      "items": [
+        { "title": "Check-in", "where": "TBD", "details": "Wristbands + weekend info." },
+        { "title": "Lost & Found", "where": "TBD", "details": "Bring items here." }
+      ]
+    }
+  ]
+}
