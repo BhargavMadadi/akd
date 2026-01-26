@@ -1,0 +1,23 @@
+{
+  "lastUpdated": "2026-01-25",
+  "eventStart": "2026-03-07T17:30:00-05:00",
+  "days": [
+    {
+      "date": "2026-03-06",
+      "title": "Friday",
+      "blocks": [
+        { "time": "3:00 PM", "title": "Team Check-in Opens", "location": "TBD", "notes": "Pick up wristbands + welcome info." },
+        { "time": "6:00 PM", "title": "Welcome / Kickoff", "location": "TBD", "notes": "Quick rundown of weekend flow." }
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "title": "Saturday (Competition Day)",
+      "blocks": [
+        { "time": "12:00 PM", "title": "Venue Opens", "location": "Memorial Hall", "notes": "Staff + teams arrive." },
+        { "time": "5:30 PM", "title": "Competition Start (Tip-Off)", "location": "Memorial Hall", "notes": "Main show begins." },
+        { "time": "9:30 PM", "title": "Awards + Wrap", "location": "Memorial Hall", "notes": "Final announcements." }
+      ]
+    }
+  ]
+}
