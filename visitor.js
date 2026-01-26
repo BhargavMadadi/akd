@@ -145,11 +145,11 @@ function renderContacts(data) {
 (async function initVisitor() {
   try {
     const [itinerary, resources, food, superstores, contacts] = await Promise.all([
-      loadJSON("data/itinerary.json"),
-      loadJSON("data/resources.json"),
-      loadJSON("data/food.json"),
-      loadJSON("data/superstores.json"),
-      loadJSON("data/contacts.json")
+      loadJSON("itinerary.json"),
+      loadJSON("resources.json"),
+      loadJSON("food.json"),
+      loadJSON("superstores.json"),
+      loadJSON("contacts.json")
     ]);
 
     renderItineraryPreview(itinerary);
