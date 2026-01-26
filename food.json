@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "title": "Quick + Close to Campus",
+      "items": [
+        { "name": "Place Name", "type": "Fast casual", "note": "Reliable + quick service.", "maps": "https://maps.google.com/" },
+        { "name": "Place Name", "type": "Late-night", "note": "Good after rehearsal.", "maps": "https://maps.google.com/" }
+      ]
+    },
+    {
+      "title": "Sit-Down",
+      "items": [
+        { "name": "Place Name", "type": "Restaurant", "note": "Good for teams.", "maps": "https://maps.google.com/" }
+      ]
+    }
+  ]
+}
