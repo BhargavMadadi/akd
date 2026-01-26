@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itinerary | Aaj Ka Dhamaka</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <div class="brand">
+        <img src="akd-logo.png" alt="AKD Logo">
+        <span class="name">AAJ KA DHAMAKA</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="teams.html">Teams</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="itinerary-hero">
+    <div class="container">
+      <h1 class="visitor-title">Finalized Itinerary</h1>
+      <p class="visitor-tagline">This page renders from <code>/data/itinerary.json</code> so updates are painless.</p>
+
+      <div class="itinerary-meta">
+        <span class="pill" id="itinerary-last-updated-2">Last updated: —</span>
+        <span class="pill" id="event-start-pill">Event start: —</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container">
+      <div id="itinerary-days" class="itinerary-days">
+        <!-- JS renders full itinerary -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
+      <div class="nav-links">
+        <a href="visitor.html">Visitor Info</a>
+        <a href="index.html#details">Event Details</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/itinerary.js"></script>
+</body>
+</html>
