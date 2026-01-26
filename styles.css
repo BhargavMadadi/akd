@@ -1339,3 +1339,58 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
 @media (max-width: 720px){
   .people-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ====== Teams page ====== */
+.teams-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.team-card{
+  border-radius: 1rem;
+  padding: 1.1rem 1.15rem;
+  border:1px solid rgba(255,255,255,.10);
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.10), rgba(6,2,22,0.95));
+  box-shadow: 0 16px 32px rgba(0,0,0,.55);
+}
+
+.team-top{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:flex-start;
+  margin-bottom:.9rem;
+}
+.team-name{ font-weight:900; letter-spacing:.02em; font-size:1.1rem; }
+.team-sub{ margin-top:.15rem; }
+
+.team-chip{
+  padding:.28rem .6rem;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.78rem;
+  border:1px solid rgba(114,255,155,.35);
+  color: var(--accent);
+  background: rgba(114,255,155,.10);
+  white-space:nowrap;
+}
+.team-chip-alt{
+  border-color: rgba(255,255,255,.20);
+  color: var(--muted);
+  background: rgba(255,255,255,.06);
+}
+
+.team-meta{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem;
+  margin-bottom:.7rem;
+}
+
+.team-liaison{ font-size:.92rem; }
+
+@media (max-width: 720px){
+  .teams-grid{ grid-template-columns: 1fr; }
+  .team-meta{ grid-template-columns: 1fr; }
+}
