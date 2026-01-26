@@ -301,3 +301,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
+// Mobile nav toggle (works on every page)
+(function () {
+  const btn = document.querySelector(".nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  if (!btn || !menu) return;
+
+  btn.addEventListener("click", () => {
+    const open = menu.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
