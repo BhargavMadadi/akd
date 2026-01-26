@@ -1007,3 +1007,20 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   }
 }
 
+@media (max-width: 720px){
+  .section-nav-inner{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:.6rem;
+    padding:.7rem 0 .9rem;
+  }
+  .section-nav-inner a{
+    flex:0 0 auto;
+    white-space:nowrap;
+    padding:.35rem .6rem;
+    border-radius:999px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+}
+
