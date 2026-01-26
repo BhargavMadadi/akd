@@ -1,0 +1,16 @@
+{
+  "stores": [
+    {
+      "name": "Target",
+      "address": "TBD address",
+      "why": "Water runs, snacks, toiletries, basic supplies",
+      "maps": "https://maps.google.com/"
+    },
+    {
+      "name": "Walmart",
+      "address": "TBD address",
+      "why": "Cheap bulk supplies, emergency runs",
+      "maps": "https://maps.google.com/"
+    }
+  ]
+}
