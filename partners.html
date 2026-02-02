@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partners | Aaj Ka Dhamaka</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Partners page only (safe to keep inline) */
+    .partners-hero { padding: 5rem 0 2rem; }
+    .partners-hero h1{
+      font-family:"Bangers";
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      text-align:center;
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+    }
+    .partners-tagline{
+      margin-top:.6rem;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .partner-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:1rem;
+      margin-top:1.4rem;
+    }
+    .partner-card{
+      border-radius:1.1rem;
+      border:1px solid rgba(255,255,255,.10);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.10), rgba(6, 2, 22, 0.96));
+      box-shadow: 0 18px 35px rgba(0,0,0,.55);
+      overflow:hidden;
+    }
+    .partner-logo{
+      height:120px;
+      background: rgba(255,255,255,.04);
+      display:grid;
+      place-items:center;
+    }
+    .partner-logo img{
+      max-height:70px;
+      width:auto;
+      padding: 0 1rem;
+    }
+    .partner-meta{ padding: 1rem 1.1rem 1.1rem; }
+    .partner-name{ font-weight: 900; }
+    .partner-desc{ margin-top:.35rem; color: var(--muted); font-size:.92rem; }
+
+    .partner-tiers{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:1rem;
+    }
+
+    @media (max-width: 900px){
+      .partner-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px){
+      .partner-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <div class="brand">
+        <img src="akd-logo.png" alt="AKD Logo">
+        <span class="name">AAJ KA DHAMAKA</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="partners-hero">
+    <div class="container">
+      <h1>Partners</h1>
+      <p class="partners-tagline">Thank you to the organizations that help make AKD weekend possible.</p>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="container partner-tiers">
+
+      <div class="panel">
+        <h2 style="font-family:'Bangers';letter-spacing:.12em;font-size:1.6rem;margin-bottom:.4rem;">Sponsors &amp; Supporters</h2>
+        <p class="muted">Swap the placeholders with real logos and descriptions as you lock sponsors.</p>
+
+        <div class="partner-grid">
+          <div class="partner-card">
+            <div class="partner-logo"><img src="partner-placeholder.png" alt="Partner Logo"></div>
+            <div class="partner-meta">
+              <div class="partner-name">Partner Name</div>
+              <div class="partner-desc">Short line about what they do or what they’re supporting.</div>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo"><img src="partner-placeholder.png" alt="Partner Logo"></div>
+            <div class="partner-meta">
+              <div class="partner-name">Partner Name</div>
+              <div class="partner-desc">Short line about what they do or what they’re supporting.</div>
+            </div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo"><img src="partner-placeholder.png" alt="Partner Logo"></div>
+            <div class="partner-meta">
+              <div class="partner-name">Partner Name</div>
+              <div class="partner-desc">Short line about what they do or what they’re supporting.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 style="font-family:'Bangers';letter-spacing:.12em;font-size:1.6rem;margin-bottom:.4rem;">Become a Partner</h2>
+        <p class="muted">If you want to add a “Sponsorships” page later, this can link to it. For now, keep it simple.</p>
+
+        <div class="details-simple" style="margin-top:1rem;">
+          <div>
+            <div class="info-label">What partners get</div>
+            <p class="muted">Brand visibility, community impact, and direct engagement with teams and attendees.</p>
+          </div>
+          <div>
+            <div class="info-label">What we need</div>
+            <p class="muted">Support for venue costs, production, hospitality, and weekend programming.</p>
+          </div>
+          <div>
+            <div class="info-label">Contact</div>
+            <p class="muted">Use the Contact page to reach Partnerships.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:1.2rem;">
+          <a class="btn btn-primary" href="contact.html">Contact Us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
+      <div class="nav-links">
+        <a href="board.html">Board</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
 
