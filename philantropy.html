@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philanthropy | Aaj Ka Dhamaka</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .phil-hero{ padding: 5rem 0 2rem; }
+    .phil-hero h1{
+      font-family:"Bangers";
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      text-align:center;
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+    }
+    .phil-tagline{
+      margin-top:.6rem;
+      text-align:center;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .phil-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:1rem;
+      margin-top:1.2rem;
+    }
+    @media(max-width: 820px){
+      .phil-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <div class="brand">
+        <img src="akd-logo.png" alt="AKD Logo">
+        <span class="name">AAJ KA DHAMAKA</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="phil-hero">
+    <div class="container">
+      <h1>Philanthropy</h1>
+      <p class="phil-tagline">AKD weekend is bigger than the competition. This is the impact we care about.</p>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="container">
+
+      <div class="panel">
+        <h2 style="font-family:'Bangers';letter-spacing:.12em;font-size:1.6rem;margin-bottom:.4rem;">Community Impact</h2>
+        <p class="muted">Use this section to highlight what AKD supports. Keep it real and update as you finalize details.</p>
+
+        <div class="phil-grid">
+          <div>
+            <div class="info-label">Why we do it</div>
+            <p class="muted">We want AKD weekend to strengthen community through dance, culture, and giving back.</p>
+          </div>
+
+          <div>
+            <div class="info-label">What we support</div>
+            <p class="muted">Add the exact organization(s) and what donations support once confirmed.</p>
+          </div>
+
+          <div>
+            <div class="info-label">How people can help</div>
+            <p class="muted">Attend Benefit Night, donate, or partner with us as a sponsor/supporter.</p>
+          </div>
+
+          <div>
+            <div class="info-label">Transparency</div>
+            <p class="muted">After the weekend, we can share a short recap of funds raised and where it went.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:1.2rem;">
+        <h2 style="font-family:'Bangers';letter-spacing:.12em;font-size:1.6rem;margin-bottom:.4rem;">Benefit Night</h2>
+        <p class="muted">You said you’re building a dedicated Benefit Night page too — this is the summary version.</p>
+
+        <div class="details-simple" style="margin-top:1rem;">
+          <div>
+            <div class="info-label">What it is</div>
+            <p class="muted">A community-focused event tied into AKD weekend.</p>
+          </div>
+
+          <div>
+            <div class="info-label">What we’ll post here</div>
+            <p class="muted">Date, location, schedule, and participation info.</p>
+          </div>
+
+          <div>
+            <div class="info-label">More details</div>
+            <p class="muted">Link out to the full page when ready.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:1.2rem;">
+          <a class="btn btn-primary" href="visitor.html#benefit">Benefit Night Info</a>
+          <a class="btn btn-ghost" href="contact.html" style="margin-left:.6rem;">Get Involved</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
+      <div class="nav-links">
+        <a href="partners.html">Partners</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
 
