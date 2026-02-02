@@ -3,14 +3,47 @@
     {
       "title": "Quick + Close to Campus",
       "items": [
-        { "name": "Place Name", "type": "Fast casual", "note": "Reliable + quick service.", "maps": "https://maps.google.com/" },
-        { "name": "Place Name", "type": "Late-night", "note": "Good after rehearsal.", "maps": "https://maps.google.com/" }
+        {
+          "name": "Mediterranean Deli",
+          "type": "Fast casual",
+          "note": "Big portions, fast line, reliable for teams.",
+          "maps": "https://www.google.com/maps?q=410+W+Franklin+St,+Chapel+Hill,+NC+27516"
+        },
+        {
+          "name": "Raising Cane’s",
+          "type": "Fast casual",
+          "note": "Quick chicken tenders, consistent and easy for groups.",
+          "maps": "https://www.google.com/maps?q=101+E+Franklin+St,+Chapel+Hill,+NC+27514"
+        },
+        {
+          "name": "IP3 (Italian Pizzeria III)",
+          "type": "Late-night",
+          "note": "Classic late-night pizza spot on Franklin.",
+          "maps": "https://www.google.com/maps?q=508+W+Franklin+St,+Chapel+Hill,+NC+27516"
+        },
+        {
+          "name": "Cosmic Cantina",
+          "type": "Late-night",
+          "note": "UNC classic for burritos after rehearsal.",
+          "maps": "https://www.google.com/maps?q=118+E+Franklin+St,+Chapel+Hill,+NC"
+        }
       ]
     },
     {
       "title": "Sit-Down",
       "items": [
-        { "name": "Place Name", "type": "Restaurant", "note": "Good for teams.", "maps": "https://maps.google.com/" }
+        {
+          "name": "Top of the Hill",
+          "type": "Restaurant",
+          "note": "Downtown staple. Great for a full team dinner.",
+          "maps": "https://www.google.com/maps?q=100+E+Franklin+St,+Chapel+Hill,+NC"
+        },
+        {
+          "name": "Kipos Greek Taverna",
+          "type": "Restaurant",
+          "note": "Good sit-down option for teams and shared plates.",
+          "maps": "https://www.google.com/maps?q=1800+E+Franklin+St+%2316,+Chapel+Hill,+NC+27514"
+        }
       ]
     }
   ]
