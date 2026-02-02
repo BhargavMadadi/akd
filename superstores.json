@@ -1,16 +1,28 @@
 {
   "stores": [
     {
-      "name": "Target",
-      "address": "TBD address",
-      "why": "Water runs, snacks, toiletries, basic supplies",
-      "maps": "https://maps.google.com/"
+      "name": "Target (UNC Franklin St)",
+      "address": "143 W Franklin St Ste 120, Chapel Hill, NC 27516",
+      "why": "Closest Target to campus for toiletries, snacks, chargers, and quick supplies.",
+      "maps": "https://www.google.com/maps?q=143+W+Franklin+St+Ste+120,+Chapel+Hill,+NC+27516"
     },
     {
-      "name": "Walmart",
-      "address": "TBD address",
-      "why": "Cheap bulk supplies, emergency runs",
-      "maps": "https://maps.google.com/"
+      "name": "Walmart Supercenter (Chapel Hill)",
+      "address": "12500 US 15-501 N, Chapel Hill, NC 27517",
+      "why": "Best for cheap bulk supplies, emergency runs, and anything random.",
+      "maps": "https://www.google.com/maps?q=12500+US+15-501+N,+Chapel+Hill,+NC+27517"
+    },
+    {
+      "name": "Harris Teeter (Carr Mill)",
+      "address": "310 N Greensboro St, Carrboro, NC 27510",
+      "why": "Quick grocery trips: fruit, drinks, easy premade food, ice, and basics.",
+      "maps": "https://www.google.com/maps?q=310+N+Greensboro+St,+Carrboro,+NC+27510"
+    },
+    {
+      "name": "Whole Foods Market (Chapel Hill)",
+      "address": "81 S Elliott Rd, Chapel Hill, NC 27514",
+      "why": "Good for healthier options, premade meals, and last-minute catering-style food.",
+      "maps": "https://www.google.com/maps?q=81+S+Elliott+Rd,+Chapel+Hill,+NC+27514"
     }
   ]
 }
