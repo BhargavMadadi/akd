@@ -312,3 +312,38 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.setAttribute("aria-expanded", open ? "true" : "false");
   });
 })();
+// ===== Mobile Nav Drawer (works across all pages) =====
+(function () {
+  const toggle = document.querySelector(".nav-toggle");
+  const drawer = document.querySelector(".nav-drawer");
+  const backdrop = document.querySelector(".nav-backdrop");
+  const closeButtons = document.querySelectorAll("[data-nav-close]");
+  const mobileLinks = document.querySelectorAll(".nav-links--mobile a");
+
+  if (!toggle || !drawer || !backdrop) return;
+
+  function openNav() {
+    document.body.classList.add("nav-open");
+    toggle.setAttribute("aria-expanded", "true");
+    drawer.setAttribute("aria-hidden", "false");
+  }
+
+  function closeNav() {
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+    drawer.setAttribute("aria-hidden", "true");
+  }
+
+  toggle.addEventListener("click", () => {
+    const isOpen = document.body.classList.contains("nav-open");
+    if (isOpen) closeNav();
+    else openNav();
+  });
+
+  closeButtons.forEach((btn) => btn.addEventListener("click", closeNav));
+  mobileLinks.forEach((a) => a.addEventListener("click", closeNav));
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
+  });
+})();
