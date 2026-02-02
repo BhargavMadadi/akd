@@ -1522,3 +1522,137 @@ footer{border-top:1px solid var(--border);background:linear-gradient(#09041f,#04
   .team-photo{ width:110px; }
 }
 
+/* ============ MOBILE NAV DRAWER ============ */
+
+/* keep desktop layout intact */
+.nav-links--desktop {
+  display: flex;
+}
+
+/* hamburger hidden on desktop */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 999px;
+}
+
+/* backdrop */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-out;
+  z-index: 60;
+}
+
+/* drawer */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(86vw, 360px);
+  background: linear-gradient(to bottom, rgba(6,2,21,0.96), rgba(18,7,56,0.96));
+  border-left: 1px solid rgba(255,255,255,0.12);
+  transform: translateX(110%);
+  transition: transform 220ms ease-out;
+  z-index: 70;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.nav-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.2rem;
+}
+
+.nav-drawer-title {
+  font-family: "Bangers";
+  letter-spacing: 0.12em;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.nav-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* mobile links */
+.nav-links--mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.nav-links--mobile a {
+  padding: 0.85rem 0.85rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.nav-links--mobile a:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--accent);
+}
+
+/* open state */
+body.nav-open {
+  overflow: hidden;
+}
+
+body.nav-open .nav-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.nav-open .nav-drawer {
+  transform: translateX(0);
+}
+
+/* Responsive switch: hide desktop links, show hamburger */
+@media (max-width: 860px) {
+  .nav-links--desktop {
+    display: none;
+  }
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  /* keep brand from forcing wrap */
+  .brand .name {
+    font-size: 0.85rem;
+  }
+}
