@@ -1,3 +1,65 @@
+// ============ MOBILE NAV DRAWER (single instance) ============
+(function () {
+  function ready(fn){ document.readyState !== "loading" ? fn() : document.addEventListener("DOMContentLoaded", fn); }
+
+  ready(() => {
+    const toggle = document.querySelector(".nav-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const backdrop = document.querySelector(".nav-backdrop");
+    const closeBtn = document.querySelector(".nav-close");
+
+    if (!toggle || !menu || !backdrop) return;
+
+    // If you accidentally have duplicates, keep the first and remove the rest.
+    const dupMenus = document.querySelectorAll("#mobile-menu");
+    if (dupMenus.length > 1) {
+      for (let i = 1; i < dupMenus.length; i++) dupMenus[i].remove();
+    }
+    const dupBackdrops = document.querySelectorAll(".nav-backdrop");
+    if (dupBackdrops.length > 1) {
+      for (let i = 1; i < dupBackdrops.length; i++) dupBackdrops[i].remove();
+    }
+
+    function openMenu(){
+      menu.hidden = false;
+      backdrop.hidden = false;
+      requestAnimationFrame(() => menu.classList.add("is-open"));
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu(){
+      menu.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      setTimeout(() => {
+        menu.hidden = true;
+        backdrop.hidden = true;
+      }, 220);
+    }
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    backdrop.addEventListener("click", closeMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+    // Close on link click
+    menu.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (a) closeMenu();
+    });
+
+    // Close on Escape
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") closeMenu();
+    });
+  });
+})();
+
+
 // ===== AAJ KA DHAMAKA – interactive stars + parallax =====
 (function () {
   const canvas = document.getElementById("stars-canvas");
