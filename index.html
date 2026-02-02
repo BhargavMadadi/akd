@@ -9,7 +9,7 @@
 <body class="home">
   <header class="site-header">
     <nav class="nav container">
-      <a class="brand" href="index.html" aria-label="Aaj Ka Dhamaka home">
+      <a class="brand" href="index.html" aria-label="Aaj Ka Dhamaka Home">
         <img src="akd-logo.png" alt="AKD Logo">
         <span class="name">AAJ KA DHAMAKA</span>
       </a>
@@ -27,26 +27,20 @@
       </div>
   
       <!-- Mobile hamburger -->
-      <button class="nav-toggle" type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobile-drawer">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
+      <button class="nav-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+        <span class="sr-only">Open menu</span>
       </button>
     </nav>
   
-    <!-- Mobile drawer + backdrop -->
-    <div class="nav-backdrop" data-nav-close></div>
-  
-    <aside id="mobile-drawer" class="nav-drawer" aria-hidden="true">
-      <div class="nav-drawer-head">
-        <div class="nav-drawer-title">Menu</div>
-        <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>✕</button>
+    <!-- Mobile drawer (single source of truth) -->
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="mobile-menu-head">
+        <div class="mobile-menu-title">Menu</div>
+        <button class="nav-close" type="button" aria-label="Close menu">×</button>
       </div>
   
-      <div class="nav-links nav-links--mobile">
+      <div class="mobile-links">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="board.html">Board</a>
@@ -56,8 +50,11 @@
         <a href="visitor.html">Visitor Info</a>
         <a href="contact.html">Contact</a>
       </div>
-    </aside>
+    </div>
+  
+    <div class="nav-backdrop" hidden></div>
   </header>
+
 
 
 
