@@ -409,3 +409,44 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeNav();
   });
 })();
+
+// =========================
+// MOBILE NAV (single source of truth)
+// =========================
+(function () {
+  const openBtn = document.querySelector("[data-nav-open]");
+  const closeBtn = document.querySelector("[data-nav-close]");
+  const overlay = document.querySelector("[data-nav-overlay]");
+  const drawerLinks = document.querySelectorAll(".mobile-nav-links a");
+
+  if (!openBtn || !closeBtn || !overlay) return;
+
+  function openMenu() {
+    document.body.classList.add("menu-open");
+  }
+
+  function closeMenu() {
+    document.body.classList.remove("menu-open");
+  }
+
+  openBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (document.body.classList.contains("menu-open")) closeMenu();
+    else openMenu();
+  });
+
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeMenu();
+  });
+
+  overlay.addEventListener("click", closeMenu);
+
+  drawerLinks.forEach((a) => {
+    a.addEventListener("click", () => closeMenu());
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+})();
