@@ -9,13 +9,13 @@
 <body class="home">
   <header class="site-header">
     <nav class="nav container">
-      <div class="brand">
+      <a class="brand" href="index.html">
         <img src="akd-logo.png" alt="AKD Logo">
         <span class="name">AAJ KA DHAMAKA</span>
-      </div>
+      </a>
   
-      <!-- Desktop links (hidden on mobile by CSS above) -->
-      <div class="nav-links">
+      <!-- Desktop links -->
+      <div class="nav-links" id="desktopNav">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="board.html">Board</a>
@@ -27,34 +27,32 @@
       </div>
   
       <!-- Mobile hamburger -->
-      <button class="nav-toggle" aria-label="Open menu" data-nav-open>
-        <div class="bars" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
       </button>
     </nav>
+  
+    <!-- Mobile drawer + backdrop -->
+    <div class="nav-drawer-backdrop" id="navBackdrop" hidden></div>
+  
+    <aside class="nav-drawer" id="mobileNav" hidden>
+      <div class="nav-drawer-top">
+        <div class="nav-drawer-title">MENU</div>
+        <button class="nav-drawer-close" id="navClose" aria-label="Close menu">×</button>
+      </div>
+  
+      <div class="nav-drawer-links">
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </aside>
   </header>
-  
-  <!-- Mobile drawer (ONE menu only) -->
-  <div class="mobile-nav-overlay" data-nav-overlay></div>
-  
-  <aside class="mobile-nav" aria-label="Mobile menu">
-    <div class="mobile-nav-head">
-      <div class="mobile-nav-title">Menu</div>
-      <button class="mobile-nav-close" aria-label="Close menu" data-nav-close>✕</button>
-    </div>
-  
-    <div class="mobile-nav-links">
-      <a href="index.html">Home</a>
-      <a href="history.html">History</a>
-      <a href="board.html">Board</a>
-      <a href="teams.html">Teams</a>
-      <a href="partners.html">Partners</a>
-      <a href="philanthropy.html">Philanthropy</a>
-      <a href="visitor.html">Visitor Info</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </aside>
 
 
 
