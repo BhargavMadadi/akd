@@ -167,18 +167,32 @@ body.menu-open .mobile-nav{
   text-transform:uppercase;
 }
 
-.mobile-nav-close{
-  border:1px solid rgba(255,255,255,0.16);
-  background:rgba(255,255,255,0.06);
-  border-radius:14px;
-  width:44px;height:40px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  color:var(--ink);
-  font-size:1.3rem;
+.mobile-nav-close {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--ink);
+
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
 }
+
+.mobile-nav-close:hover {
+  background: rgba(255,255,255,0.14);
+}
+
 
 .mobile-nav-links{
   display:grid;
@@ -880,4 +894,684 @@ footer{
 @keyframes dunkerPulse{
   0%,100%{opacity:.15;transform:translate(-50%,-50%) rotate(-8deg) scale(1)}
   50%{opacity:.40;transform:translate(-50%,-50%) rotate(-8deg) scale(1.1)}
+}
+
+/* ============================================================
+   MOBILE NAV — FORCE BY ID (fixes “inline links / not a drawer”)
+   Put this at the END of styles.css so it overrides earlier rules.
+   ============================================================ */
+
+#mobileNav[hidden],
+#navBackdrop[hidden] {
+  display: none !important;
+}
+
+#navBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+#mobileNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(92vw, 420px);
+  z-index: 9999;
+
+  background: linear-gradient(to bottom, rgba(6,2,21,0.96), rgba(18,7,56,0.96));
+  backdrop-filter: blur(14px);
+  border-left: 1px solid rgba(255,255,255,0.10);
+
+  transform: translateX(104%);
+  transition: transform 220ms ease;
+  padding: 1.1rem 1rem 1.2rem;
+  overflow-y: auto;
+}
+
+/* JS toggles body.menu-open */
+body.menu-open #navBackdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.menu-open #mobileNav {
+  transform: translateX(0);
+}
+
+/* Make links stack vertically no matter what container they are in */
+#mobileNav a {
+  display: block;
+  padding: 1.05rem 1.05rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.35);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+#mobileNav a + a {
+  margin-top: .9rem;
+}
+
+
+/* FORCE close button styling (wins over everything) */
+#navClose {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 14px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  background: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(10px) !important;
+
+  color: var(--ink) !important;
+  font-size: 1.6rem !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35) !important;
+}
+
+#navClose:hover {
+  background: rgba(255,255,255,0.14) !important;
+}
+/* Close (X) button — matches your HTML: .nav-drawer-close */
+.nav-drawer-close {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  color: var(--ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 700;
+
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+.nav-drawer-close:hover {
+  background: rgba(255,255,255,0.14);
+}
+.nav-drawer-close {
+  -webkit-appearance: none;
+  appearance: none;
+}
+/* ============================================================
+   HARD STOP: never show mobile drawer/backdrop on desktop
+   ============================================================ */
+@media (min-width: 901px){
+  #mobileNav,
+  #navBackdrop{
+    display:none !important;
+  }
+  body.menu-open{
+    overflow:auto !important;
+  }
+}
+/* ============================================================
+   NAV DRAWER (your actual class names)
+   ============================================================ */
+.nav-drawer-backdrop[hidden],
+.nav-drawer[hidden]{
+  display:none !important;
+}
+
+.nav-drawer-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  background:rgba(0,0,0,0.55);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 220ms ease;
+}
+
+.nav-drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  height:100vh;
+  width:min(92vw, 420px);
+  z-index:9999;
+
+  background: linear-gradient(to bottom, rgba(6,2,21,0.96), rgba(18,7,56,0.96));
+  backdrop-filter: blur(14px);
+  border-left:1px solid rgba(255,255,255,0.10);
+
+  transform:translateX(104%);
+  transition:transform 220ms ease;
+  padding:1.1rem 1rem 1.2rem;
+  overflow-y:auto;
+}
+
+body.menu-open .nav-drawer-backdrop{
+  opacity:1;
+  pointer-events:auto;
+}
+
+body.menu-open .nav-drawer{
+  transform:translateX(0);
+}
+
+.nav-drawer-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.8rem;
+  padding-bottom:.8rem;
+  border-bottom:1px solid rgba(255,255,255,0.10);
+  margin-bottom:1rem;
+}
+
+.nav-drawer-title{
+  font-family:"Bangers";
+  letter-spacing:.16em;
+  font-size:1.1rem;
+  text-transform:uppercase;
+}
+
+.nav-drawer-links{
+  display:grid;
+  gap:.9rem;
+  padding:.2rem 0 1rem;
+}
+
+.nav-drawer-links a{
+  display:block;
+  padding:1.05rem 1.05rem;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.05);
+  box-shadow:0 16px 34px rgba(0,0,0,0.35);
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+/* Close (X) button — matches your HTML */
+.nav-drawer-close{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+
+  color:var(--ink);
+  font-size:1.6rem;
+  line-height:1;
+  font-weight:700;
+
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(0,0,0,0.35);
+}
+
+.nav-drawer-close:hover{
+  background:rgba(255,255,255,0.14);
+}
+
+/* Never show the drawer/backdrop on desktop */
+@media (min-width: 901px){
+  #mobileNav,
+  #navBackdrop{
+    display:none !important;
+  }
+  body.menu-open{overflow:auto !important;}
+}
+
+/* ============================================================
+   BOARD — grid cards
+   ============================================================ */
+.board-wrap{
+  padding-bottom: 3.2rem;
+  display:grid;
+  gap:1.2rem;
+}
+
+.board-section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.board-section-head h2{
+  font-family:"Bangers";
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:1.35rem;
+}
+
+.board-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:1rem;
+}
+
+.board-card{
+  border-radius:1.2rem;
+  border:1px solid rgba(255,255,255,0.10);
+  background:radial-gradient(circle at top left, rgba(255,255,255,0.12), rgba(6,2,22,0.96));
+  box-shadow:0 18px 35px rgba(0,0,0,0.55);
+  overflow:hidden;
+  transition:transform .12s ease-out, border-color .12s ease-out;
+}
+
+.board-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(114,255,155,0.22);
+}
+
+.board-photo{
+  aspect-ratio:1/1;
+  width:100%;
+  background:rgba(255,255,255,0.06);
+}
+
+.board-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.board-meta{
+  padding:0.95rem 1rem 1.05rem;
+  text-align:center;
+}
+
+.board-name{
+  font-weight:900;
+  font-size:1.05rem;
+}
+
+.board-role{
+  margin-top:.25rem;
+  color:var(--muted);
+  font-size:.92rem;
+  font-weight:700;
+}
+
+@media (max-width: 900px){
+  .board-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+}
+@media (max-width: 520px){
+  .board-grid{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   TEAMS — photo tiles (team name only)
+   ============================================================ */
+.teams-wrap{
+  padding-bottom: 3.2rem;
+  display:grid;
+  gap:1.2rem;
+}
+
+.teams-section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.teams-section-head h2{
+  font-family:"Bangers";
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:1.35rem;
+}
+
+.teams-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:1rem;
+}
+
+.team-tile{
+  border-radius:1.2rem;
+  border:1px solid rgba(255,255,255,0.10);
+  background:radial-gradient(circle at top left, rgba(255,255,255,0.10), rgba(6,2,22,0.96));
+  box-shadow:0 18px 35px rgba(0,0,0,0.55);
+  overflow:hidden;
+  transition:transform .12s ease-out, border-color .12s ease-out;
+}
+
+.team-tile:hover{
+  transform:translateY(-2px);
+  border-color:rgba(114,255,155,0.20);
+}
+
+.team-tile-photo{
+  aspect-ratio: 16 / 10;
+  width:100%;
+  background:rgba(255,255,255,0.06);
+}
+
+.team-tile-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.team-tile-name{
+  padding:0.95rem 1rem 1.05rem;
+  font-weight:900;
+  font-size:1.05rem;
+  line-height:1.2;
+}
+
+@media (max-width: 900px){
+  .teams-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+}
+@media (max-width: 520px){
+  .teams-grid{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   NAV DRAWER (matches your HTML classes)
+   ============================================================ */
+.nav-drawer-backdrop[hidden],
+.nav-drawer[hidden]{
+  display:none !important;
+}
+
+.nav-drawer-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  background:rgba(0,0,0,0.55);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 220ms ease;
+}
+
+.nav-drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  height:100vh;
+  width:min(92vw, 420px);
+  z-index:9999;
+
+  background: linear-gradient(to bottom, rgba(6,2,21,0.96), rgba(18,7,56,0.96));
+  backdrop-filter: blur(14px);
+  border-left:1px solid rgba(255,255,255,0.10);
+
+  transform:translateX(104%);
+  transition:transform 220ms ease;
+  padding:1.1rem 1rem 1.2rem;
+  overflow-y:auto;
+}
+
+body.menu-open .nav-drawer-backdrop{
+  opacity:1;
+  pointer-events:auto;
+}
+
+body.menu-open .nav-drawer{
+  transform:translateX(0);
+}
+
+.nav-drawer-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.8rem;
+  padding-bottom:.8rem;
+  border-bottom:1px solid rgba(255,255,255,0.10);
+  margin-bottom:1rem;
+}
+
+.nav-drawer-title{
+  font-family:"Bangers";
+  letter-spacing:.16em;
+  font-size:1.1rem;
+  text-transform:uppercase;
+}
+
+.nav-drawer-links{
+  display:grid;
+  gap:.9rem;
+  padding:.2rem 0 1rem;
+}
+
+.nav-drawer-links a{
+  display:block;
+  padding:1.05rem 1.05rem;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.05);
+  box-shadow:0 16px 34px rgba(0,0,0,0.35);
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+.nav-drawer-close{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+
+  color:var(--ink);
+  font-size:1.6rem;
+  line-height:1;
+  font-weight:700;
+
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(0,0,0,0.35);
+}
+
+/* ============================================================
+   BOARD
+   ============================================================ */
+.board-wrap{
+  padding-bottom: 3.2rem;
+  display:grid;
+  gap:1.2rem;
+}
+
+.board-section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.board-section-head h2{
+  font-family:"Bangers";
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:1.35rem;
+}
+
+.board-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:1rem;
+}
+
+.board-card{
+  border-radius:1.2rem;
+  border:1px solid rgba(255,255,255,0.10);
+  background:radial-gradient(circle at top left, rgba(255,255,255,0.12), rgba(6,2,22,0.96));
+  box-shadow:0 18px 35px rgba(0,0,0,0.55);
+  overflow:hidden;
+  transition:transform .12s ease-out, border-color .12s ease-out;
+}
+
+.board-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(114,255,155,0.22);
+}
+
+.board-photo{
+  aspect-ratio:1/1;
+  width:100%;
+  background:rgba(255,255,255,0.06);
+}
+
+.board-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.board-meta{
+  padding:0.95rem 1rem 1.05rem;
+  text-align:center;
+}
+
+.board-name{
+  font-weight:900;
+  font-size:1.05rem;
+}
+
+.board-role{
+  margin-top:.25rem;
+  color:var(--muted);
+  font-size:.92rem;
+  font-weight:700;
+}
+
+@media (max-width: 900px){
+  .board-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+}
+@media (max-width: 520px){
+  .board-grid{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   TEAMS
+   ============================================================ */
+.teams-wrap{
+  padding-bottom: 3.2rem;
+  display:grid;
+  gap:1.2rem;
+}
+
+.teams-section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.teams-section-head h2{
+  font-family:"Bangers";
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:1.35rem;
+}
+
+.teams-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:1rem;
+}
+
+.team-tile{
+  border-radius:1.2rem;
+  border:1px solid rgba(255,255,255,0.10);
+  background:radial-gradient(circle at top left, rgba(255,255,255,0.10), rgba(6,2,22,0.96));
+  box-shadow:0 18px 35px rgba(0,0,0,0.55);
+  overflow:hidden;
+  transition:transform .12s ease-out, border-color .12s ease-out;
+}
+
+.team-tile:hover{
+  transform:translateY(-2px);
+  border-color:rgba(114,255,155,0.20);
+}
+
+.team-tile-photo{
+  aspect-ratio: 16 / 10;
+  width:100%;
+  background:rgba(255,255,255,0.06);
+}
+
+.team-tile-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.team-tile-name{
+  padding:0.95rem 1rem 1.05rem;
+  font-weight:900;
+  font-size:1.05rem;
+  line-height:1.2;
+}
+
+@media (max-width: 900px){
+  .teams-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+}
+@media (max-width: 520px){
+  .teams-grid{grid-template-columns:1fr;}
+}
+/* ============================================================
+   TEAMS — make images actually visible (override)
+   ============================================================ */
+
+.team-tile{
+  background: rgba(0,0,0,0.18) !important;  /* stop the card bg from washing out the image */
+}
+
+.team-tile-photo{
+  position: relative !important;
+  overflow: hidden !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.team-tile-photo img{
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  position: relative !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* ensure the name bar is not overlapping the photo */
+.team-tile-name{
+  position: relative !important;
+  z-index: 3 !important;
+  background: linear-gradient(to top, rgba(6,2,22,0.88), rgba(6,2,22,0.20)) !important;
 }

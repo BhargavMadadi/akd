@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teams | Aaj Ka Dhamaka</title>
+  <title>AKD | Teams</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -15,11 +15,7 @@
         <span class="name">AAJ KA DHAMAKA</span>
       </a>
 
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="nav-links" id="nav-menu">
+      <div class="nav-links" id="desktopNav">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="board.html">Board</a>
@@ -29,77 +25,156 @@
         <a href="visitor.html">Visitor Info</a>
         <a href="contact.html">Contact</a>
       </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <div class="nav-drawer-backdrop" id="navBackdrop" hidden></div>
+
+    <aside class="nav-drawer" id="mobileNav" hidden>
+      <div class="nav-drawer-top">
+        <div class="nav-drawer-title">MENU</div>
+        <button class="nav-drawer-close" id="navClose" aria-label="Close menu">×</button>
+      </div>
+
+      <div class="nav-drawer-links">
+        <a href="index.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </aside>
   </header>
 
-   <section class="history-hero">
-    <div class="container">
-      <h1>Teams</h1>
-      <p class="history-tagline">Attending teams for AKD weekend.</p>
-    </div>
-  </section>
-  
-  <section class="timeline-section">
-    <div class="container">
-  
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Teams</h1>
+        <p>Attending teams for AKD weekend.</p>
+      </div>
+    </section>
+
+    <section class="container teams-wrap">
+
       <!-- FUSION (TOP) -->
-      <div class="panel" style="margin-bottom:1.2rem;">
-        <div class="team-section-title">Fusion</div>
-        <p class="muted" style="margin-bottom:1rem;">Add team photos + school names as they finalize.</p>
-  
-        <div class="team-grid">
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="team-placeholder.png" alt="Team Name">
+      <div class="teams-section panel">
+        <div class="teams-section-head">
+          <h2>Fusion</h2>
+          <p class="muted">8 teams</p>
+        </div>
+
+        <div class="teams-grid">
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/TexasMohini.png" alt="Texas Mohini">
             </div>
-            <div class="team-body">
-              <div class="team-name">Team Name</div>
-              <div class="team-school">University / College</div>
+            <div class="team-tile-name">Texas Mohini</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/placeholder.png" alt="Mehfil Mitraan Di">
             </div>
-          </div>
-  
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="team-placeholder.png" alt="Team Name">
+            <div class="team-tile-name">Mehfil Mitraan Di</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/uucsckahaani.png" alt="UCSC Kahaani">
             </div>
-            <div class="team-body">
-              <div class="team-name">Team Name</div>
-              <div class="team-school">University / College</div>
+            <div class="team-tile-name">UCSC Kahaani</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/casekismat.png" alt="Case Kismet">
             </div>
-          </div>
+            <div class="team-tile-name">Case Kismet</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/UcbZahanat.png" alt="UCB Zahanat">
+            </div>
+            <div class="team-tile-name">UCB Zahanat</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/UwKahaani.png" alt="UW Kahaani">
+            </div>
+            <div class="team-tile-name">UW Kahaani</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="akd_teams_pictures/placeholder.png" alt="CIA Lok Naach">
+            </div>
+            <div class="team-tile-name">CIA Lok Naach</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/GtJadoo.png" alt="GT Jadoo">
+            </div>
+            <div class="team-tile-name">GT Jadoo</div>
+          </article>
         </div>
       </div>
-  
+
       <!-- BHANGRA (BOTTOM) -->
-      <div class="panel">
-        <div class="team-section-title">Bhangra</div>
-        <p class="muted" style="margin-bottom:1rem;">Add team photos + school names as they finalize.</p>
-  
-        <div class="team-grid">
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="team-placeholder.png" alt="Team Name">
+      <div class="teams-section panel">
+        <div class="teams-section-head">
+          <h2>Bhangra</h2>
+          <p class="muted">5 teams</p>
+        </div>
+
+        <div class="teams-grid">
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="akd_teams_pictures/placeholder.png" alt="Broad Street Baadshahz">
             </div>
-            <div class="team-body">
-              <div class="team-name">Team Name</div>
-              <div class="team-school">University / College</div>
+            <div class="team-tile-name">Broad Street Baadshahz</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="akd_teams_pictures/ucbazaad.png" alt="UCB Azaad">
             </div>
-          </div>
-  
-          <div class="team-card">
-            <div class="team-photo">
-              <img src="team-placeholder.png" alt="Team Name">
+            <div class="team-tile-name">UCB Azaad</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="akd_teams_pictures/placeholder.png" alt="Stanford Bhangra">
             </div>
-            <div class="team-body">
-              <div class="team-name">Team Name</div>
-              <div class="team-school">University / College</div>
+            <div class="team-tile-name">Stanford Bhangra</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/ClassicCityBhangra.png" alt="Classic City Bhangra">
             </div>
-          </div>
+            <div class="team-tile-name">Classic City Bhangra</div>
+          </article>
+
+          <article class="team-tile">
+            <div class="team-tile-photo">
+              <img src="./akd_teams_pictures/BhamsBlazin Bhangra.png" alt="Bham’s Blazin’ Bhangra">
+            </div>
+            <div class="team-tile-name">Bham’s Blazin’ Bhangra</div>
+          </article>
         </div>
       </div>
-  
-    </div>
-  </section>
+
+    </section>
+  </main>
 
   <footer>
     <div class="container foot">
@@ -111,6 +186,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

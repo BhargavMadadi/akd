@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Board | Aaj Ka Dhamaka</title>
+  <title>AKD | Board</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <header class="site-header">
     <nav class="nav container">
-      <a class="brand" href="index.html" aria-label="Aaj Ka Dhamaka home">
+      <a class="brand" href="index.html">
         <img src="akd-logo.png" alt="AKD Logo">
         <span class="name">AAJ KA DHAMAKA</span>
       </a>
-  
-      <!-- Desktop links -->
-      <div class="nav-links nav-links--desktop">
+
+      <div class="nav-links" id="desktopNav">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="board.html">Board</a>
@@ -26,28 +25,21 @@
         <a href="visitor.html">Visitor Info</a>
         <a href="contact.html">Contact</a>
       </div>
-  
-      <!-- Mobile hamburger -->
-      <button class="nav-toggle" type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobile-drawer">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
       </button>
     </nav>
-  
-    <!-- Mobile drawer + backdrop -->
-    <div class="nav-backdrop" data-nav-close></div>
-  
-    <aside id="mobile-drawer" class="nav-drawer" aria-hidden="true">
-      <div class="nav-drawer-head">
-        <div class="nav-drawer-title">Menu</div>
-        <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>✕</button>
+
+    <div class="nav-drawer-backdrop" id="navBackdrop" hidden></div>
+
+    <aside class="nav-drawer" id="mobileNav" hidden>
+      <div class="nav-drawer-top">
+        <div class="nav-drawer-title">MENU</div>
+        <button class="nav-drawer-close" id="navClose" aria-label="Close menu">×</button>
       </div>
-  
-      <div class="nav-links nav-links--mobile">
+
+      <div class="nav-drawer-links">
         <a href="index.html">Home</a>
         <a href="history.html">History</a>
         <a href="board.html">Board</a>
@@ -60,229 +52,233 @@
     </aside>
   </header>
 
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Board</h1>
+        <p>Meet the team behind AKD weekend.</p>
+      </div>
+    </section>
 
-  <section class="history-hero">
-    <div class="container">
-      <h1>Board</h1>
-      <p class="history-tagline">Meet the team behind AKD weekend.</p>
-    </div>
-  </section>
-
-  <section class="timeline-section">
-    <div class="container">
-
-      <!-- DIRECTORS -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Directors</h2>
+    <section class="container board-wrap">
+      <!-- DIRECTORS (TOP) -->
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Directors</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Director Name"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Director</div>
+
+        <div class="board-grid">
+          <!-- Replace names/photos as you finalize -->
+          <article class="board-card">
+            <div class="board-photo">
+              <img src="board/placeholder.jpg" alt="Director Name">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Director Name</div>
+              <div class="board-role">Director</div>
             </div>
           </article>
 
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Director Name"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Director</div>
+          <article class="board-card">
+            <div class="board-photo">
+              <img src="board/placeholder.jpg" alt="Director Name">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Director Name</div>
+              <div class="board-role">Director</div>
+            </div>
+          </article>
+
+          <article class="board-card">
+            <div class="board-photo">
+              <img src="board/placeholder.jpg" alt="Director Name">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Director Name</div>
+              <div class="board-role">Director</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- SOCIAL -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Social</h2>
+      <!-- COMMITTEES (ANY ORDER) -->
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Social</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Social Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Social Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Social Chair"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Social Chair</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- LOGISTICS -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Logistics</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Head Liaison</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Logistics Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Logistics Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Head Liaison"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Head Liaison</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- TECH -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Tech</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Marketing and Design</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Tech Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Tech Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Marketing and Design"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Marketing and Design</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- MARKETING & DESIGN -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Marketing &amp; Design</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Logistics</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Marketing & Design Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Marketing &amp; Design Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Logistics"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Logistics</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- JUDGING -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Judging</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Tech</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Judging Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Judging Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Tech"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Tech</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- FINANCE -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Finance</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Safety and Wellness</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Finance Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Finance Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Safety and Wellness"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Safety and Wellness</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- PARTNERSHIPS -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Partnerships</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Registration</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Partnerships Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Partnerships Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Registration"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Registration</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- HEAD LIAISONS -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Head Liaisons</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Hospitality</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Head Liaison"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Head Liaison</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Hospitality"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Hospitality</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- SAFETY & WELLNESS -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Safety &amp; Wellness</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Judging</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Safety & Wellness Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Safety &amp; Wellness Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Judging"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Judging</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- REGISTRATION -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Registration</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Finance</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Registration Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Registration Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Finance"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Finance</div>
             </div>
           </article>
         </div>
-      </section>
+      </div>
 
-      <!-- HOSPITALITY -->
-      <section class="committee panel">
-        <div class="committee-head">
-          <h2 class="committee-title">Hospitality</h2>
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Partnerships</h2>
         </div>
-        <div class="committee-grid">
-          <article class="member-card">
-            <div class="member-photo"><img src="board-placeholder.png" alt="Hospitality Chair"></div>
-            <div class="member-meta">
-              <div class="member-name">Full Name</div>
-              <div class="member-role">Hospitality Chair</div>
+        <div class="board-grid">
+          <article class="board-card">
+            <div class="board-photo"><img src="board/placeholder.jpg" alt="Partnerships"></div>
+            <div class="board-meta">
+              <div class="board-name">Full Name</div>
+              <div class="board-role">Partnerships</div>
             </div>
           </article>
         </div>
-      </section>
-
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container foot">
       <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
       <div class="nav-links">
-        <a href="partners.html">Partners</a>
-        <a href="philanthropy.html">Philanthropy</a>
         <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
