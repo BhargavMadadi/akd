@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teams & Safety/Wellness | Aaj Ka Dhamaka</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="teams-swa.css" />
+</head>
+
+<body class="teams-swa">
+  <!-- SAME HEADER AS YOUR INDEX -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html">
+        <img src="akd-logo.png" alt="AKD Logo">
+        <span class="name">AAJ KA DHAMAKA</span>
+      </a>
+
+      <div class="nav-links" id="desktopNav">
+        <a href="index.html">Home</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-drawer-backdrop" id="navBackdrop" hidden></div>
+
+    <aside class="nav-drawer" id="mobileNav" hidden>
+      <div class="nav-drawer-top">
+        <div class="nav-drawer-title">MENU</div>
+        <button class="nav-drawer-close" id="navClose" aria-label="Close menu">×</button>
+      </div>
+
+      <div class="nav-drawer-links">
+        <a href="index.html">Home</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="partners.html">Partners</a>
+        <a href="philanthropy.html">Philanthropy</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </aside>
+  </header>
+
+  <!-- PAGE HERO BACKDROP (dark like your site) -->
+  <section class="swa-hero">
+    <div class="container swa-hero-inner">
+      <div class="swa-titleblock">
+        <h1>Teams & Safety/Wellness</h1>
+        <p class="swa-sub">
+          Team liaisons + SW resources for AKD weekend.
+          <span class="swa-sub-note">On mobile, use the button to open the Safety & Wellness panel.</span>
+        </p>
+
+        <div class="swa-links">
+          <a class="swa-link" href="https://www.instagram.com/uncakd/" target="_blank" rel="noopener">AKD Instagram</a>
+          <a class="swa-link" href="https://legends.desidancenetwork.org/partner-competitions/akd" target="_blank" rel="noopener">
+            Legends AKD Page
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Open Button (very obvious) -->
+      <button class="swa-open" id="swToggle" aria-expanded="false" aria-controls="swSidebar">
+        <span class="swa-open-icon" aria-hidden="true">🛟</span>
+        <span class="swa-open-text">
+          <span class="swa-open-title">Open Safety & Wellness</span>
+          <span class="swa-open-sub">Reporting, safe spaces, SW contacts, protocols</span>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <main class="container swa-layout">
+    <!-- LEFT: Teams -->
+    <section class="swa-teams" aria-label="Teams and liaisons">
+      <div class="swa-section-head">
+        <h2>Fusion</h2>
+        <p>Tap a liaison to reveal contact (optional).</p>
+      </div>
+      <div class="swa-cards" id="fusionCards"></div>
+
+      <div class="swa-section-head">
+        <h2>Bhangra</h2>
+      </div>
+      <div class="swa-cards" id="bhangraCards"></div>
+    </section>
+
+    <!-- RIGHT: Sidebar (sticky desktop, drawer mobile) -->
+    <aside class="swa-sidebar" id="swSidebar" aria-label="Safety and wellness">
+      <div class="swa-sidebar-inner">
+        <div class="swa-sidebar-top">
+          <h2>Safety & Wellness</h2>
+
+          <!-- X button now always exists; only visible on mobile drawer via CSS -->
+          <button class="swa-close" id="swClose" aria-label="Close Safety & Wellness">×</button>
+        </div>
+
+        <div class="swa-box">
+          <h3>Code of Conduct + Reporting</h3>
+          <ul>
+            <li><a href="https://docs.google.com/presentation/d/1xTNmkQRC1OaOC0KeRplpMpPqyZUaNZCaEod0iivqiqw/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener">
+              DDN Code of Ethics / Professional Conduct
+            </a></li>
+            <li><a href="https://forms.gle/TgNiLiqqH7U2zcmC6" target="_blank" rel="noopener">AKD Reporting Form</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdy3VUeiteIuYpLjBnDzIRO2kTI6L9J2daKdPmyxV_VCouFew/viewform" target="_blank" rel="noopener">
+              Legends Circuit Reporting Form
+            </a></li>
+            <li><a href="https://www.projectcallisto.org/" target="_blank" rel="noopener">Callisto</a></li>
+          </ul>
+        </div>
+
+        <div class="swa-box">
+          <h3>SAFE Spaces</h3>
+          <ul>
+            <li><strong>Mixer + Post-Mixer:</strong> near the registration desk at the entrance.</li>
+            <li><strong>Show Venue:</strong> Dressing room F.</li>
+            <li><strong>After Party:</strong> SW desk near entrance.</li>
+          </ul>
+          <p class="swa-muted">Signs will be posted on site.</p>
+        </div>
+
+        <div class="swa-box">
+          <h3>SW Chairs + EMTs</h3>
+          <div class="swa-contact-grid">
+            <div class="swa-contact">
+              <div class="swa-label">SW Chair</div>
+              <div class="swa-name">Ruhi Roy</div>
+              <a href="tel:+19802409017">(980) 240-9017</a>
+            </div>
+            <div class="swa-contact">
+              <div class="swa-label">SW Chair</div>
+              <div class="swa-name">Veda Muppala</div>
+              <a href="tel:+13098261199">(309) 826-1199</a>
+            </div>
+            <div class="swa-contact">
+              <div class="swa-label">EMT</div>
+              <div class="swa-name">Taanvii Verma</div>
+              <a href="tel:+17045249348">(704) 524-9348</a>
+            </div>
+            <div class="swa-contact">
+              <div class="swa-label">EMT</div>
+              <div class="swa-name">Vinaya Rao</div>
+              <a href="tel:+19197587599">(919) 758-7599</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="swa-box">
+          <h3>What SW carries</h3>
+
+          <details open>
+            <summary>Team SW Bags</summary>
+            <div class="swa-chips">
+              <span>Electrolytes</span><span>Odor Eliminator</span><span>Combs</span><span>Hand Sanitizer</span>
+              <span>Advil</span><span>Bobby Pins</span><span>Hair Ties</span><span>Makeup Wipes</span>
+              <span>Safety Pins</span><span>Cough Drops</span><span>Emergen-C</span><span>Bandaids</span>
+              <span>Ear Plugs</span><span>Tampons</span><span>Pads</span>
+            </div>
+          </details>
+
+          <details>
+            <summary>SW Room Bags (with EMTs)</summary>
+            <div class="swa-chips">
+              <span>First Aid Kit</span><span>Alcohol Prep Pads</span><span>Bandages</span><span>KT Tape</span>
+              <span>Pre-wrap</span><span>Athletic Tape</span><span>Instant Cold Pack</span><span>Gauze Rolls</span>
+              <span>Tums</span><span>Masks</span><span>Benadryl</span><span>Oranges</span><span>Crackers</span>
+              <span>Compression Sleeve</span><span>Lidocaine Patch</span>
+            </div>
+          </details>
+        </div>
+
+        <div class="swa-box">
+          <h3>Protocols</h3>
+
+          <details>
+            <summary>“Angel Shot”</summary>
+            <ul>
+              <li><strong>Neat:</strong> escort to car</li>
+              <li><strong>On Ice:</strong> call Lyft</li>
+              <li><strong>With Lemon:</strong> in danger</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>CPR (quick steps)</summary>
+            <ol>
+              <li>Shake and shout: “Are you ok?”</li>
+              <li>Call for help: 911 + get AED.</li>
+              <li>Check breathing/airway.</li>
+              <li>Compress: ~100 BPM, 30 compressions + 2 rescue breaths.</li>
+              <li>Follow AED instructions if available.</li>
+            </ol>
+          </details>
+
+          <details>
+            <summary>Bleeding / Sprains</summary>
+            <ol>
+              <li>Assess injury.</li>
+              <li>Bleeding: apply firm pressure with sterile cloth for ~10 min.</li>
+              <li>Call SWA/EMT for help.</li>
+              <li>Elevate above heart when possible.</li>
+              <li>Do not remove soaked dressing; add more on top.</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="swa-box">
+          <h3>Venue</h3>
+          <p class="swa-muted">
+            Memorial Hall, UNC-Chapel Hill
+            <a target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/140+E+Cameron+Ave+Chapel+Hill+NC+27599">
+              (open in Maps)
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="swa-overlay" id="swOverlay" hidden></div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- keep your existing script.js for nav drawer -->
+  <script src="script.js" defer></script>
+  <script src="teams-swa.js" defer></script>
+</body>
+</html>
