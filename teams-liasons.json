@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "imageExtension": ".jpg",
+    "paths": {
+      "teamImages": "assets/img/teams",
+      "liaisonHeadshots": "assets/img/liaisons"
+    },
+    "naming": {
+      "format": "kebab-case",
+      "exampleTeam": "texas-mohini.jpg",
+      "exampleLiaison": "nikita-chincholkar.jpg"
+    },
+    "notes": [
+      "Ignored teams: Taal Harmony, Learn Bhangra (per request).",
+      "Deduped repeated liaison entries (kept one record per person per team)."
+    ]
+  },
+  "divisions": [
+    {
+      "division": "Fusion",
+      "teams": [
+        {
+          "teamName": "UW Kahaani",
+          "teamSlug": "uw-kahaani",
+          "image": "assets/img/teams/fusion/uw-kahaani.jpg",
+          "liaisons": [
+            {
+              "name": "Nikita Chincholkar",
+              "slug": "nikita-chincholkar",
+              "headshot": "assets/img/liaisons/nikita-chincholkar.jpg"
+            },
+            {
+              "name": "Smruti Ganta",
+              "slug": "smruti-ganta",
+              "headshot": "assets/img/liaisons/smruti-ganta.jpg"
+            },
+            {
+              "name": "Shivani Menon",
+              "slug": "shivani-menon",
+              "headshot": "assets/img/liaisons/shivani-menon.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "Lok Naach",
+          "teamSlug": "lok-naach",
+          "image": "assets/img/teams/fusion/lok-naach.jpg",
+          "liaisons": [
+            {
+              "name": "Sanjita Srinath",
+              "slug": "sanjita-srinath",
+              "headshot": "assets/img/liaisons/sanjita-srinath.jpg"
+            },
+            {
+              "name": "Kripa Bhat",
+              "slug": "kripa-bhat",
+              "headshot": "assets/img/liaisons/kripa-bhat.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "GT Jadoo",
+          "teamSlug": "gt-jadoo",
+          "image": "assets/img/teams/fusion/gt-jadoo.jpg",
+          "liaisons": [
+            {
+              "name": "Akshat Arora",
+              "slug": "akshat-arora",
+              "headshot": "assets/img/liaisons/akshat-arora.jpg"
+            },
+            {
+              "name": "Vaishnavi Kode",
+              "slug": "vaishnavi-kode",
+              "headshot": "assets/img/liaisons/vaishnavi-kode.jpg"
+            },
+            {
+              "name": "Diya Parikh",
+              "slug": "diya-parikh",
+              "headshot": "assets/img/liaisons/diya-parikh.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "UCB Zahanat",
+          "teamSlug": "ucb-zahanat",
+          "image": "assets/img/teams/fusion/ucb-zahanat.jpg",
+          "liaisons": [
+            {
+              "name": "Shreya Dandu",
+              "slug": "shreya-dandu",
+              "headshot": "assets/img/liaisons/shreya-dandu.jpg"
+            },
+            {
+              "name": "Neev Gupta",
+              "slug": "neev-gupta",
+              "headshot": "assets/img/liaisons/neev-gupta.jpg"
+            },
+            {
+              "name": "Tanuj Devulapalli",
+              "slug": "tanuj-devulapalli",
+              "headshot": "assets/img/liaisons/tanuj-devulapalli.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "Case Kismat",
+          "teamSlug": "case-kismat",
+          "image": "assets/img/teams/fusion/case-kismat.jpg",
+          "liaisons": [
+            {
+              "name": "Manvika Mamidala",
+              "slug": "manvika-mamidala",
+              "headshot": "assets/img/liaisons/manvika-mamidala.jpg"
+            },
+            {
+              "name": "Rathi Seenivasan",
+              "slug": "rathi-seenivasan",
+              "headshot": "assets/img/liaisons/rathi-seenivasan.jpg"
+            },
+            {
+              "name": "Maya Gopakumar",
+              "slug": "maya-gopakumar",
+              "headshot": "assets/img/liaisons/maya-gopakumar.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "UCSC Kahaani",
+          "teamSlug": "ucsc-kahaani",
+          "image": "assets/img/teams/fusion/ucsc-kahaani.jpg",
+          "liaisons": [
+            {
+              "name": "Saanvi Veeramreddy",
+              "slug": "saanvi-veeramreddy",
+              "headshot": "assets/img/liaisons/saanvi-veeramreddy.jpg"
+            },
+            {
+              "name": "Rishima Mathur",
+              "slug": "rishima-mathur",
+              "headshot": "assets/img/liaisons/rishima-mathur.jpg"
+            },
+            {
+              "name": "Nubah",
+              "slug": "nubah",
+              "headshot": "assets/img/liaisons/nubah.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "Texas Mohini",
+          "teamSlug": "texas-mohini",
+          "image": "assets/img/teams/fusion/texas-mohini.jpg",
+          "liaisons": [
+            {
+              "name": "Tanuli Gunerathne",
+              "slug": "tanuli-gunerathne",
+              "headshot": "assets/img/liaisons/tanuli-gunerathne.jpg"
+            },
+            {
+              "name": "Keya Mahajan",
+              "slug": "keya-mahajan",
+              "headshot": "assets/img/liaisons/keya-mahajan.jpg"
+            },
+            {
+              "name": "Vivek Gottumukkala",
+              "slug": "vivek-gottumukkala",
+              "headshot": "assets/img/liaisons/vivek-gottumukkala.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "MMD",
+          "teamSlug": "mmd",
+          "image": "assets/img/teams/fusion/mmd.jpg",
+          "liaisons": [
+            {
+              "name": "Rachit Keyal",
+              "slug": "rachit-keyal",
+              "headshot": "assets/img/liaisons/rachit-keyal.jpg"
+            },
+            {
+              "name": "Ilakkiya Gnanakkumaran",
+              "slug": "ilakkiya-gnanakkumaran",
+              "headshot": "assets/img/liaisons/ilakkiya-gnanakkumaran.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "division": "Bhangra",
+      "teams": [
+        {
+          "teamName": "Broad Street Baadshahz",
+          "teamSlug": "broad-street-baadshahz",
+          "image": "assets/img/teams/bhangra/broad-street-baadshahz.jpg",
+          "liaisons": [
+            {
+              "name": "Aashvi",
+              "slug": "aashvi",
+              "headshot": "assets/img/liaisons/aashvi.jpg"
+            },
+            {
+              "name": "Rahi Patel",
+              "slug": "rahi-patel",
+              "headshot": "assets/img/liaisons/rahi-patel.jpg"
+            },
+            {
+              "name": "Joanna Hu",
+              "slug": "joanna-hu",
+              "headshot": "assets/img/liaisons/joanna-hu.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "Classic City Bhangra",
+          "teamSlug": "classic-city-bhangra",
+          "image": "assets/img/teams/bhangra/classic-city-bhangra.jpg",
+          "liaisons": [
+            {
+              "name": "Aleynah Maxwell",
+              "slug": "aleynah-maxwell",
+              "headshot": "assets/img/liaisons/aleynah-maxwell.jpg"
+            },
+            {
+              "name": "Shreeya Shabari",
+              "slug": "shreeya-shabari",
+              "headshot": "assets/img/liaisons/shreeya-shabari.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "Stanford Bhangra",
+          "teamSlug": "stanford-bhangra",
+          "image": "assets/img/teams/bhangra/stanford-bhangra.jpg",
+          "liaisons": [
+            {
+              "name": "Anushri Ghoshal",
+              "slug": "anushri-ghoshal",
+              "headshot": "assets/img/liaisons/anushri-ghoshal.jpg"
+            },
+            {
+              "name": "Keerthana Vemparala",
+              "slug": "keerthana-vemparala",
+              "headshot": "assets/img/liaisons/keerthana-vemparala.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "UCB Azaad",
+          "teamSlug": "ucb-azaad",
+          "image": "assets/img/teams/bhangra/ucb-azaad.jpg",
+          "liaisons": [
+            {
+              "name": "Tasha Paul",
+              "slug": "tasha-paul",
+              "headshot": "assets/img/liaisons/tasha-paul.jpg"
+            },
+            {
+              "name": "Rishi Singh",
+              "slug": "rishi-singh",
+              "headshot": "assets/img/liaisons/rishi-singh.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "Birmingham Blazin' Bhangra",
+          "teamSlug": "birmingham-blazin-bhangra",
+          "image": "assets/img/teams/bhangra/birmingham-blazin-bhangra.jpg",
+          "liaisons": [
+            {
+              "name": "Lita James",
+              "slug": "lita-james",
+              "headshot": "assets/img/liaisons/lita-james.jpg"
+            },
+            {
+              "name": "Anjali Kshirsagar",
+              "slug": "anjali-kshirsagar",
+              "headshot": "assets/img/liaisons/anjali-kshirsagar.jpg"
+            }
+          ]
+        },
+        {
+          "teamName": "BBB",
+          "teamSlug": "bbb",
+          "image": "assets/img/teams/bhangra/bbb.jpg",
+          "liaisons": [
+            {
+              "name": "Anjali Kshirsagar",
+              "slug": "anjali-kshirsagar",
+              "headshot": "assets/img/liaisons/anjali-kshirsagar.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "unassigned": [
+    {
+      "name": "Aarini Chauhan",
+      "slug": "aarini-chauhan",
+      "role": "Media",
+      "headshot": "assets/img/liaisons/aarini-chauhan.jpg"
+    }
+  ]
+}

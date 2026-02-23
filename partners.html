@@ -1,168 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partners | Aaj Ka Dhamaka</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partners & Impact | Aaj Ka Dhamaka</title>
+
+  <!-- global site styles -->
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Partners page only (safe to keep inline) */
-    .partners-hero { padding: 5rem 0 2rem; }
-    .partners-hero h1{
-      font-family:"Bangers";
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      text-align:center;
-      font-size: clamp(2.4rem, 4vw, 3.2rem);
-    }
-    .partners-tagline{
-      margin-top:.6rem;
-      text-align:center;
-      color:var(--muted);
-      font-size:.95rem;
-    }
-    .partner-grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:1rem;
-      margin-top:1.4rem;
-    }
-    .partner-card{
-      border-radius:1.1rem;
-      border:1px solid rgba(255,255,255,.10);
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.10), rgba(6, 2, 22, 0.96));
-      box-shadow: 0 18px 35px rgba(0,0,0,.55);
-      overflow:hidden;
-    }
-    .partner-logo{
-      height:120px;
-      background: rgba(255,255,255,.04);
-      display:grid;
-      place-items:center;
-    }
-    .partner-logo img{
-      max-height:70px;
-      width:auto;
-      padding: 0 1rem;
-    }
-    .partner-meta{ padding: 1rem 1.1rem 1.1rem; }
-    .partner-name{ font-weight: 900; }
-    .partner-desc{ margin-top:.35rem; color: var(--muted); font-size:.92rem; }
-
-    .partner-tiers{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:1rem;
-    }
-
-    @media (max-width: 900px){
-      .partner-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 560px){
-      .partner-grid{ grid-template-columns: 1fr; }
-    }
-  </style>
+  <!-- page styles -->
+  <link rel="stylesheet" href="partners.css" />
 </head>
 
 <body>
   <header class="site-header">
     <nav class="nav container">
-      <div class="brand">
+      <a class="brand" href="index.html">
         <img src="akd-logo.png" alt="AKD Logo">
         <span class="name">AAJ KA DHAMAKA</span>
-      </div>
-
-      <div class="nav-links">
+      </a>
+  
+      <!-- Desktop links -->
+      <div class="nav-links" id="desktopNav">
         <a href="index.html">Home</a>
-        <a href="history.html">History</a>
         <a href="board.html">Board</a>
         <a href="teams.html">Teams</a>
+        <a href="swa.html">SWA Info</a>
         <a href="partners.html">Partners</a>
-        <a href="philanthropy.html">Philanthropy</a>
         <a href="visitor.html">Visitor Info</a>
         <a href="contact.html">Contact</a>
       </div>
+  
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+  
+    <!-- Mobile drawer + backdrop -->
+    <div class="nav-drawer-backdrop" id="navBackdrop" hidden></div>
+  
+    <aside class="nav-drawer" id="mobileNav" hidden>
+      <div class="nav-drawer-top">
+        <div class="nav-drawer-title">MENU</div>
+        <button class="nav-drawer-close" id="navClose" aria-label="Close menu">×</button>
+      </div>
+  
+      <div class="nav-drawer-links">
+        <a href="index.html">Home</a>
+        <a href="board.html">Board</a>
+        <a href="teams.html">Teams</a>
+        <a href="swa.html">SWA Info</a>
+        <a href="partners.html">Partners</a>
+        <a href="visitor.html">Visitor Info</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </aside>
   </header>
 
-  <section class="partners-hero">
-    <div class="container">
-      <h1>Partners</h1>
-      <p class="partners-tagline">Thank you to the organizations that help make AKD weekend possible.</p>
-    </div>
-  </section>
-
-  <section class="timeline-section">
-    <div class="container partner-tiers">
-
-      <div class="panel">
-        <h2 style="font-family:'Bangers';letter-spacing:.12em;font-size:1.6rem;margin-bottom:.4rem;">Sponsors &amp; Supporters</h2>
-        <p class="muted">Swap the placeholders with real logos and descriptions as you lock sponsors.</p>
-
-        <div class="partner-grid">
-          <div class="partner-card">
-            <div class="partner-logo"><img src="partner-placeholder.png" alt="Partner Logo"></div>
-            <div class="partner-meta">
-              <div class="partner-name">Partner Name</div>
-              <div class="partner-desc">Short line about what they do or what they’re supporting.</div>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo"><img src="partner-placeholder.png" alt="Partner Logo"></div>
-            <div class="partner-meta">
-              <div class="partner-name">Partner Name</div>
-              <div class="partner-desc">Short line about what they do or what they’re supporting.</div>
-            </div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo"><img src="partner-placeholder.png" alt="Partner Logo"></div>
-            <div class="partner-meta">
-              <div class="partner-name">Partner Name</div>
-              <div class="partner-desc">Short line about what they do or what they’re supporting.</div>
-            </div>
-          </div>
-        </div>
+  <main class="pi-page">
+    <header class="pi-hero">
+      <div class="pi-container">
+        <h1 class="pi-title">Partners & Impact</h1>
+        <p class="pi-subtitle">
+          Aaj Ka Dhamaka is made possible through the generous support of corporate sponsors, campus partners, and community organizations.
+          Their contributions help us deliver a high quality competition while also giving back to the broader community.
+        </p>
       </div>
+    </header>
 
-      <div class="panel">
-        <h2 style="font-family:'Bangers';letter-spacing:.12em;font-size:1.6rem;margin-bottom:.4rem;">Become a Partner</h2>
-        <p class="muted">If you want to add a “Sponsorships” page later, this can link to it. For now, keep it simple.</p>
+    <section class="pi-section">
+      <div class="pi-container">
 
-        <div class="details-simple" style="margin-top:1rem;">
-          <div>
-            <div class="info-label">What partners get</div>
-            <p class="muted">Brand visibility, community impact, and direct engagement with teams and attendees.</p>
-          </div>
-          <div>
-            <div class="info-label">What we need</div>
-            <p class="muted">Support for venue costs, production, hospitality, and weekend programming.</p>
-          </div>
-          <div>
-            <div class="info-label">Contact</div>
-            <p class="muted">Use the Contact page to reach Partnerships.</p>
-          </div>
+        <!-- Community Impact Partner -->
+        <h2 class="pi-heading">Community Impact Partner</h2>
+
+        <div class="pi-grid pi-grid--featured">
+          <article class="pi-card">
+            <div class="pi-card__top">
+              <div class="pi-logo-badge">
+                <img class="pi-card__logo" src="assets/img/logos/kiran.png" alt="Kiran logo" />
+              </div>
+            </div>
+            <div class="pi-card__body">
+              <h3 class="pi-card__title">Kiran</h3>
+              <p class="pi-card__text">
+                Kiran is a nonprofit organization dedicated to addressing and preventing domestic violence within South Asian communities across North Carolina.
+                Kiran empowers survivors, raises awareness, and works to break stigma while promoting safety, healing, and long term resilience.
+                Proceeds from Aaj Ka Dhamaka support Kiran and its mission.
+              </p>
+            </div>
+          </article>
         </div>
 
-        <div style="margin-top:1.2rem;">
-          <a class="btn btn-primary" href="contact.html">Contact Us</a>
+        <!-- Corporate Sponsors -->
+        <h2 class="pi-heading pi-heading--spaced">Corporate Sponsors</h2>
+
+        <div class="pi-grid">
+          <article class="pi-card">
+            <div class="pi-card__top">
+              <div class="pi-logo-badge">
+                <img class="pi-card__logo" src="assets/img/logos/ncaat.png" alt="NCAAT logo" />
+              </div>
+            </div>
+            <div class="pi-card__body">
+              <h3 class="pi-card__title">NCAAT (North Carolina Asian Americans Together)</h3>
+              <p class="pi-card__text">
+                North Carolina Asian Americans Together (NCAAT) is a nonprofit organization dedicated to empowering and advocating for Asian American communities
+                across North Carolina through civic engagement, leadership development, and grassroots organizing.
+              </p>
+            </div>
+          </article>
+
+          <article class="pi-card">
+            <div class="pi-card__top">
+              <div class="pi-logo-badge">
+                <img class="pi-card__logo" src="assets/img/logos/bubblr.png" alt="BUBBL’R logo" />
+              </div>
+            </div>
+            <div class="pi-card__body">
+              <h3 class="pi-card__title">BUBBL’R</h3>
+              <p class="pi-card__text">
+                BUBBL’R is a sparkling antioxidant energy drink company designed for active and health conscious individuals.
+                It is a cleaner alternative to traditional energy drinks and provides sustained energy without artificial sweeteners.
+              </p>
+            </div>
+          </article>
+
+          <article class="pi-card">
+            <div class="pi-card__top">
+              <div class="pi-logo-badge">
+                <img class="pi-card__logo" src="assets/img/logos/wokonfire.png" alt="Wok On Fire logo" />
+              </div>
+            </div>
+            <div class="pi-card__body">
+              <h3 class="pi-card__title">Wok On Fire</h3>
+              <p class="pi-card__text">
+                Wok On Fire is a returning sponsor of Aaj Ka Dhamaka, generously supporting the event by providing meals for participating dancers.
+                Their continued partnership helps ensure performers are fueled and cared for throughout the competition.
+              </p>
+            </div>
+          </article>
+
+          <article class="pi-card">
+            <div class="pi-card__top">
+              <div class="pi-logo-badge">
+                <img class="pi-card__logo" src="assets/img/logos/harristeeter.png" alt="Harris Teeter logo" />
+              </div>
+            </div>
+            <div class="pi-card__body">
+              <h3 class="pi-card__title">Harris Teeter</h3>
+              <p class="pi-card__text">
+                Harris Teeter is supporting Aaj Ka Dhamaka by providing funding to purchase critical safety and wellness supplies for the event.
+                Their contribution helps ensure a safe, well equipped environment for dancers before, during, and after performances.
+              </p>
+            </div>
+          </article>
         </div>
-      </div>
 
-    </div>
-  </section>
+        <!-- Campus Support -->
+        <h2 class="pi-heading pi-heading--spaced">Campus Support</h2>
 
-  <footer>
-    <div class="container foot">
-      <div>© 2026 Aaj Ka Dhamaka. All rights reserved.</div>
-      <div class="nav-links">
-        <a href="board.html">Board</a>
-        <a href="philanthropy.html">Philanthropy</a>
-        <a href="visitor.html">Visitor Info</a>
+        <div class="pi-grid">
+          <article class="pi-card">
+            <div class="pi-card__top">
+              <div class="pi-logo-badge">
+                <img class="pi-card__logo" src="assets/img/logos/uncsg.png" alt="UNC Student Government logo" />
+              </div>
+            </div>
+            <div class="pi-card__body">
+              <h3 class="pi-card__title">UNC Student Government</h3>
+              <p class="pi-card__text">
+                UNC Student Government is providing funding to help facilitate AKD on Chapel Hill’s campus, enabling us to bring together students from universities
+                across the country. Their support strengthens intercollegiate collaboration, fosters community engagement, and helps us execute the event at a high standard.
+              </p>
+            </div>
+          </article>
+        </div>
+
       </div>
-    </div>
-  </footer>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- Paste your existing footer here exactly as it appears in index.html -->
 </body>
 </html>
-

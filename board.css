@@ -1,0 +1,138 @@
+/* =========================================
+   AKD BOARD PAGE
+   Vertical photo optimized
+   Clean dark theme – no orange
+========================================= */
+
+.board-wrap{
+  padding-top: 24px;
+  padding-bottom: 70px;
+}
+
+/* ================================
+   SECTION HEADERS
+================================ */
+.board-section-head{
+  margin-bottom: 20px;
+}
+
+.board-section-head h2{
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.08);
+}
+
+/* ================================
+   GRID LAYOUT
+================================ */
+
+/* Base grid */
+.board-grid{
+  display: grid;
+  gap: 22px;
+}
+
+/* Directors – slightly larger */
+.board-grid--directors{
+  grid-template-columns: 1fr;
+  max-width: 480px; /* slightly bigger than committees */
+  margin: 0 auto;
+}
+
+/* Committees grid */
+.board-grid--committees{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px){
+  .board-grid--committees{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px){
+  .board-grid--committees{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   CARD STYLING
+================================ */
+
+.board-card{
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.02)
+  );
+  box-shadow:
+    0 15px 45px rgba(0,0,0,0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.board-card:hover{
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 55px rgba(0,0,0,0.55);
+}
+
+/* ================================
+   PHOTO (VERTICAL 4:5 RATIO)
+================================ */
+
+.board-photo{
+  width: 100%;
+  aspect-ratio: 4 / 5; /* vertical portrait */
+  background: rgba(255,255,255,0.04);
+}
+
+.board-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps full height feel */
+  display: block;
+}
+
+/* ================================
+   META / TEXT
+================================ */
+
+.board-meta{
+  padding: 20px 20px 22px;
+  text-align: center;
+}
+
+/* Name */
+.board-name{
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Role / Members */
+.board-role{
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.75);
+}
+
+/* Slightly increase Directors name size */
+.board-card--directors .board-name{
+  font-size: 1.3rem;
+}
+
+/* Keep long committee lists readable */
+.board-card--committee .board-role{
+  max-width: 32ch;
+  margin-left: auto;
+  margin-right: auto;
+}

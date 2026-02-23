@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AKD | Board</title>
+  <!-- Base styles -->
   <link rel="stylesheet" href="styles.css" />
+  <!-- Board-specific overrides -->
+  <link rel="stylesheet" href="board.css" />
 </head>
 
 <body>
@@ -15,22 +18,24 @@
         <span class="name">AAJ KA DHAMAKA</span>
       </a>
 
+      <!-- Desktop links -->
       <div class="nav-links" id="desktopNav">
         <a href="index.html">Home</a>
-        <a href="history.html">History</a>
         <a href="board.html">Board</a>
         <a href="teams.html">Teams</a>
+        <a href="swa.html">SWA Info</a>
         <a href="partners.html">Partners</a>
-        <a href="philanthropy.html">Philanthropy</a>
         <a href="visitor.html">Visitor Info</a>
         <a href="contact.html">Contact</a>
       </div>
 
+      <!-- Mobile hamburger -->
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span><span></span>
       </button>
     </nav>
 
+    <!-- Mobile drawer + backdrop -->
     <div class="nav-drawer-backdrop" id="navBackdrop" hidden></div>
 
     <aside class="nav-drawer" id="mobileNav" hidden>
@@ -41,9 +46,9 @@
 
       <div class="nav-drawer-links">
         <a href="index.html">Home</a>
-        <a href="history.html">History</a>
         <a href="board.html">Board</a>
         <a href="teams.html">Teams</a>
+        <a href="swa.html">Teams &amp; SWA Info</a>
         <a href="partners.html">Partners</a>
         <a href="philanthropy.html">Philanthropy</a>
         <a href="visitor.html">Visitor Info</a>
@@ -61,211 +66,151 @@
     </section>
 
     <section class="container board-wrap">
-      <!-- DIRECTORS (TOP) -->
+
+      <!-- DIRECTORS (ONE LARGE GROUP PHOTO) -->
       <div class="board-section panel">
         <div class="board-section-head">
           <h2>Directors</h2>
         </div>
 
-        <div class="board-grid">
-          <!-- Replace names/photos as you finalize -->
-          <article class="board-card">
+        <div class="board-grid board-grid--directors">
+
+          <article class="board-card board-card--directors">
             <div class="board-photo">
-              <img src="board/placeholder.jpg" alt="Director Name">
+              <img src="assets/img/board/directors-1.png" alt="Directors group photo">
             </div>
             <div class="board-meta">
-              <div class="board-name">Director Name</div>
-              <div class="board-role">Director</div>
+              <div class="board-name">Directors</div>
+              <div class="board-role">
+                Sara Jadhav • Amber Kakkar • Spriha Manjigani
+              </div>
             </div>
           </article>
 
-          <article class="board-card">
+        </div>
+      </div>
+
+      <!-- COMMITTEES (ONE GRID, SAME SIZE CARDS) -->
+      <div class="board-section panel">
+        <div class="board-section-head">
+          <h2>Committees</h2>
+        </div>
+
+        <div class="board-grid board-grid--committees">
+
+          <article class="board-card board-card--committee">
             <div class="board-photo">
-              <img src="board/placeholder.jpg" alt="Director Name">
+              <img src="assets/img/board/social.png" alt="Social committee group photo">
             </div>
             <div class="board-meta">
-              <div class="board-name">Director Name</div>
-              <div class="board-role">Director</div>
+              <div class="board-name">Social</div>
+              <div class="board-role">Jayani Pitta • Celeste Samuel</div>
             </div>
           </article>
 
-          <article class="board-card">
+          <article class="board-card board-card--committee">
             <div class="board-photo">
-              <img src="board/placeholder.jpg" alt="Director Name">
+              <img src="assets/img/board/head-liaison.png" alt="Head Liaison group photo">
             </div>
             <div class="board-meta">
-              <div class="board-name">Director Name</div>
-              <div class="board-role">Director</div>
+              <div class="board-name">Head Liaison</div>
+              <div class="board-role">Moksha Nemalipuri • Esha Singaraju</div>
             </div>
           </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/marketing-design.png" alt="Marketing and Design group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Marketing &amp; Design</div>
+              <div class="board-role">Shreeya Moore • Aditi Satish • Harshi Gadasu</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/logistics.png" alt="Logistics group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Logistics</div>
+              <div class="board-role">Aditi Bharatkumar • Priya Patel • Ria Shah • Madhu Chinta</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/tech.png" alt="Tech group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Tech</div>
+              <div class="board-role">Diya Bhatt • Bhargav Madadi</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/swa.png" alt="Safety and Wellness group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Safety &amp; Wellness</div>
+              <div class="board-role">Ruhi Roy • Veda Muppala</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/registration.png" alt="Registration group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Registration</div>
+              <div class="board-role">Nidhi Padala • Meeta Sindagi</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/hospitality.png" alt="Hospitality group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Hospitality</div>
+              <div class="board-role">Sandhya Sathis • Suhani Agarwal • Aarav Gupta • Medha Nagaluri</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/judging.png" alt="Judging group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Judging</div>
+              <div class="board-role">Devin Patel</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/finance.png" alt="Finance group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Finance</div>
+              <div class="board-role">Sonia Shah</div>
+            </div>
+          </article>
+
+          <article class="board-card board-card--committee">
+            <div class="board-photo">
+              <img src="assets/img/board/partnerships.png" alt="Partnerships group photo">
+            </div>
+            <div class="board-meta">
+              <div class="board-name">Partnerships</div>
+              <div class="board-role">Rishika Jalagam</div>
+            </div>
+          </article>
+
         </div>
       </div>
 
-      <!-- COMMITTEES (ANY ORDER) -->
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Social</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Social Chair"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Social Chair</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Head Liaison</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Head Liaison"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Head Liaison</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Marketing and Design</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Marketing and Design"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Marketing and Design</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Logistics</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Logistics"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Logistics</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Tech</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Tech"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Tech</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Safety and Wellness</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Safety and Wellness"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Safety and Wellness</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Registration</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Registration"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Registration</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Hospitality</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Hospitality"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Hospitality</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Judging</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Judging"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Judging</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Finance</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Finance"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Finance</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="board-section panel">
-        <div class="board-section-head">
-          <h2>Partnerships</h2>
-        </div>
-        <div class="board-grid">
-          <article class="board-card">
-            <div class="board-photo"><img src="board/placeholder.jpg" alt="Partnerships"></div>
-            <div class="board-meta">
-              <div class="board-name">Full Name</div>
-              <div class="board-role">Partnerships</div>
-            </div>
-          </article>
-        </div>
-      </div>
     </section>
   </main>
 
@@ -279,6 +224,7 @@
     </div>
   </footer>
 
+  <!-- Be sure to include your existing JavaScript for navigation toggles -->
   <script src="script.js" defer></script>
 </body>
 </html>
