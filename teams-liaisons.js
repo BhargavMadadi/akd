@@ -8,8 +8,8 @@ const LIAISON_IMG_OVERRIDES = {
   // examples based on your screenshot (edit as needed)
   "Aashvi": { className: "liaison-pos-top" },
   "Rahi Patel": { className: "liaison-pos-top" },
-  "Aashvi": { className: "liaison-pos-top" },
   "Smruti Ganta": { className: "liaison-pos-top" },
+  "Tasha Paul": { className: "liaison-pos-top" },
 
   // If one is REALLY cooked, use contain instead:
   // "Some Name": { className: "liaison-img-contain" },
