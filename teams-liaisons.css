@@ -209,6 +209,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center center; /* ADD THIS */
   border-radius: 12px;
   margin-bottom: 8px;
 }
@@ -352,10 +353,6 @@
   }
 }
 
-/* ---- Liaison modal image fixes for specific photos ---- */
-.liaison-modal-card img{
-  object-position: center top; /* helps portraits that are too high/low */
-}
 
 /* Use this on images that MUST NOT crop */
 .liaison-img-contain{
