@@ -1601,3 +1601,47 @@ body.menu-open .nav-drawer{
   background:rgba(255,255,255,0.9);
 }
 .nav-toggle > span + span{ margin-top:4px; }
+
+/* Fix hamburger icon (3 stacked bars) */
+.nav-toggle{
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 12px;
+}
+
+.nav-toggle span{
+  display: block;
+  width: 24px;          /* bar length */
+  height: 2px;          /* bar thickness */
+  background: #fff;
+  border-radius: 999px;
+  opacity: 0.95;
+}
+
+/* ============================================================
+   NAV VISIBILITY — FINAL OVERRIDE (put at END of styles.css)
+   Desktop: show links, hide hamburger
+   Mobile: hide links, show hamburger
+   ============================================================ */
+@media (min-width: 901px){
+  .nav-toggle{
+    display:none !important;
+  }
+  #desktopNav{
+    display:flex !important;
+  }
+}
+
+@media (max-width: 900px){
+  #desktopNav{
+    display:none !important;
+  }
+  .nav-toggle{
+    display:inline-flex !important;
+  }
+}

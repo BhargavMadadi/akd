@@ -3,6 +3,18 @@
 const HEADSHOT_PLACEHOLDER = "assets/img/misc/headshot-placeholder.jpg";
 const TEAM_PLACEHOLDER = "assets/img/misc/team-placeholder.jpg";
 
+// Only for the few headshots that crop badly in the modal
+const LIAISON_IMG_OVERRIDES = {
+  // examples based on your screenshot (edit as needed)
+  "Aashvi": { className: "liaison-pos-top" },
+  "Rahi Patel": { className: "liaison-pos-top" },
+  "Aashvi": { className: "liaison-pos-top" },
+  "Smruti Ganta": { className: "liaison-pos-top" },
+
+  // If one is REALLY cooked, use contain instead:
+  // "Some Name": { className: "liaison-img-contain" },
+};
+
 const TEAMS_DATA = {
   fusion: [
     {
@@ -115,7 +127,14 @@ function setupLiaisonModal() {
       img.src = liaisonHeadshotPath(person);
       img.alt = `${person} headshot`;
       img.loading = "lazy";
+      img.decoding = "async"; // smoother
       img.onerror = () => { img.src = HEADSHOT_PLACEHOLDER; };
+
+      // apply override only for certain people
+      const ov = LIAISON_IMG_OVERRIDES[person];
+      if (ov?.className) img.classList.add(ov.className);
+      if (ov?.objectPosition) img.style.objectPosition = ov.objectPosition;
+      if (ov?.objectFit) img.style.objectFit = ov.objectFit;
 
       const nm = document.createElement("div");
       nm.className = "liaison-modal-name";
@@ -157,6 +176,7 @@ function createTeamCard(team, modalAPI) {
   img.src = team.image;
   img.alt = team.name;
   img.loading = "lazy";
+  img.decoding = "async";
   img.onerror = () => { img.src = TEAM_PLACEHOLDER; };
 
   media.appendChild(img);

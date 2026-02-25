@@ -351,3 +351,25 @@
     width: 100%;
   }
 }
+
+/* ---- Liaison modal image fixes for specific photos ---- */
+.liaison-modal-card img{
+  object-position: center top; /* helps portraits that are too high/low */
+}
+
+/* Use this on images that MUST NOT crop */
+.liaison-img-contain{
+  object-fit: contain !important;
+  background: rgba(255,255,255,0.06); /* fills the empty bars nicely */
+}
+
+/* Use these to “re-center” the crop */
+.liaison-pos-top{ object-position: center top !important; }
+.liaison-pos-center{ object-position: center center !important; }
+.liaison-pos-bottom{ object-position: center bottom !important; }
+
+/* Big performance win for long image grids */
+.team-card{
+  content-visibility: auto;
+  contain-intrinsic-size: 360px 420px; /* placeholder size so layout doesn't jump */
+}
