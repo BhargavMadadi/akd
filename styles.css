@@ -1575,3 +1575,29 @@ body.menu-open .nav-drawer{
   z-index: 3 !important;
   background: linear-gradient(to top, rgba(6,2,22,0.88), rgba(6,2,22,0.20)) !important;
 }
+
+/* =========================
+   FIX: hamburger lines for your current HTML
+   (button.nav-toggle contains 3 spans directly)
+   Put at VERY END of styles.css
+   ========================= */
+.nav-toggle > span{
+  display:block;
+  width:20px;
+  height:2px;
+  border-radius:2px;
+  background:rgba(255,255,255,0.9);
+}
+
+.nav-toggle > span + span{
+  margin-top:4px;
+}
+
+.nav-toggle > span{
+  display:block;
+  width:20px;
+  height:2px;
+  border-radius:2px;
+  background:rgba(255,255,255,0.9);
+}
+.nav-toggle > span + span{ margin-top:4px; }
