@@ -3,16 +3,11 @@
 const HEADSHOT_PLACEHOLDER = "assets/img/misc/headshot-placeholder.jpg";
 const TEAM_PLACEHOLDER = "assets/img/misc/team-placeholder.jpg";
 
-// Only for the few headshots that crop badly in the modal
 const LIAISON_IMG_OVERRIDES = {
-  // examples based on your screenshot (edit as needed)
   "Aashvi": { className: "liaison-pos-top" },
   "Rahi Patel": { className: "liaison-pos-top" },
   "Smruti Ganta": { className: "liaison-pos-top" },
-  "Tasha Paul": { className: "liaison-pos-top" },
-
-  // If one is REALLY cooked, use contain instead:
-  // "Some Name": { className: "liaison-img-contain" },
+  "Tasha Paul": { className: "liaison-pos-top" }
 };
 
 const TEAMS_DATA = {
@@ -72,7 +67,7 @@ const TEAMS_DATA = {
     {
       name: "Birmingham Blazin' Bhangra",
       image: "assets/img/teams/bhangra/bbb.jpg",
-      liaisons: ["Lita James"]
+      liaisons: ["Lita James", "Anjali Kshirsagar"]
     },
     {
       name: "MMD",
@@ -82,7 +77,7 @@ const TEAMS_DATA = {
     {
       name: "Lok Naach",
       image: "assets/img/teams/bhangra/lok-naach.jpg",
-      liaisons: ["Sanjita Srinath", "Kripa Bhat"]
+      liaisons: ["Sanjita Srinath", "Sharayu Talap"]
     }
   ]
 };
@@ -100,7 +95,6 @@ function liaisonHeadshotPath(fullName) {
   return `assets/img/liaisons/${slugifyName(fullName)}.jpg`;
 }
 
-/** Modal setup */
 function setupLiaisonModal() {
   const backdrop = document.getElementById("liaisonModalBackdrop");
   const modal = document.getElementById("liaisonModal");
@@ -127,10 +121,9 @@ function setupLiaisonModal() {
       img.src = liaisonHeadshotPath(person);
       img.alt = `${person} headshot`;
       img.loading = "lazy";
-      img.decoding = "async"; // smoother
+      img.decoding = "async";
       img.onerror = () => { img.src = HEADSHOT_PLACEHOLDER; };
 
-      // apply override only for certain people
       const ov = LIAISON_IMG_OVERRIDES[person];
       if (ov?.className) img.classList.add(ov.className);
       if (ov?.objectPosition) img.style.objectPosition = ov.objectPosition;
@@ -159,7 +152,6 @@ function setupLiaisonModal() {
   return { open, close };
 }
 
-/** Card builder */
 function createTeamCard(team, modalAPI) {
   const card = document.createElement("article");
   card.className = "team-tile team-card";
@@ -201,7 +193,6 @@ function createTeamCard(team, modalAPI) {
   return card;
 }
 
-/** Render */
 function renderTeams(modalAPI) {
   const fusionGrid = document.getElementById("fusionGrid");
   const bhangraGrid = document.getElementById("bhangraGrid");
