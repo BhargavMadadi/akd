@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery | AKD 30.0</title>
+<meta name="description" content="Photos from Aaj Ka Dhamaka 2026.">
+<link rel="icon" type="image/png" href="assets/logo-brown.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.collage-band { padding: clamp(16px, 3vw, 40px) 0 clamp(60px, 8vw, 110px); }
+.collage button { cursor: zoom-in; }
+.credit { margin: 22px 0 0; font-size: 15px; opacity: .8; }
+.credit a { color: inherit; }
+
+/* Viewer: the photo sits in a stamp frame on dark ink */
+.lb { position: fixed; inset: 0; z-index: 50; background: rgba(30, 14, 6, .95); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px; color: var(--on-ink); }
+.lb.open { display: flex; }
+.lb .stamp-frame { max-width: min(1200px, 100%); }
+.lb .stamp-frame > .inner { background: var(--ink-deep); }
+.lb img { display: block; max-width: 100%; max-height: calc(100vh - 150px); width: auto; height: auto; }
+.lb .meta { margin-top: 14px; font-size: 15px; }
+.lb .nav-btn, .lb .close { position: absolute; font: inherit; background: var(--paper-3); color: var(--ink); border: 1.5px solid var(--ink); cursor: pointer; }
+.lb .nav-btn { top: 50%; width: 52px; height: 52px; margin-top: -26px; font-size: 26px; border-radius: 50%; }
+.lb .prev { left: clamp(8px, 2vw, 28px); }
+.lb .next { right: clamp(8px, 2vw, 28px); }
+.lb .close { top: 16px; right: 16px; padding: 6px 14px; font-size: 15px; }
+.lb .nav-btn:hover, .lb .close:hover { background: var(--air-red); color: var(--paper-3); border-color: var(--air-red); }
+@media (max-width: 700px) {
+  .lb .nav-btn { top: auto; bottom: 18px; margin: 0; }
+  .lb img { max-height: calc(100vh - 200px); }
+}
+</style>
+</head>
+<body>
+
+<header class="nav" data-page="gallery"></header>
+
+<main>
+  <section class="page-head band-plain">
+    <div class="wrap">
+      <p class="bar"><span>Aaj Ka Dhamaka</span><span>Photos from the show</span><span id="year"></span></p>
+      <h1 class="cond">Gallery</h1>
+      <p class="lede">A few of our favorite moments from last year's show. Tap any photo to see it bigger.</p>
+    </div>
+  </section>
+
+  <section class="band-ink collage-band">
+    <div class="wrap collage-wrap">
+      <div class="collage" id="collage"></div>
+      <p class="credit" id="credit"></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="close" id="lbClose">Close ✕</button>
+  <button class="nav-btn prev" id="lbPrev" aria-label="Previous photo">‹</button>
+  <div class="stamp-frame"><div class="inner"><img id="lbImg" alt=""></div></div>
+  <p class="meta" id="lbMeta"></p>
+  <button class="nav-btn next" id="lbNext" aria-label="Next photo">›</button>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/gallery.js"></script>
+<script src="site.js"></script>
+<script>
+(() => {
+  const G = window.AKD_GALLERY, P = G.photos;
+  const $ = (id) => document.getElementById(id);
+  const src = (f) => "assets/photos/" + f;
+
+  $("year").textContent = "AKD " + G.year;
+  $("credit").innerHTML = `Photos by <a href="${G.credit.url}">${G.credit.name}</a>`;
+  $("collage").innerHTML = P.map(([f, size], i) =>
+    `<button class="${size}" data-i="${i}" aria-label="Open photo ${i + 1} of ${P.length}"><img src="${src(f)}" alt="" loading="${i < 8 ? "eager" : "lazy"}"></button>`).join("");
+
+  // Viewer, with arrow keys, Escape and swipe
+  let at = 0, opener = null;
+  const show = (i) => {
+    at = (i + P.length) % P.length;
+    $("lbImg").src = src(P[at][0]);
+    $("lbImg").alt = `Photo ${at + 1} from AKD ${G.year}`;
+    $("lbMeta").textContent = `${at + 1} / ${P.length} · AKD ${G.year} · Photo by ${G.credit.name}`;
+  };
+  const open = (i, from) => { opener = from; show(i); $("lb").classList.add("open"); document.body.style.overflow = "hidden"; $("lbClose").focus(); };
+  const close = () => { $("lb").classList.remove("open"); document.body.style.overflow = ""; if (opener) opener.focus(); };
+  $("collage").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) open(+b.dataset.i, b); });
+  $("lbPrev").onclick = () => show(at - 1);
+  $("lbNext").onclick = () => show(at + 1);
+  $("lbClose").onclick = close;
+  $("lb").addEventListener("click", (e) => { if (e.target.id === "lb") close(); });
+  document.addEventListener("keydown", (e) => {
+    if (!$("lb").classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(at - 1);
+    if (e.key === "ArrowRight") show(at + 1);
+  });
+  let x0 = null;
+  $("lb").addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  $("lb").addEventListener("touchend", (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>
+</body>
+</html>

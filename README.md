@@ -12,12 +12,15 @@ It's a static site served by GitHub Pages from the `main` branch.
 - `visit.html`: visitor info and food spots
 - `partners.html`: partners (coming soon)
 - `history.html`: past lineups, placings, caption awards and winning-set videos, from `assets/history.js`
+- `gallery.html`: a photo collage from last year's show, from `assets/gallery.js`
 - `site.css` and `site.js`: shared styles, header and footer for every page
 
 ## Updating content
 
 Most content lives in `assets/data.js`: the show date, venue, application deadlines, board committees and food spots.
 Past results live in `assets/history.js`; add each new year at the top after the show.
+
+Gallery photos live in `assets/photos` (about 1600px wide, under 350 KB each) and are listed in `assets/gallery.js`, which also sets each photo's tile size. The home page's "Last year at AKD" section picks seven of them by hand in `index.html`.
 Board photos go in `assets/board/`, named to match `data.js`.
 
 Still to fill in:

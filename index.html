@@ -130,6 +130,14 @@
 .event-grid dd { margin: 6px 0 0; font-family: var(--display); text-transform: uppercase; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.05; }
 .about { max-width: 58ch; font-size: 20px; margin: 30px 0 0; }
 
+/* ---------- Photos from last year, linking to the gallery ---------- */
+.photos-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 40px; flex-wrap: wrap; margin-bottom: 30px; }
+.photos-head h2 { color: var(--on-ink); margin: 0; }
+.photos-head .soon-text { color: #E2CDAA; margin-bottom: 0; }
+#photos .btn-paper:hover { background: var(--air-red); border-color: var(--air-red); color: var(--paper-3); }
+#photos .credit { margin: 18px 0 0; font-size: 15px; opacity: .8; }
+#photos .credit a { color: inherit; }
+
 /* ---------- Partners: coming soon ---------- */
 .partners-grid { max-width: 760px; }
 .partners-grid .soon-text { color: var(--ink); }
@@ -295,6 +303,32 @@
       <a class="more" href="event.html">More event details</a>
     </div>
   </section>
+
+  <div class="airmail-edge" aria-hidden="true"></div>
+  <section class="band-ink" id="photos">
+    <div class="wrap">
+      <div class="photos-head">
+        <div>
+          <h2 class="cond">Last year at AKD</h2>
+          <p class="soon-text">Thirteen teams on one stage. Here are a few moments from AKD 2026.</p>
+        </div>
+        <a class="btn btn-paper" href="gallery.html">See the gallery</a>
+      </div>
+      <div class="collage-wrap">
+        <div class="collage">
+          <a class="xl" href="gallery.html" aria-label="See the gallery"><img src="assets/photos/akd26-1110.jpg" alt="" loading="lazy"></a>
+          <a href="gallery.html" tabindex="-1" aria-hidden="true"><img src="assets/photos/akd26-3735.jpg" alt="" loading="lazy"></a>
+          <a href="gallery.html" tabindex="-1" aria-hidden="true"><img src="assets/photos/akd26-4857.jpg" alt="" loading="lazy"></a>
+          <a class="tall" href="gallery.html" tabindex="-1" aria-hidden="true"><img src="assets/photos/akd26-5439.jpg" alt="" loading="lazy"></a>
+          <a href="gallery.html" tabindex="-1" aria-hidden="true"><img src="assets/photos/akd26-1506.jpg" alt="" loading="lazy"></a>
+          <a class="m-hide" href="gallery.html" tabindex="-1" aria-hidden="true"><img src="assets/photos/akd26-5553.jpg" alt="" loading="lazy"></a>
+          <a class="tall" href="gallery.html" tabindex="-1" aria-hidden="true"><img src="assets/photos/akd26-2241.jpg" alt="" loading="lazy"></a>
+        </div>
+      </div>
+      <p class="credit">Photos by <a href="https://www.instagram.com/thejestersden/">@thejestersden</a></p>
+    </div>
+  </section>
+  <div class="airmail-edge" aria-hidden="true"></div>
 
   <section class="band-light" id="partners">
     <div class="wrap partners-grid">

@@ -8,6 +8,7 @@
     ["home", "index.html", "Home"],
     ["teams", "teams.html", "Teams"],
     ["history", "history.html", "History"],
+    ["gallery", "gallery.html", "Gallery"],
     ["event", "event.html", "Event"],
     ["board", "board.html", "Board"],
     ["visit", "visit.html", "Visitor info"],
