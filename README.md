@@ -11,11 +11,13 @@ It's a static site served by GitHub Pages from the `main` branch.
 - `board.html`: board committees
 - `visit.html`: visitor info and food spots
 - `partners.html`: partners (coming soon)
+- `history.html`: past lineups, placings, caption awards and winning-set videos, from `assets/history.js`
 - `site.css` and `site.js`: shared styles, header and footer for every page
 
 ## Updating content
 
 Most content lives in `assets/data.js`: the show date, venue, application deadlines, board committees and food spots.
+Past results live in `assets/history.js`; add each new year at the top after the show.
 Board photos go in `assets/board/`, named to match `data.js`.
 
 Still to fill in:

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>History | AKD 30.0</title>
+<meta name="description" content="Every AKD lineup, placing and award, with videos of the winning sets.">
+<link rel="icon" type="image/png" href="assets/logo-brown.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* Year jump links, styled as the luggage tags from the Teams page */
+.years { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+.years a { position: relative; font-size: 16px; text-decoration: none; color: var(--ink); background: var(--paper-2); padding: 8px 16px 8px 30px;
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%); }
+.years a::before { content: ""; position: absolute; left: 13px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: var(--ink); }
+.years a:hover { background: var(--air-red); color: var(--paper-3); }
+
+.year { scroll-margin-top: 20px; }
+.year-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 4px double currentColor; }
+.year-head h2 { margin: 0; font-size: clamp(64px, 11vw, 160px); }
+.year-head .meta { margin: 0; text-align: right; }
+.year-head .meta b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(22px, 2.4vw, 32px); text-transform: uppercase; color: var(--air-red); }
+.year-head .meta a { text-underline-offset: 4px; }
+
+/* Each division: placing teams stand on a podium as postage stamps, and the plinths run down into a
+   departure board with the full lineup, like the board on the Teams page */
+.division { padding: clamp(36px, 5vw, 64px) 0; }
+.division + .division { border-top: 1.5px dashed rgba(74, 35, 18, .45); }
+.division h3 { margin: 0 0 clamp(20px, 2.4vw, 32px); font-size: clamp(34px, 4vw, 56px); }
+
+.podium { display: grid; grid-template-columns: 1fr 1.35fr 1fr; gap: clamp(14px, 2.6vw, 44px); align-items: end; }
+.pstamp { transition: transform .25s; }
+.pstamp .inner { padding: 12px 12px 16px; }
+.pstamp .val { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 12px; }
+.pstamp .val b { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 2.8vw, 46px); color: var(--air-red); line-height: 1; }
+.pstamp .val span { font-size: clamp(15px, 1.2vw, 18px); text-align: right; line-height: 1.3; }
+.pstamp.p1 .val span { font-size: clamp(17px, 1.4vw, 22px); }
+.plinth { height: 18px; margin-top: 14px; background: #2A1409; border: 3px solid #C9A46A; border-bottom: 0; }
+.p1 .plinth { height: 42px; } .p2 .plinth { height: 28px; }
+.pstamp.lit { transform: translateY(-6px); }
+.pstamp.lit .stamp-frame { filter: drop-shadow(0 10px 24px rgba(181, 66, 47, .55)); }
+
+.board { position: relative; background: #2A1409; padding: 22px clamp(14px, 2.5vw, 30px) 26px; container-type: inline-size;
+  border: 3px solid #C9A46A; box-shadow: inset 0 0 0 5px #2A1409, inset 0 0 0 6.5px rgba(201, 164, 106, .5), 0 30px 60px rgba(0, 0, 0, .35); }
+.board-title { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+.board-title span { font-family: var(--display); font-size: clamp(20px, 2vw, 26px); color: #E3A857; }
+.board-title small { font-size: 15px; color: #D8B98C; }
+/* 38 flaps plus two column gaps: each flap is sized so a row spans the board */
+.frow { --s: clamp(11px, (100cqw - 104px) / 31.2, 40px); display: flex; justify-content: space-between; padding: 5px 0; }
+.frow.head { color: #B89870; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+.frow.won { cursor: pointer; }
+.cells { display: flex; gap: 2px; }
+.cell { width: calc(var(--s) * .82); height: calc(var(--s) * 1.45); display: grid; place-items: center;
+  font-family: var(--type); font-size: var(--s); text-transform: uppercase; color: #F3E8D2;
+  background: linear-gradient(#4A2A18 0 49%, #1A0C05 49% 51%, #3D2213 51%); border-radius: 2px; }
+.frow.won:hover .cell, .frow.lit .cell { background: linear-gradient(#7A4526 0 49%, #1A0C05 49% 51%, #66381F 51%); }
+.gold .cell { color: #F0C060; } .silver .cell { color: #D9D3C7; } .bronze .cell { color: #D89A63; } .dim .cell { color: #8E7560; }
+.short { display: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.awards { display: flex; flex-wrap: wrap; gap: 14px clamp(24px, 3vw, 48px); margin: 22px 0 0; font-size: 16px; }
+.awards div { min-width: 0; }
+.awards dt { color: var(--sepia); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.awards dd { margin: 0; }
+
+/* YouTube facade: a sepia thumbnail until clicked, then the real player */
+.video { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 0; cursor: pointer; }
+.video:hover.duo img, .video:focus-visible.duo img { filter: none; mix-blend-mode: normal; }
+.video:hover.duo::before, .video:hover.duo::after, .video:focus-visible.duo::before, .video:focus-visible.duo::after { opacity: 0; }
+.video .play { position: absolute; z-index: 3; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
+  background: var(--air-red); box-shadow: 0 6px 18px rgba(0, 0, 0, .35); }
+.video .play::after { content: ""; position: absolute; left: 26px; top: 20px; border-left: 20px solid var(--paper-3); border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+.p1 .play { transform: scale(1.3); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.band-ink.next { padding: 26px 0; }
+.upcoming { margin: 0; color: var(--on-ink); font-size: 19px; }
+.upcoming a { color: inherit; text-underline-offset: 4px; }
+
+@media (max-width: 900px) {
+  .year-head .meta { text-align: left; }
+}
+@media (max-width: 700px) {
+  .podium { grid-template-columns: 1fr; }
+  .podium .p1 { order: -1; }
+  .podium > div:empty, .plinth { display: none; }
+  .podium { margin-bottom: 20px; }
+}
+@media (max-width: 600px) {
+  /* Phones: drop the flight number, keep the full team name and a 3-letter result */
+  .frow { --s: clamp(8px, (100cqw - 64px) / 20.5, 16px); }
+  .frow .fl, .frow .long { display: none; }
+  .frow .short { display: flex; }
+  .frow.head span { width: auto !important; }
+  .frow .team .cell:nth-child(n + 23) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav" data-page="history"></header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <div class="bar"><span>Aaj Ka Dhamaka</span><span>Lineups, placings and awards</span><span>30 years of AKD</span></div>
+      <h1 class="cond">History</h1>
+      <p class="lede">Every team that took the stage, who placed, and the sets that won it. Tap a stamp, or a placing on the board, to watch.</p>
+      <nav class="years" id="years" aria-label="Jump to year"></nav>
+    </div>
+  </section>
+
+  <section class="band-ink next">
+    <div class="wrap">
+      <p class="upcoming"><b>2027:</b> the lineup lands in late November and results go up after the show on February 20. <a href="teams.html">See the teams board</a>.</p>
+    </div>
+  </section>
+
+  <div id="history"></div>
+</main>
+
+<footer class="footer"></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/history.js"></script>
+<script src="site.js"></script>
+<script>
+(() => {
+  const H = window.AKD_HISTORY;
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+  // Split-flap board: one flap per character, read out to screen readers as plain text
+  const COLS = [["Flight", 5, "fl"], ["Team", 24, ""], ["Status", 9, "long"], ["Result", 3, "short"]];
+  const MEDAL = { "1st": "gold", "2nd": "silver", "3rd": "bronze" };
+  const flaps = (text, len, cls) => `<div class="cells ${cls}" role="cell">${[...text.toUpperCase().padEnd(len).slice(0, len)]
+    .map((c) => `<span class="cell" aria-hidden="true">${c === " " ? "" : esc(c)}</span>`).join("")}<span class="sr">${esc(text.trim())}</span></div>`;
+
+  document.querySelector("#years").innerHTML = H.map((y) => `<a href="#y${y.year}">${y.year}</a>`).join("");
+
+  const video = (p) => p.video
+    ? `<button class="video duo" type="button" data-id="${esc(p.video)}" aria-label="Play ${esc(p.team)}">
+         <img src="https://i.ytimg.com/vi/${esc(p.video)}/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span>
+       </button>`
+    : "";
+
+  document.querySelector("#history").innerHTML = H.map((y, i) => `
+    <section class="year ${i % 2 ? "band-light" : "band-plain"}" id="y${y.year}" aria-labelledby="h${y.year}">
+      <div class="wrap">
+        <div class="year-head">
+          <h2 class="cond" id="h${y.year}">${y.year}</h2>
+          <p class="meta">${y.theme ? `<b>${esc(y.theme)}</b>` : ""}${[y.date, y.venue].filter(Boolean).map(esc).join(" · ")}
+            ${y.fullShow ? `<br><a href="https://www.youtube.com/watch?v=${esc(y.fullShow)}" target="_blank" rel="noopener">Watch the full show</a>` : ""}</p>
+        </div>
+        ${y.divisions.map((d) => {
+          const by = Object.fromEntries(d.placings.map((p) => [p.place, p]));
+          const stamp = (p, cls) => p ? `
+            <div class="pstamp ${cls}" data-team="${esc(p.team)}"><div class="stamp-frame"><div class="inner">${video(p)}
+              <div class="val"><b>${esc(p.place)}</b><span>${esc(p.team)}</span></div></div></div><div class="plinth"></div></div>` : "<div></div>";
+          return `
+          <div class="division">
+            <h3 class="cond">${esc(d.name)}</h3>
+            <div class="podium">${stamp(by["2nd"], "p2")}${stamp(by["1st"], "p1")}${stamp(by["3rd"], "p3")}</div>
+            <div class="board" role="table" aria-label="${esc(d.name)} lineup, ${y.year}">
+              <div class="board-title"><span>${esc(d.name)} arrivals</span><small>AKD ${y.year}${y.theme ? " · " + esc(y.theme) : ""}</small></div>
+              <div class="frow head" role="row">${COLS.map(([n, l, cls]) => `<span class="${cls}" role="columnheader" style="width:calc(${l} * (var(--s) * .82 + 2px))">${n}</span>`).join("")}</div>
+              ${d.lineup.map((t) => {
+                const p = d.placings.find((x) => x.team === t);
+                const no = "AK" + String(y.order.indexOf(t) + 1).padStart(2, "0");
+                return `<div class="frow${p ? " won" : ""}" role="row" data-team="${esc(t)}">${flaps(no, 5, "fl")}${flaps(t, 24, "team")}${flaps(p ? p.place + " place" : "Landed", 9, "long " + (p ? MEDAL[p.place] : "dim"))}${flaps(p ? p.place : " -", 3, "short " + (p ? MEDAL[p.place] : "dim"))}</div>`;
+              }).join("")}
+            </div>
+            ${d.awards && d.awards.length ? `<dl class="awards">${d.awards.map(([a, w]) => `<div><dt>${esc(a)}</dt><dd>${esc(w)}</dd></div>`).join("")}</dl>` : ""}
+          </div>`;
+        }).join("")}
+      </div>
+    </section>`).join("");
+
+  const hist = document.querySelector("#history");
+  const stampFor = (row) => row.closest(".division").querySelector(`.pstamp[data-team="${CSS.escape(row.dataset.team)}"]`);
+
+  // Swap the thumbnail for the player only when someone asks to watch.
+  // A placing row on the board plays the video on its stamp.
+  hist.addEventListener("click", (e) => {
+    const row = e.target.closest(".frow.won");
+    if (row) {
+      const st = stampFor(row);
+      st.scrollIntoView({ block: "center" });
+      const btn = st.querySelector(".video[data-id]");
+      if (btn) btn.click();
+      return;
+    }
+    const b = e.target.closest(".video[data-id]");
+    if (!b) return;
+    const f = document.createElement("iframe");
+    f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.id}?autoplay=1&rel=0`;
+    f.title = b.getAttribute("aria-label").replace(/^Play /, "");
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    const box = document.createElement("div");
+    box.className = "video";
+    box.appendChild(f);
+    b.replaceWith(box);
+  });
+
+  // Hovering a placing row lifts its stamp, and the other way round
+  const light = (el, on) => el.closest(".division").querySelectorAll(`[data-team="${CSS.escape(el.dataset.team)}"]`).forEach((x) => x.classList.toggle("lit", on));
+  hist.querySelectorAll(".frow.won, .pstamp").forEach((el) => {
+    el.addEventListener("mouseenter", () => light(el, true));
+    el.addEventListener("mouseleave", () => light(el, false));
+  });
+})();
+</script>
+</body>
+</html>
