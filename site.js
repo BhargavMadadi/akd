@@ -24,7 +24,7 @@
       </nav>
       <div class="nav-right">
         <button class="menu" type="button" aria-expanded="false" aria-controls="navList">Menu</button>
-        <a class="btn btn-ink" href="index.html#apply">Apply now</a>
+        <a class="btn btn-ink" href="${D.instagram}">Follow @uncakd</a>
       </div>
     </div>`;
   const menu = nav.querySelector(".menu"), list = nav.querySelector("#navList");
@@ -40,7 +40,7 @@
     <div class="wrap inner">
       <p class="big cond">Cleared for takeoff</p>
       <p>AKD 30.0, February 20, 2027<br>John H. Gattis–Wendell Tabb Theater</p>
-      <div class="btns"><a class="btn btn-red" href="index.html#apply">Apply now</a><a class="btn btn-paper" href="${D.instagram}">Follow @uncakd</a></div>
+      <div class="btns"><a class="btn btn-red" href="gallery.html">See the gallery</a><a class="btn btn-paper" href="${D.instagram}">Follow @uncakd</a></div>
       <p class="small">Aaj Ka Dhamaka at UNC Chapel Hill</p>
     </div>`;
 

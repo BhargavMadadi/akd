@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aaj Ka Dhamaka 30.0 | First in Flight</title>
 <meta name="description" content="Aaj Ka Dhamaka 30.0. First in Flight. February 20, 2027.">
-<link rel="icon" type="image/png" href="assets/logo-brown.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:title" content="Aaj Ka Dhamaka 30.0 | First in Flight">
 <meta property="og:description" content="AKD 30.0, an official Legends partner competition. February 20, 2027 at the John H. Gattis–Wendell Tabb Theater.">
 <meta property="og:image" content="https://aajkadhamaka.com/assets/akd-team.jpg">
@@ -110,6 +111,10 @@
 .deadlines li { padding: 14px 0; border-bottom: 1.5px dashed var(--ink); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .deadlines b { font-weight: 400; text-decoration: underline; text-underline-offset: 4px; }
 .deadlines .left { color: var(--air-red); }
+.closed-note { max-width: 46ch; margin: 0 0 24px; }
+/* Rubber stamp over the telegram once applications close */
+.telegram .closed-stamp { position: absolute; z-index: 2; right: -14px; top: -30px; padding: 4px 16px; border: 3px solid var(--air-red); color: var(--air-red); background: rgba(243, 227, 191, .75);
+  font-family: var(--display); font-size: clamp(26px, 3vw, 38px); letter-spacing: .08em; text-transform: uppercase; transform: rotate(12deg); opacity: .85; mix-blend-mode: multiply; pointer-events: none; }
 
 /* ---------- Event summary with an old enamel plate ---------- */
 .event-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; }
@@ -226,29 +231,29 @@
         <div>John H. Gattis–Wendell Tabb Theater<small>Venue</small></div>
         <div>Fusion and Bhangra<small>Divisions</small></div>
         <div><span data-days>125</span> days<small>Until the show</small></div>
-        <div class="btns"><a class="btn btn-red" href="#apply">Apply now</a><a class="btn btn-ink" href="event.html">Event details</a></div>
+        <div class="btns"><a class="btn btn-red" href="gallery.html">See the gallery</a><a class="btn btn-ink" href="event.html">Event details</a></div>
       </div>
     </div>
   </section>
 
   <section class="band-plain" id="apply">
     <div class="wrap apply-grid">
-      <div class="telegram" aria-label="Telegram: Applications are live. Fusion teams apply through OneLegends. Bhangra teams apply through Ekta. Regular deadline 10.30.26 at 11:59 PM EST. Latest deadline 11.5.26 at 11:59 PM EST.">
+      <div class="telegram" aria-label="Telegram: Applications are now closed. Thank you to every team that applied. The lineup lands late November. Missed it? Apply next year.">
+        <span class="closed-stamp" aria-hidden="true">Closed</span>
         <div class="tg-top"><span class="brand">TELEGRAM</span><span>No. 30</span></div>
         <div class="tg-meta">From: AKD 30.0, Chapel Hill, N.C.<br>To: Every Fusion and Bhangra team</div>
         <div class="strips" id="strips" aria-hidden="true">
-          <p data-text="APPLICATIONS ARE LIVE STOP"></p>
-          <p data-text="FUSION APPLY THROUGH ONELEGENDS STOP"></p>
-          <p data-text="BHANGRA APPLY THROUGH EKTA STOP"></p>
-          <p data-text="REGULAR DEADLINE 10.30.26 AT 11:59 PM EST STOP"></p>
-          <p data-text="LATEST DEADLINE 11.5.26 AT 11:59 PM EST STOP"></p>
+          <p data-text="APPLICATIONS ARE NOW CLOSED STOP"></p>
+          <p data-text="THANK YOU TO EVERY TEAM THAT APPLIED STOP"></p>
+          <p data-text="LINEUP LANDS LATE NOVEMBER STOP"></p>
+          <p data-text="MISSED IT STOP APPLY NEXT YEAR STOP"></p>
         </div>
       </div>
       <div>
-        <h2 class="cond">Applications are live</h2>
+        <h2 class="cond">Applications are closed</h2>
+        <p class="closed-note">Thank you to every Fusion and Bhangra team that applied to AKD 30.0. Missed it this time? Apply next year, and follow us so you hear when applications open.</p>
         <div class="apply-cards">
-          <div class="apply-card"><div><b>Fusion</b><span>Apply through OneLegends</span></div><a class="btn btn-ink" href="https://www.onelegends.org/comps/cmv8sqmvp0001l608i2w3fno4">Apply</a></div>
-          <div class="apply-card"><div><b>Bhangra</b><span>Apply through Ekta</span></div><a class="btn btn-ink" href="https://ekta.app/competitions">Apply</a></div>
+          <div class="apply-card"><div><b>See you next year</b><span>Applications for AKD 31.0 open next year</span></div><a class="btn btn-ink" href="https://www.instagram.com/uncakd/">Follow @uncakd</a></div>
         </div>
         <ul class="deadlines">
           <li><span><b>Regular deadline</b>: 10.30.26 at 11:59 PM EST</span><span class="left" id="dl-regular"></span></li>
